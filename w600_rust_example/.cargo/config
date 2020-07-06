@@ -1,0 +1,48 @@
+[source.crates-io]
+replace-with = 'tuna'
+
+[source.tuna]
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+
+[target.thumbv7m-none-eabi]
+linker = "arm-none-eabi-gcc"
+
+rustflags = [
+  "-C", "link-arg=-Wl,--gc-sections",
+  "-C", "link-arg=-Wl,--start-group",
+  "-C", "link-arg=-lgcc",
+  "-C", "link-arg=-lm",
+  "-C", "link-arg=-lc",
+  "-C", "link-arg=./w60x/lib/wmdriver.a",
+  "-C", "link-arg=./w60x/lib/wmmain.a",
+  "-C", "link-arg=./w60x/lib/startup_ARMCM3.a",
+  "-C", "link-arg=./w60x/lib/wmcommon.a",
+  "-C", "link-arg=./w60x/lib/wmrtos.a",
+  "-C", "link-arg=./w60x/lib/wmboot.a",
+  "-C", "link-arg=./w60x/lib/wlan.a",
+  "-C", "link-arg=./w60x/lib/wmlwip.a",
+  "-C", "link-arg=./w60x/lib/wmcmd.a",
+  "-C", "link-arg=./w60x/lib/wmhttpclient.a",
+  "-C", "link-arg=./w60x/lib/oneshot.a",
+  "-C", "link-arg=./w60x/lib/wmdhcpserver.a",
+  "-C", "link-arg=./w60x/lib/wmdnsserver.a",
+  "-C", "link-arg=./w60x/lib/wmota.a",
+  "-C", "link-arg=./w60x/lib/wmping.a",
+  "-C", "link-arg=./w60x/lib/wmssl.a",
+  "-C", "link-arg=./w60x/lib/wmweb.a",
+  "-C", "link-arg=./w60x/lib/wmwebsocket.a",
+  "-C", "link-arg=./w60x/lib/libairkiss_log.a",
+  "-C", "link-arg=./w60x/lib/libnosys.a",
+  "-C", "link-arg=-T./memory.x",
+  "-C", "link-arg=-Wl,-warn-common",
+  "-C", "link-arg=-Wl,--end-group",
+  "-C", "link-arg=-static",
+  "-C", "link-arg=-nostartfiles",
+  "-C", "link-arg=-mthumb",
+  "-C", "link-arg=-Xlinker",
+  "-C", "link-arg=-zmuldefs",
+  "-C", "link-arg=-mcpu=cortex-m3"
+]
+
+[build]
+target = "thumbv7m-none-eabi" # Cortex-M3

@@ -1,0 +1,24 @@
+[package]
+name = "w600_rust_example"
+version = "0.0.1"
+authors = ["Jia Ye <planet2@qq.com>"]
+edition = "2018"
+
+[dependencies]
+linked_list_allocator = "0.8.4"
+cty = "0.2.1"
+cstr_core = { version = "0.2.0", default-features=false, features=["alloc"]}
+spin = "0.5"
+
+[profile.dev]
+debug = false
+lto = true
+opt-level = 's'
+panic = 'abort'
+# overflow-checks = false
+
+[profile.release]
+lto = true
+opt-level = 'z'
+panic = 'abort'
+# overflow-checks = false

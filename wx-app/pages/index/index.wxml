@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view>
+  <button style="color:{{rgb}};" bindtap="connect">连接WebSocket</button>
+  <color-picker bindclose="pickClose" bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" />
+</view>
