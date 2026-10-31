@@ -36,7 +36,7 @@ fn duty_for_angle(angle: u32) -> u8 {
 
 fn main() {
     let p = w600::Peripherals::take().unwrap();
-    let mut servo = Pwm::new(p.pwm3, p.pins.PB10, FREQ_HZ).unwrap();
+    let mut servo = Pwm::new(p.pwm3, p.pins.pb10, FREQ_HZ).unwrap();
 
     let steps = (duty_for_angle(MAX_ANGLE) - duty_for_angle(0)) as u32;
     let tenths = MAX_ANGLE * 10 / steps;
