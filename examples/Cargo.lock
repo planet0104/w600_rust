@@ -726,6 +726,9 @@ name = "w600-examples"
 version = "0.1.0"
 dependencies = [
  "embedded-io",
+ "embedded-tls",
+ "rand_chacha",
+ "rand_core",
  "w600",
 ]
 
