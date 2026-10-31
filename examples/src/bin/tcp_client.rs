@@ -11,9 +11,9 @@ use embedded_io::{Read, Write};
 use w600::net::TcpStream;
 use w600::{println, wifi};
 
-const SSID: &str = "your-ssid";
-const PASSWORD: &str = "your-password";
-const HOST: &str = "example.com";
+const SSID: &str = "REDMI K100 Pro Max";
+const PASSWORD: &str = "jy123456";
+const HOST: &str = "https://www.nmc.cn/rest/weather?stationid=2011";
 
 w600::entry!(main, stack_size = 12 * 1024);
 
