@@ -17,8 +17,8 @@ use w600::time::Instant;
 use w600::tls::{Buffers, TlsStream};
 use w600::{print, println, wifi};
 
-const SSID: &str = "your-ssid";
-const PASSWORD: &str = "your-password";
+const SSID: &str = "REDMI K100 Pro Max";
+const PASSWORD: &str = "jy123456";
 // 网址 https://www.nmc.cn/rest/weather?stationid=2011 拆成主机名和路径两部分。
 const HOST: &str = "www.nmc.cn";
 const PATH: &str = "/rest/weather?stationid=2011";
