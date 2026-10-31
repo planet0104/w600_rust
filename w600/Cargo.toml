@@ -1,0 +1,20 @@
+[package]
+name = "w600"
+description = "联盟微 W600 Wi-Fi 芯片的 Rust 开发库：运行时、RTOS、外设、Wi-Fi 与网络"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+categories = ["embedded", "no-std", "hardware-support"]
+keywords = ["w600", "winnermicro", "wifi", "embedded-hal"]
+
+[features]
+default = ["panic-handler"]
+# 提供打印到调试串口后停机的 #[panic_handler]；关闭后可以使用自己的实现。
+panic-handler = []
+
+[dependencies]
+w600-sys = { path = "../w600-sys", version = "0.1.0" }
+embedded-hal = "1.0"
+embedded-io = "0.7"

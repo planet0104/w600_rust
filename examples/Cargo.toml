@@ -1,0 +1,19 @@
+[package]
+name = "w600-examples"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+w600 = { path = "../w600" }
+embedded-io = "0.7"
+
+[profile.dev]
+# 不优化的代码体积过大，放不进 512KB 的应用区。
+opt-level = "s"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+debug = true

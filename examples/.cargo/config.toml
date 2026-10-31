@@ -1,0 +1,8 @@
+[build]
+target = "thumbv7m-none-eabi"
+
+[target.thumbv7m-none-eabi]
+# 使用 Rust 自带的 rust-lld 链接，SDK 静态库和 newlib 都由 w600-sys 提供，无需安装 ARM 工具链。
+# 打包并通过串口烧录，串口号由环境变量 W600_PORT 指定，例如 COM6 或 /dev/ttyUSB0。
+runner = "w600-flash"
+rustflags = ["-C", "link-arg=-Tw600.x"]

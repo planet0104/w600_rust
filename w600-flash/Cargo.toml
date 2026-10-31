@@ -1,0 +1,13 @@
+[package]
+name = "w600-flash"
+description = "W600 固件打包与串口烧录工具，可作为 cargo runner 使用"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+
+[build-dependencies]
+cc = "1"

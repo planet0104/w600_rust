@@ -1,0 +1,13 @@
+[workspace]
+resolver = "3"
+members = ["w600-sys", "w600", "w600-flash", "xtask"]
+# 固件 crate 只能为 thumbv7m-none-eabi 编译，在根目录直接 `cargo build` 时只构建主机工具。
+default-members = ["w600-flash", "xtask"]
+exclude = ["examples"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/your-name/lib_w600"
