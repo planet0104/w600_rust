@@ -12,6 +12,8 @@
 use core::time::Duration;
 
 use embedded_io::{Read, Write};
+use w600::net::TcpStream;
+use w600::time::Instant;
 use w600::tls::{Buffers, TlsStream};
 use w600::{print, println, wifi};
 
@@ -35,16 +37,32 @@ fn main() {
     };
     println!("ip {} gateway {} dns {}", info.ip, info.gateway, info.dns);
 
-    let mut buffers = Buffers::new();
-    println!("tls handshake with {HOST}:443 ...");
-    let mut stream = match TlsStream::connect(HOST, 443, CA, &mut buffers) {
+    println!("connecting to {HOST}:443 ...");
+    let mut tcp = match TcpStream::connect_host(HOST, 443) {
         Ok(s) => s,
         Err(e) => {
-            println!("connect failed: {e}");
+            println!("tcp connect failed: {e}");
             return;
         }
     };
-    println!("tls connected, free heap = {} bytes", w600::system::free_heap());
+    // 服务器没有响应时报错，而不是一直等待。
+    tcp.set_read_timeout(Some(Duration::from_secs(10)));
+    println!("tcp connected to {:?}, tls handshake ...", tcp.peer_addr());
+
+    let mut buffers = Buffers::new();
+    let start = Instant::now();
+    let mut stream = match TlsStream::new(tcp, HOST, CA, &mut buffers) {
+        Ok(s) => s,
+        Err(e) => {
+            println!("tls handshake failed: {e}");
+            return;
+        }
+    };
+    println!(
+        "tls connected in {} ms, free heap = {} bytes",
+        start.elapsed().as_millis(),
+        w600::system::free_heap()
+    );
 
     let request = [
         "GET ", PATH, " HTTP/1.1\r\nHost: ", HOST, "\r\nUser-Agent: w600-rust\r\nConnection: close\r\n\r\n",
