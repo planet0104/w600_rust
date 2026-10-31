@@ -12,8 +12,8 @@ use embedded_io::{Read, Write};
 use w600::net::{TcpListener, TcpStream};
 use w600::{println, thread, wifi};
 
-const SSID: &str = "your-ssid";
-const PASSWORD: &str = "your-password";
+const SSID: &str = "REDMI K100 Pro Max";
+const PASSWORD: &str = "jy123456";
 
 w600::entry!(main);
 
