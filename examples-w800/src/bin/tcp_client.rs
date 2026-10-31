@@ -13,7 +13,7 @@ use w600::{println, wifi};
 
 const SSID: &str = "REDMI K100 Pro Max";
 const PASSWORD: &str = "jy123456";
-const HOST: &str = "https://www.nmc.cn/rest/weather?stationid=2011";
+const HOST: &str = "baidu.com";
 
 w600::entry!(main, stack_size = 12 * 1024);
 
