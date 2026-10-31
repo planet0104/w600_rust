@@ -304,11 +304,12 @@ fn patch_startup(sdk: &Path) -> Result<()> {
     Ok(())
 }
 
-/// lwIP 的 TCP MSS 从 SDK 默认的 1024 改为以太网标准的 1460：部分服务器（如 www.nmc.cn）的前端
-/// 不遵守 W600 通告的 1024 字节 MSS，之后的数据包 W600 收不到，连接会一直卡住。
-/// 接收窗口随之变为 6 × 1460 字节；lwIP 的缓冲区都从堆上按需分配（MEMP_MEM_MALLOC），不增加静态内存。
-/// 该值也写入编译标记，修改后会触发全量重编（增量编译只比较 .c 与 .o 的时间，感知不到头文件变化）。
+/// lwIP 的 TCP MSS 与接收窗口改为与 W800 SDK 相同（SDK 默认为 1024 与 6 × MSS）：部分服务器的前端
+/// （如 www.nmc.cn）在通告窗口低于约 8 KB 时停止发送，TLS 握手会一直卡住。
+/// lwIP 的缓冲区都从堆上按需分配（MEMP_MEM_MALLOC），窗口变大不增加静态内存。
+/// 这两个值也写入编译标记，修改后会触发全量重编（增量编译只比较 .c 与 .o 的时间，感知不到头文件变化）。
 const LWIP_TCP_MSS: &str = "1460";
+const LWIP_TCP_WND: &str = "(8 * TCP_MSS)";
 
 fn patch_lwipopts(sdk: &Path) -> Result<()> {
     let path = sdk.join("Src/Network/lwip2.0.3/include/lwip/lwipopts.h");
@@ -318,6 +319,8 @@ fn patch_lwipopts(sdk: &Path) -> Result<()> {
         .map(|line| {
             if line.starts_with("#define TCP_MSS ") {
                 format!("#define TCP_MSS                   {LWIP_TCP_MSS}")
+            } else if line.starts_with("#define TCP_WND ") {
+                format!("#define TCP_WND                         {LWIP_TCP_WND}")
             } else {
                 line.to_string()
             }
@@ -353,7 +356,7 @@ fn build_sdk() -> Result<()> {
             });
         }
     }
-    let stamp = format!("{gcc:?}{CPU_FLAGS:?}{C_FLAGS:?}{CONFIG_OVERRIDES:?}{incs:?}{file_prefix_map:?}{LWIP_TCP_MSS}");
+    let stamp = format!("{gcc:?}{CPU_FLAGS:?}{C_FLAGS:?}{CONFIG_OVERRIDES:?}{incs:?}{file_prefix_map:?}{LWIP_TCP_MSS}{LWIP_TCP_WND}");
     let stamp_path = obj_dir.join("flags.stamp");
     if fs::read_to_string(&stamp_path).ok().as_deref() != Some(stamp.as_str()) {
         let _ = fs::remove_dir_all(&obj_dir);
