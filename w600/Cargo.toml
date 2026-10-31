@@ -22,13 +22,15 @@ w600-sys = { path = "../w600-sys", version = "0.1.0" }
 w800-sys = { path = "../w800-sys", version = "0.1.0" }
 # W800 的 Flash 足够大，额外支持 RSA 签名的证书（W600 的 512KB 应用区放不下）。
 # 再加 p384 会多出约 150KB，W800 的应用区也只剩约 40KB，因此没有开启。
-embedded-tls = { version = "0.19", default-features = false, features = ["rustpki", "rsa"] }
+embedded-tls = { path = "../third_party/embedded-tls", default-features = false, features = ["rustpki", "rsa"] }
 
 [dependencies]
 embedded-hal = "1.0"
 embedded-io = "0.7"
 # TLS 1.3 客户端；rustpki 校验证书链（ECDSA P-256）。
-embedded-tls = { version = "0.19", default-features = false, features = ["rustpki"] }
+# 使用打过补丁的 0.19.0（见 third_party/embedded-tls/Cargo.toml），否则无法连接在 EncryptedExtensions 中
+# 列出未知密钥交换组的服务器（国内很多网站如此）。
+embedded-tls = { path = "../third_party/embedded-tls", default-features = false, features = ["rustpki"] }
 rand_chacha = { version = "0.3", default-features = false }
 rand_core = "0.6"
 sha2 = { version = "0.10", default-features = false }

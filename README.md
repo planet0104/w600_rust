@@ -21,6 +21,7 @@ FreeRTOS、Wi-Fi 协议栈、lwIP 和外设驱动继续使用官方实现，Rust
 | `examples` | W600 示例，同时也是新项目的模板 |
 | `examples-w800` | W800 示例与模板（含 C-SKY 目标描述 `csky-none-elfabiv2hf.json`） |
 | `xtask` | 维护者工具：下载 SDK、生成静态库和绑定 |
+| `third_party/embedded-tls` | TLS 1.3 库 embedded-tls 0.19.0，附一处兼容性修复 |
 
 ## 快速开始（W600）
 
@@ -106,12 +107,15 @@ fn main() {
 
 ```rust
 let mut buffers = w600::tls::Buffers::new();                       // 约 20KB 记录缓冲区，可复用
-let mut s = w600::tls::TlsStream::connect("www.baidu.com", 443, None, &mut buffers)?;
-s.write_all(b"GET / HTTP/1.1\r\nHost: www.baidu.com\r\nConnection: close\r\n\r\n")?;
+let mut s = w600::tls::TlsStream::connect("www.nmc.cn", 443, None, &mut buffers)?;
+s.write_all(b"GET /rest/weather?stationid=2011 HTTP/1.1\r\nHost: www.nmc.cn\r\nConnection: close\r\n\r\n")?;
 s.flush()?;                                                          // 写入的数据在 flush 后才发出
 ```
 
-- 只支持 TLS 1.3（TLS_AES_128_GCM_SHA256，P-256 密钥交换），自动发送 SNI；只支持 TLS 1.2 的服务器无法连接。
+- 只支持 TLS 1.3（TLS_AES_128_GCM_SHA256，P-256 密钥交换），自动发送 SNI；只支持 TLS 1.2 的服务器
+  （例如 www.baidu.com）无法连接，握手会报 `HandshakeAborted(Fatal, ProtocolVersion)`。
+- embedded-tls 0.19.0 遇到服务器列出它不认识的密钥交换组（如 brainpool、国密 SM2）时会握手失败（`DecodeError`），
+  国内很多网站如此。仓库在 `third_party/embedded-tls` 中附带了修复此问题的副本（与上游 main 分支的修复相同）。
 - 第三个参数为 `None` 时**不校验服务器证书**：通信是加密的，但无法防止中间人攻击。传入 DER 格式的根证书时，
   校验证书链和域名（没有实时时钟，不检查有效期）。可校验的签名算法：W800 为 ECDSA P-256 与 RSA，
   W600 受 512KB 应用区限制只有 ECDSA P-256。
@@ -277,4 +281,4 @@ Rust 代码以 MIT 或 Apache-2.0 授权。`w600-sys/bin`、`w800-sys/bin`、`to
 `w600-sys/lib`、`w800-sys/lib` 中的 SDK 库（`libw600sdk.a`、`libwlan.a`、`libairkiss_log.a` 等）来自联盟微官方 SDK，
 版权归北京联盛德微电子有限责任公司所有；`w800.x` 基于 C-SKY 的 Apache-2.0 链接脚本；`tools/wm_tool_w800/zlib-1.2.11`
 为 zlib（zlib 许可）；`libc.a`、`libm.a` 来自 newlib（BSD 类许可），`libgcc.a` 来自 GCC（GPL 附运行库例外，允许链接进任意程序）。
-TLS 使用的 embedded-tls 及 RustCrypto 系列 crate 以 Apache-2.0 / MIT 授权。
+TLS 使用的 embedded-tls（`third_party/embedded-tls`，Apache-2.0）及 RustCrypto 系列 crate 以 Apache-2.0 / MIT 授权。

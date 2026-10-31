@@ -3,7 +3,7 @@ resolver = "3"
 members = ["w600-sys", "w800-sys", "w600", "w600-flash", "xtask"]
 # 固件 crate 只能为芯片目标编译，在根目录直接 `cargo build` 时只构建主机工具。
 default-members = ["w600-flash", "xtask"]
-exclude = ["examples", "examples-w800"]
+exclude = ["examples", "examples-w800", "third_party"]
 
 [workspace.package]
 version = "0.1.0"
