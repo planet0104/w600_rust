@@ -98,7 +98,8 @@ fn main() {
 ```
 
 `examples/src/bin`（以及 `examples-w800/src/bin`）下还有：`threads`（线程、锁、通道）、`tcp_server`（多线程回显服务器）、
-`https_client`（TLS 1.3 访问 HTTPS 网站）、`peripherals`（PWM 呼吸灯、按键中断、UART 回显、ADC 温度、Flash 读写）。
+`https_client`（TLS 1.3 访问 HTTPS 网站）、`peripherals`（PWM 呼吸灯、按键中断、UART 回显、ADC 温度、Flash 读写）、
+`servo`（PB15 输出舵机信号，转到几个固定角度后来回扫动）。
 
 ## HTTPS / TLS
 
@@ -278,7 +279,7 @@ W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的�
   镜像头与官方固件格式一致，`.fls` 中的 secboot 与官方固件相同。LLVM 与 GCC 之间的调用约定（整数 / 浮点 / 64 位参数、
   结构体传值与返回）和所用结构体的布局已逐项对照 GCC 的输出核对。
 
-**两款芯片的 `peripherals` 还没有在真实硬件上测试过**；`https_client` 只测试了不校验证书的情况
+**两款芯片的 `peripherals`、`servo` 还没有在真实硬件上测试过**；`https_client` 只测试了不校验证书的情况
 （校验证书的逻辑只在 PC 上验证过）。欢迎反馈问题。
 
 ## 许可
