@@ -54,7 +54,7 @@ fn main() {
     let mut stream = match TlsStream::new(tcp, HOST, CA, &mut buffers) {
         Ok(s) => s,
         Err(e) => {
-            println!("tls handshake failed: {e}");
+            println!("tls handshake failed after {} ms: {e}", start.elapsed().as_millis());
             return;
         }
     };
