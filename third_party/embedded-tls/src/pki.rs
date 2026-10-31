@@ -106,6 +106,9 @@ where
         Ok(())
     }
 
+    // 不内联：这里的局部变量（含证书链副本）占用十几 KB 栈，内联后即使不校验证书，
+    // 握手函数也会预留这部分栈空间。
+    #[inline(never)]
     fn verify_certificate(
         &mut self,
         transcript: &CipherSuite::Hash,
@@ -133,6 +136,7 @@ where
         Ok(())
     }
 
+    #[inline(never)]
     fn verify_signature(&mut self, verify: CertificateVerifyRef) -> Result<(), TlsError> {
         let handshake_hash = unwrap!(self.certificate_transcript.take());
         let ctx_str = b"TLS 1.3, server CertificateVerify\x00";

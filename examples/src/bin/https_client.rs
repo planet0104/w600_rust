@@ -24,8 +24,8 @@ const HOST: &str = "www.nmc.cn";
 const PATH: &str = "/rest/weather?stationid=2011";
 const CA: Option<&[u8]> = None;
 
-// TLS 握手中的椭圆曲线和 RSA 运算需要较大的栈。
-w600::entry!(main, stack_size = 24 * 1024);
+// TLS 握手需要较大的栈，校验证书时更多。
+w600::entry!(main, stack_size = if CA.is_some() { 48 * 1024 } else { 24 * 1024 });
 
 fn main() {
     let info = loop {
