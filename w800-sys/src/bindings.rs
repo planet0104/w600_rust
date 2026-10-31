@@ -630,6 +630,88 @@ pub const WM_NIMBLE_INCLUDED: u32 = 1;
 pub const WM_BLE_MAX_CONNECTION: u32 = 7;
 pub const TLS_CONFIG_UDP_ONE_SHOT: u32 = 1;
 pub const TLS_CONFIG_ONESHOT_DELAY_SPECIAL: u32 = 1;
+pub const WM_BLE_GAP_EVENT_CONNECT: u32 = 1;
+pub const WM_BLE_GAP_EVENT_DISCONNECT: u32 = 2;
+pub const WM_BLE_GAP_EVENT_CONN_UPDATE: u32 = 8;
+pub const WM_BLE_GAP_EVENT_CONN_UPDATE_REQ: u32 = 16;
+pub const WM_BLE_GAP_EVENT_L2CAP_UPDATE_REQ: u32 = 32;
+pub const WM_BLE_GAP_EVENT_TERM_FAILURE: u32 = 64;
+pub const WM_BLE_GAP_EVENT_DISC: u32 = 128;
+pub const WM_BLE_GAP_EVENT_DISC_COMPLETE: u32 = 256;
+pub const WM_BLE_GAP_EVENT_ADV_COMPLETE: u32 = 512;
+pub const WM_BLE_GAP_EVENT_ENC_CHANGE: u32 = 1024;
+pub const WM_BLE_GAP_EVENT_PASSKEY_ACTION: u32 = 2048;
+pub const WM_BLE_GAP_EVENT_NOTIFY_RX: u32 = 4096;
+pub const WM_BLE_GAP_EVENT_NOTIFY_TX: u32 = 8192;
+pub const WM_BLE_GAP_EVENT_SUBSCRIBE: u32 = 16384;
+pub const WM_BLE_GAP_EVENT_MTU: u32 = 32768;
+pub const WM_BLE_GAP_EVENT_IDENTITY_RESOLVED: u32 = 65536;
+pub const WM_BLE_GAP_EVENT_REPEAT_PAIRING: u32 = 131072;
+pub const WM_BLE_GAP_EVENT_PHY_UPDATE_COMPLETE: u32 = 262144;
+pub const WM_BLE_GAP_EVENT_EXT_DISC: u32 = 524288;
+pub const WM_BLE_GAP_EVENT_PERIODIC_SYNC: u32 = 1048576;
+pub const WM_BLE_GAP_EVENT_PERIODIC_REPORT: u32 = 2097152;
+pub const WM_BLE_GAP_EVENT_PERIODIC_SYNC_LOST: u32 = 4194304;
+pub const WM_BLE_GAP_EVENT_SCAN_REQ_RCVD: u32 = 8388608;
+pub const WM_BLE_GAP_EVENT_PERIODIC_TRANSFER: u32 = 16777216;
+pub const WM_BLE_GAP_EVENT_HOST_SHUTDOWN: u32 = 2147483648;
+pub const WM_GATT_PERM_READ: u32 = 1;
+pub const WM_GATT_PERM_READ_ENCRYPTED: u32 = 2;
+pub const WM_GATT_PERM_READ_ENC_MITM: u32 = 4;
+pub const WM_GATT_PERM_WRITE: u32 = 16;
+pub const WM_GATT_PERM_WRITE_ENCRYPTED: u32 = 32;
+pub const WM_GATT_PERM_WRITE_ENC_MITM: u32 = 64;
+pub const WM_GATT_PERM_WRITE_SIGNED: u32 = 128;
+pub const WM_GATT_PERM_WRITE_SIGNED_MITM: u32 = 256;
+pub const WM_GATT_CHAR_PROP_BIT_BROADCAST: u32 = 1;
+pub const WM_GATT_CHAR_PROP_BIT_READ: u32 = 2;
+pub const WM_GATT_CHAR_PROP_BIT_WRITE_NR: u32 = 4;
+pub const WM_GATT_CHAR_PROP_BIT_WRITE: u32 = 8;
+pub const WM_GATT_CHAR_PROP_BIT_NOTIFY: u32 = 16;
+pub const WM_GATT_CHAR_PROP_BIT_INDICATE: u32 = 32;
+pub const WM_GATT_CHAR_PROP_BIT_AUTH: u32 = 64;
+pub const WM_GATT_CHAR_PROP_BIT_EXT_PROP: u32 = 128;
+pub const WM_BLE_MAX_ATTR_LEN: u32 = 600;
+pub const WM_BLE_CLIENT_MAX: u32 = 3;
+pub const WM_BLE_SERVER_MAX: u32 = 4;
+pub const WM_BLE_ATTRIBUTE_MAX: u32 = 50;
+pub const WM_BLE_INVALID_IF: u32 = 255;
+pub const WM_BLE_INVALID_CONN: u32 = 65535;
+pub const WM_BLE_GATT_TRANSPORT_LE: u32 = 2;
+pub const WM_BLE_GATT_TRANSPORT_BR_EDR: u32 = 1;
+pub const WM_BLE_GATT_TRANSPORT_LE_BR_EDR: u32 = 3;
+pub const WM_BLE_MAX_PDU_LENGTH: u32 = 251;
+pub const WM_BTRC_MAX_ATTR_STR_LEN: u32 = 255;
+pub const WM_BTRC_UID_SIZE: u32 = 8;
+pub const WM_BTRC_MAX_APP_SETTINGS: u32 = 8;
+pub const WM_BTRC_MAX_FOLDER_DEPTH: u32 = 4;
+pub const WM_BTRC_MAX_APP_ATTR_SIZE: u32 = 16;
+pub const WM_BTRC_MAX_ELEM_ATTR_SIZE: u32 = 7;
+pub const WM_BTHF_CLIENT_PEER_FEAT_3WAY: u32 = 1;
+pub const WM_BTHF_CLIENT_PEER_FEAT_ECNR: u32 = 2;
+pub const WM_BTHF_CLIENT_PEER_FEAT_VREC: u32 = 4;
+pub const WM_BTHF_CLIENT_PEER_FEAT_INBAND: u32 = 8;
+pub const WM_BTHF_CLIENT_PEER_FEAT_VTAG: u32 = 16;
+pub const WM_BTHF_CLIENT_PEER_FEAT_REJECT: u32 = 32;
+pub const WM_BTHF_CLIENT_PEER_FEAT_ECS: u32 = 64;
+pub const WM_BTHF_CLIENT_PEER_FEAT_ECC: u32 = 128;
+pub const WM_BTHF_CLIENT_PEER_FEAT_EXTERR: u32 = 256;
+pub const WM_BTHF_CLIENT_PEER_FEAT_CODEC: u32 = 512;
+pub const WM_BTHF_CLIENT_CHLD_FEAT_REL: u32 = 1;
+pub const WM_BTHF_CLIENT_CHLD_FEAT_REL_ACC: u32 = 2;
+pub const WM_BTHF_CLIENT_CHLD_FEAT_REL_X: u32 = 4;
+pub const WM_BTHF_CLIENT_CHLD_FEAT_HOLD_ACC: u32 = 8;
+pub const WM_BTHF_CLIENT_CHLD_FEAT_PRIV_X: u32 = 16;
+pub const WM_BTHF_CLIENT_CHLD_FEAT_MERGE: u32 = 32;
+pub const WM_BTHF_CLIENT_CHLD_FEAT_MERGE_DETACH: u32 = 64;
+pub const WM_SPP_SEC_NONE: u32 = 0;
+pub const WM_SPP_SEC_AUTHORIZE: u32 = 1;
+pub const WM_SPP_SEC_AUTHENTICATE: u32 = 18;
+pub const WM_SPP_SEC_ENCRYPT: u32 = 36;
+pub const WM_SPP_SEC_MODE4_LEVEL4: u32 = 64;
+pub const WM_SPP_SEC_MITM: u32 = 12288;
+pub const WM_SPP_SEC_IN_16_DIGITS: u32 = 16384;
+pub const WM_SPP_MAX_SCN: u32 = 31;
 pub type INT8U = core::ffi::c_uchar;
 pub type INT8S = core::ffi::c_schar;
 pub type u8_ = core::ffi::c_uchar;
@@ -3027,6 +3109,4530 @@ const _: () = {
     ["Offset of field: ieee80211_hdr::addr4"]
         [::core::mem::offset_of!(ieee80211_hdr, addr4) - 24usize];
 };
+impl tls_bt_status_t {
+    pub const TLS_BT_STATUS_SUCCESS: tls_bt_status_t = tls_bt_status_t(0);
+    pub const TLS_BT_STATUS_FAIL: tls_bt_status_t = tls_bt_status_t(1);
+    pub const TLS_BT_STATUS_NOT_READY: tls_bt_status_t = tls_bt_status_t(2);
+    pub const TLS_BT_STATUS_NOMEM: tls_bt_status_t = tls_bt_status_t(3);
+    pub const TLS_BT_STATUS_BUSY: tls_bt_status_t = tls_bt_status_t(4);
+    pub const TLS_BT_STATUS_DONE: tls_bt_status_t = tls_bt_status_t(5);
+    pub const TLS_BT_STATUS_UNSUPPORTED: tls_bt_status_t = tls_bt_status_t(6);
+    pub const TLS_BT_STATUS_PARM_INVALID: tls_bt_status_t = tls_bt_status_t(7);
+    pub const TLS_BT_STATUS_UNHANDLED: tls_bt_status_t = tls_bt_status_t(8);
+    pub const TLS_BT_STATUS_AUTH_FAILURE: tls_bt_status_t = tls_bt_status_t(9);
+    pub const TLS_BT_STATUS_RMT_DEV_DOWN: tls_bt_status_t = tls_bt_status_t(10);
+    pub const TLS_BT_STATUS_AUTH_REJECTED: tls_bt_status_t = tls_bt_status_t(11);
+    pub const TLS_BT_STATUS_THREAD_FAILED: tls_bt_status_t = tls_bt_status_t(12);
+    pub const TLS_BT_STATUS_INTERNAL_ERROR: tls_bt_status_t = tls_bt_status_t(13);
+    pub const TLS_BT_STATUS_CTRL_ENABLE_FAILED: tls_bt_status_t = tls_bt_status_t(14);
+    pub const TLS_BT_STATUS_HOST_ENABLE_FAILED: tls_bt_status_t = tls_bt_status_t(15);
+    pub const TLS_BT_STATUS_CTRL_DISABLE_FAILED: tls_bt_status_t = tls_bt_status_t(16);
+    pub const TLS_BT_STATUS_HOST_DISABLE_FAILED: tls_bt_status_t = tls_bt_status_t(17);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_status_t(pub core::ffi::c_uint);
+impl tls_bt_ctrl_status_t {
+    pub const TLS_BT_CTRL_IDLE: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(1);
+    pub const TLS_BT_CTRL_ENABLED: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(2);
+    pub const TLS_BT_CTRL_SLEEPING: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(4);
+    pub const TLS_BT_CTRL_BLE_ROLE_MASTER: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(8);
+    pub const TLS_BT_CTRL_BLE_ROLE_SLAVE: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(16);
+    pub const TLS_BT_CTRL_BLE_ROLE_END: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(32);
+    pub const TLS_BT_CTRL_BLE_STATE_IDLE: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(64);
+    pub const TLS_BT_CTRL_BLE_STATE_ADVERTISING: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(128);
+    pub const TLS_BT_CTRL_BLE_STATE_SCANNING: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(256);
+    pub const TLS_BT_CTRL_BLE_STATE_INITIATING: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(512);
+    pub const TLS_BT_CTRL_BLE_STATE_STOPPING: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(1024);
+    pub const TLS_BT_CTRL_BLE_STATE_TESTING: tls_bt_ctrl_status_t = tls_bt_ctrl_status_t(2048);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_ctrl_status_t(pub core::ffi::c_uint);
+impl tls_bt_state_t {
+    pub const WM_BT_STATE_OFF: tls_bt_state_t = tls_bt_state_t(0);
+    pub const WM_BT_STATE_ON: tls_bt_state_t = tls_bt_state_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_state_t(pub core::ffi::c_uint);
+impl tls_bt_host_evt_t {
+    pub const WM_BT_ADAPTER_STATE_CHG_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(1);
+    pub const WM_BT_ADAPTER_PROP_CHG_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(2);
+    pub const WM_BT_RMT_DEVICE_PROP_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(4);
+    pub const WM_BT_DEVICE_FOUND_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(8);
+    pub const WM_BT_DISCOVERY_STATE_CHG_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(16);
+    pub const WM_BT_REQUEST_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(32);
+    pub const WM_BT_SSP_REQUEST_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(64);
+    pub const WM_BT_PIN_REQUEST_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(128);
+    pub const WM_BT_BOND_STATE_CHG_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(256);
+    pub const WM_BT_ACL_STATE_CHG_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(512);
+    pub const WM_BT_ENERGY_INFO_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(1024);
+    pub const WM_BT_LE_TEST_EVT: tls_bt_host_evt_t = tls_bt_host_evt_t(2048);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_host_evt_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_adapter_state_change_msg_t {
+    pub status: tls_bt_state_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_adapter_state_change_msg_t"]
+        [::core::mem::size_of::<tls_bt_adapter_state_change_msg_t>() - 4usize];
+    ["Alignment of tls_bt_adapter_state_change_msg_t"]
+        [::core::mem::align_of::<tls_bt_adapter_state_change_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_adapter_state_change_msg_t::status"]
+        [::core::mem::offset_of!(tls_bt_adapter_state_change_msg_t, status) - 0usize];
+};
+impl Default for tls_bt_adapter_state_change_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl tls_bt_property_type_t {
+    pub const WM_BT_PROPERTY_BDNAME: tls_bt_property_type_t = tls_bt_property_type_t(1);
+    pub const WM_BT_PROPERTY_BDADDR: tls_bt_property_type_t = tls_bt_property_type_t(2);
+    pub const WM_BT_PROPERTY_UUIDS: tls_bt_property_type_t = tls_bt_property_type_t(3);
+    pub const WM_BT_PROPERTY_CLASS_OF_DEVICE: tls_bt_property_type_t = tls_bt_property_type_t(4);
+    pub const WM_BT_PROPERTY_TYPE_OF_DEVICE: tls_bt_property_type_t = tls_bt_property_type_t(5);
+    pub const WM_BT_PROPERTY_SERVICE_RECORD: tls_bt_property_type_t = tls_bt_property_type_t(6);
+    pub const WM_BT_PROPERTY_ADAPTER_SCAN_MODE: tls_bt_property_type_t = tls_bt_property_type_t(7);
+    pub const WM_BT_PROPERTY_ADAPTER_BONDED_DEVICES: tls_bt_property_type_t =
+        tls_bt_property_type_t(8);
+    pub const WM_BT_PROPERTY_ADAPTER_DISCOVERY_TIMEOUT: tls_bt_property_type_t =
+        tls_bt_property_type_t(9);
+    pub const WM_BT_PROPERTY_REMOTE_FRIENDLY_NAME: tls_bt_property_type_t =
+        tls_bt_property_type_t(10);
+    pub const WM_BT_PROPERTY_REMOTE_RSSI: tls_bt_property_type_t = tls_bt_property_type_t(11);
+    pub const WM_BT_PROPERTY_REMOTE_VERSION_INFO: tls_bt_property_type_t =
+        tls_bt_property_type_t(12);
+    pub const WM_BT_PROPERTY_LOCAL_LE_FEATURES: tls_bt_property_type_t = tls_bt_property_type_t(13);
+    pub const WM_BT_PROPERTY_REMOTE_DEVICE_TIMESTAMP: tls_bt_property_type_t =
+        tls_bt_property_type_t(255);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_property_type_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_property_t {
+    pub type_: tls_bt_property_type_t,
+    pub len: core::ffi::c_int,
+    pub val: *mut core::ffi::c_void,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_property_t"][::core::mem::size_of::<tls_bt_property_t>() - 12usize];
+    ["Alignment of tls_bt_property_t"][::core::mem::align_of::<tls_bt_property_t>() - 4usize];
+    ["Offset of field: tls_bt_property_t::type_"]
+        [::core::mem::offset_of!(tls_bt_property_t, type_) - 0usize];
+    ["Offset of field: tls_bt_property_t::len"]
+        [::core::mem::offset_of!(tls_bt_property_t, len) - 4usize];
+    ["Offset of field: tls_bt_property_t::val"]
+        [::core::mem::offset_of!(tls_bt_property_t, val) - 8usize];
+};
+impl Default for tls_bt_property_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_adapter_prop_msg_t {
+    pub status: tls_bt_status_t,
+    pub num_properties: core::ffi::c_int,
+    pub properties: *mut tls_bt_property_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_adapter_prop_msg_t"]
+        [::core::mem::size_of::<tls_bt_adapter_prop_msg_t>() - 12usize];
+    ["Alignment of tls_bt_adapter_prop_msg_t"]
+        [::core::mem::align_of::<tls_bt_adapter_prop_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_adapter_prop_msg_t::status"]
+        [::core::mem::offset_of!(tls_bt_adapter_prop_msg_t, status) - 0usize];
+    ["Offset of field: tls_bt_adapter_prop_msg_t::num_properties"]
+        [::core::mem::offset_of!(tls_bt_adapter_prop_msg_t, num_properties) - 4usize];
+    ["Offset of field: tls_bt_adapter_prop_msg_t::properties"]
+        [::core::mem::offset_of!(tls_bt_adapter_prop_msg_t, properties) - 8usize];
+};
+impl Default for tls_bt_adapter_prop_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl wm_ble_scan_type_t {
+    pub const WM_BLE_SCAN_STOP: wm_ble_scan_type_t = wm_ble_scan_type_t(0);
+    pub const WM_BLE_SCAN_PASSIVE: wm_ble_scan_type_t = wm_ble_scan_type_t(1);
+    pub const WM_BLE_SCAN_ACTIVE: wm_ble_scan_type_t = wm_ble_scan_type_t(2);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct wm_ble_scan_type_t(pub core::ffi::c_uint);
+impl wm_ble_gap_data_t {
+    pub const WM_BLE_ADV_DATA: wm_ble_gap_data_t = wm_ble_gap_data_t(0);
+    pub const WM_BLE_ADV_RSP_DATA: wm_ble_gap_data_t = wm_ble_gap_data_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct wm_ble_gap_data_t(pub core::ffi::c_uint);
+impl wm_ble_adv_type_t {
+    pub const WM_BLE_ADV_STOP: wm_ble_adv_type_t = wm_ble_adv_type_t(0);
+    pub const WM_BLE_ADV_IND: wm_ble_adv_type_t = wm_ble_adv_type_t(1);
+    pub const WM_BLE_ADV_DIRECT_IND_HDC: wm_ble_adv_type_t = wm_ble_adv_type_t(2);
+    pub const WM_BLE_ADV_SCAN_IND: wm_ble_adv_type_t = wm_ble_adv_type_t(3);
+    pub const WM_BLE_ADV_NONCONN_IND: wm_ble_adv_type_t = wm_ble_adv_type_t(4);
+    pub const WM_BLE_ADV_DIRECT_IND_LDC: wm_ble_adv_type_t = wm_ble_adv_type_t(5);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct wm_ble_adv_type_t(pub core::ffi::c_uint);
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_addr_t {
+    pub address: [u8; 6usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_addr_t"][::core::mem::size_of::<tls_bt_addr_t>() - 6usize];
+    ["Alignment of tls_bt_addr_t"][::core::mem::align_of::<tls_bt_addr_t>() - 1usize];
+    ["Offset of field: tls_bt_addr_t::address"]
+        [::core::mem::offset_of!(tls_bt_addr_t, address) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_remote_dev_prop_msg_t {
+    pub status: tls_bt_status_t,
+    pub address: *mut tls_bt_addr_t,
+    pub num_properties: core::ffi::c_int,
+    pub properties: *mut tls_bt_property_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_remote_dev_prop_msg_t"]
+        [::core::mem::size_of::<tls_bt_remote_dev_prop_msg_t>() - 16usize];
+    ["Alignment of tls_bt_remote_dev_prop_msg_t"]
+        [::core::mem::align_of::<tls_bt_remote_dev_prop_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_remote_dev_prop_msg_t::status"]
+        [::core::mem::offset_of!(tls_bt_remote_dev_prop_msg_t, status) - 0usize];
+    ["Offset of field: tls_bt_remote_dev_prop_msg_t::address"]
+        [::core::mem::offset_of!(tls_bt_remote_dev_prop_msg_t, address) - 4usize];
+    ["Offset of field: tls_bt_remote_dev_prop_msg_t::num_properties"]
+        [::core::mem::offset_of!(tls_bt_remote_dev_prop_msg_t, num_properties) - 8usize];
+    ["Offset of field: tls_bt_remote_dev_prop_msg_t::properties"]
+        [::core::mem::offset_of!(tls_bt_remote_dev_prop_msg_t, properties) - 12usize];
+};
+impl Default for tls_bt_remote_dev_prop_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_device_found_msg_t {
+    pub num_properties: core::ffi::c_int,
+    pub properties: *mut tls_bt_property_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_device_found_msg_t"]
+        [::core::mem::size_of::<tls_bt_device_found_msg_t>() - 8usize];
+    ["Alignment of tls_bt_device_found_msg_t"]
+        [::core::mem::align_of::<tls_bt_device_found_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_device_found_msg_t::num_properties"]
+        [::core::mem::offset_of!(tls_bt_device_found_msg_t, num_properties) - 0usize];
+    ["Offset of field: tls_bt_device_found_msg_t::properties"]
+        [::core::mem::offset_of!(tls_bt_device_found_msg_t, properties) - 4usize];
+};
+impl Default for tls_bt_device_found_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl tls_bt_discovery_state_t {
+    pub const WM_BT_DISCOVERY_STOPPED: tls_bt_discovery_state_t = tls_bt_discovery_state_t(0);
+    pub const WM_BT_DISCOVERY_STARTED: tls_bt_discovery_state_t = tls_bt_discovery_state_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_discovery_state_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_discovery_state_chg_msg_t {
+    pub state: tls_bt_discovery_state_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_discovery_state_chg_msg_t"]
+        [::core::mem::size_of::<tls_bt_discovery_state_chg_msg_t>() - 4usize];
+    ["Alignment of tls_bt_discovery_state_chg_msg_t"]
+        [::core::mem::align_of::<tls_bt_discovery_state_chg_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_discovery_state_chg_msg_t::state"]
+        [::core::mem::offset_of!(tls_bt_discovery_state_chg_msg_t, state) - 0usize];
+};
+impl Default for tls_bt_discovery_state_chg_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_bdname_t {
+    pub name: [u8; 249usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_bdname_t"][::core::mem::size_of::<tls_bt_bdname_t>() - 249usize];
+    ["Alignment of tls_bt_bdname_t"][::core::mem::align_of::<tls_bt_bdname_t>() - 1usize];
+    ["Offset of field: tls_bt_bdname_t::name"]
+        [::core::mem::offset_of!(tls_bt_bdname_t, name) - 0usize];
+};
+impl Default for tls_bt_bdname_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_pin_request_msg_t {
+    pub remote_bd_addr: *mut tls_bt_addr_t,
+    pub bd_name: *mut tls_bt_bdname_t,
+    pub cod: u32,
+    pub min_16_digit: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_pin_request_msg_t"]
+        [::core::mem::size_of::<tls_bt_pin_request_msg_t>() - 16usize];
+    ["Alignment of tls_bt_pin_request_msg_t"]
+        [::core::mem::align_of::<tls_bt_pin_request_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_pin_request_msg_t::remote_bd_addr"]
+        [::core::mem::offset_of!(tls_bt_pin_request_msg_t, remote_bd_addr) - 0usize];
+    ["Offset of field: tls_bt_pin_request_msg_t::bd_name"]
+        [::core::mem::offset_of!(tls_bt_pin_request_msg_t, bd_name) - 4usize];
+    ["Offset of field: tls_bt_pin_request_msg_t::cod"]
+        [::core::mem::offset_of!(tls_bt_pin_request_msg_t, cod) - 8usize];
+    ["Offset of field: tls_bt_pin_request_msg_t::min_16_digit"]
+        [::core::mem::offset_of!(tls_bt_pin_request_msg_t, min_16_digit) - 12usize];
+};
+impl Default for tls_bt_pin_request_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl tls_bt_ssp_variant_t {
+    pub const WM_BT_SSP_VARIANT_PASSKEY_CONFIRMATION: tls_bt_ssp_variant_t =
+        tls_bt_ssp_variant_t(0);
+    pub const WM_BT_SSP_VARIANT_PASSKEY_ENTRY: tls_bt_ssp_variant_t = tls_bt_ssp_variant_t(1);
+    pub const WM_BT_SSP_VARIANT_CONSENT: tls_bt_ssp_variant_t = tls_bt_ssp_variant_t(2);
+    pub const WM_BT_SSP_VARIANT_PASSKEY_NOTIFICATION: tls_bt_ssp_variant_t =
+        tls_bt_ssp_variant_t(3);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_ssp_variant_t(pub core::ffi::c_uint);
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_pin_code_t {
+    pub pin: [u8; 16usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_pin_code_t"][::core::mem::size_of::<tls_bt_pin_code_t>() - 16usize];
+    ["Alignment of tls_bt_pin_code_t"][::core::mem::align_of::<tls_bt_pin_code_t>() - 1usize];
+    ["Offset of field: tls_bt_pin_code_t::pin"]
+        [::core::mem::offset_of!(tls_bt_pin_code_t, pin) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_ssp_request_msg_t {
+    pub remote_bd_addr: *mut tls_bt_addr_t,
+    pub bd_name: *mut tls_bt_bdname_t,
+    pub cod: u32,
+    pub pairing_variant: tls_bt_ssp_variant_t,
+    pub pass_key: u32,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_ssp_request_msg_t"]
+        [::core::mem::size_of::<tls_bt_ssp_request_msg_t>() - 20usize];
+    ["Alignment of tls_bt_ssp_request_msg_t"]
+        [::core::mem::align_of::<tls_bt_ssp_request_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_ssp_request_msg_t::remote_bd_addr"]
+        [::core::mem::offset_of!(tls_bt_ssp_request_msg_t, remote_bd_addr) - 0usize];
+    ["Offset of field: tls_bt_ssp_request_msg_t::bd_name"]
+        [::core::mem::offset_of!(tls_bt_ssp_request_msg_t, bd_name) - 4usize];
+    ["Offset of field: tls_bt_ssp_request_msg_t::cod"]
+        [::core::mem::offset_of!(tls_bt_ssp_request_msg_t, cod) - 8usize];
+    ["Offset of field: tls_bt_ssp_request_msg_t::pairing_variant"]
+        [::core::mem::offset_of!(tls_bt_ssp_request_msg_t, pairing_variant) - 12usize];
+    ["Offset of field: tls_bt_ssp_request_msg_t::pass_key"]
+        [::core::mem::offset_of!(tls_bt_ssp_request_msg_t, pass_key) - 16usize];
+};
+impl Default for tls_bt_ssp_request_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl tls_bt_bond_state_t {
+    pub const WM_BT_BOND_STATE_NONE: tls_bt_bond_state_t = tls_bt_bond_state_t(0);
+    pub const WM_BT_BOND_STATE_BONDING: tls_bt_bond_state_t = tls_bt_bond_state_t(1);
+    pub const WM_BT_BOND_STATE_BONDED: tls_bt_bond_state_t = tls_bt_bond_state_t(2);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_bond_state_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_bond_state_chg_msg_t {
+    pub status: tls_bt_status_t,
+    pub remote_bd_addr: *mut tls_bt_addr_t,
+    pub state: tls_bt_bond_state_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_bond_state_chg_msg_t"]
+        [::core::mem::size_of::<tls_bt_bond_state_chg_msg_t>() - 12usize];
+    ["Alignment of tls_bt_bond_state_chg_msg_t"]
+        [::core::mem::align_of::<tls_bt_bond_state_chg_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_bond_state_chg_msg_t::status"]
+        [::core::mem::offset_of!(tls_bt_bond_state_chg_msg_t, status) - 0usize];
+    ["Offset of field: tls_bt_bond_state_chg_msg_t::remote_bd_addr"]
+        [::core::mem::offset_of!(tls_bt_bond_state_chg_msg_t, remote_bd_addr) - 4usize];
+    ["Offset of field: tls_bt_bond_state_chg_msg_t::state"]
+        [::core::mem::offset_of!(tls_bt_bond_state_chg_msg_t, state) - 8usize];
+};
+impl Default for tls_bt_bond_state_chg_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl tls_bt_acl_state_t {
+    pub const WM_BT_ACL_STATE_CONNECTED: tls_bt_acl_state_t = tls_bt_acl_state_t(0);
+    pub const WM_BT_ACL_STATE_DISCONNECTED: tls_bt_acl_state_t = tls_bt_acl_state_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_acl_state_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_acl_state_chg_msg_t {
+    pub status: tls_bt_status_t,
+    pub remote_address: *mut tls_bt_addr_t,
+    pub link_type: u8,
+    pub state: tls_bt_acl_state_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_acl_state_chg_msg_t"]
+        [::core::mem::size_of::<tls_bt_acl_state_chg_msg_t>() - 16usize];
+    ["Alignment of tls_bt_acl_state_chg_msg_t"]
+        [::core::mem::align_of::<tls_bt_acl_state_chg_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_acl_state_chg_msg_t::status"]
+        [::core::mem::offset_of!(tls_bt_acl_state_chg_msg_t, status) - 0usize];
+    ["Offset of field: tls_bt_acl_state_chg_msg_t::remote_address"]
+        [::core::mem::offset_of!(tls_bt_acl_state_chg_msg_t, remote_address) - 4usize];
+    ["Offset of field: tls_bt_acl_state_chg_msg_t::link_type"]
+        [::core::mem::offset_of!(tls_bt_acl_state_chg_msg_t, link_type) - 8usize];
+    ["Offset of field: tls_bt_acl_state_chg_msg_t::state"]
+        [::core::mem::offset_of!(tls_bt_acl_state_chg_msg_t, state) - 12usize];
+};
+impl Default for tls_bt_acl_state_chg_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_activity_energy_info {
+    pub status: u8,
+    pub ctrl_state: u8,
+    pub tx_time: u64,
+    pub rx_time: u64,
+    pub idle_time: u64,
+    pub energy_used: u64,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_activity_energy_info"]
+        [::core::mem::size_of::<tls_bt_activity_energy_info>() - 34usize];
+    ["Alignment of tls_bt_activity_energy_info"]
+        [::core::mem::align_of::<tls_bt_activity_energy_info>() - 1usize];
+    ["Offset of field: tls_bt_activity_energy_info::status"]
+        [::core::mem::offset_of!(tls_bt_activity_energy_info, status) - 0usize];
+    ["Offset of field: tls_bt_activity_energy_info::ctrl_state"]
+        [::core::mem::offset_of!(tls_bt_activity_energy_info, ctrl_state) - 1usize];
+    ["Offset of field: tls_bt_activity_energy_info::tx_time"]
+        [::core::mem::offset_of!(tls_bt_activity_energy_info, tx_time) - 2usize];
+    ["Offset of field: tls_bt_activity_energy_info::rx_time"]
+        [::core::mem::offset_of!(tls_bt_activity_energy_info, rx_time) - 10usize];
+    ["Offset of field: tls_bt_activity_energy_info::idle_time"]
+        [::core::mem::offset_of!(tls_bt_activity_energy_info, idle_time) - 18usize];
+    ["Offset of field: tls_bt_activity_energy_info::energy_used"]
+        [::core::mem::offset_of!(tls_bt_activity_energy_info, energy_used) - 26usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_energy_info_msg_t {
+    pub energy_info: *mut tls_bt_activity_energy_info,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_energy_info_msg_t"]
+        [::core::mem::size_of::<tls_bt_energy_info_msg_t>() - 4usize];
+    ["Alignment of tls_bt_energy_info_msg_t"]
+        [::core::mem::align_of::<tls_bt_energy_info_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_energy_info_msg_t::energy_info"]
+        [::core::mem::offset_of!(tls_bt_energy_info_msg_t, energy_info) - 0usize];
+};
+impl Default for tls_bt_energy_info_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_ble_test_msg_t {
+    pub status: u8,
+    pub count: u32,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_ble_test_msg_t"][::core::mem::size_of::<tls_bt_ble_test_msg_t>() - 8usize];
+    ["Alignment of tls_bt_ble_test_msg_t"]
+        [::core::mem::align_of::<tls_bt_ble_test_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_ble_test_msg_t::status"]
+        [::core::mem::offset_of!(tls_bt_ble_test_msg_t, status) - 0usize];
+    ["Offset of field: tls_bt_ble_test_msg_t::count"]
+        [::core::mem::offset_of!(tls_bt_ble_test_msg_t, count) - 4usize];
+};
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_bt_host_msg_t {
+    pub adapter_state_change: tls_bt_adapter_state_change_msg_t,
+    pub adapter_prop: tls_bt_adapter_prop_msg_t,
+    pub remote_device_prop: tls_bt_remote_dev_prop_msg_t,
+    pub device_found: tls_bt_device_found_msg_t,
+    pub discovery_state: tls_bt_discovery_state_chg_msg_t,
+    pub pin_request: tls_bt_pin_request_msg_t,
+    pub ssp_request: tls_bt_ssp_request_msg_t,
+    pub bond_state: tls_bt_bond_state_chg_msg_t,
+    pub acl_state: tls_bt_acl_state_chg_msg_t,
+    pub energy_info: tls_bt_energy_info_msg_t,
+    pub ble_test: tls_bt_ble_test_msg_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_host_msg_t"][::core::mem::size_of::<tls_bt_host_msg_t>() - 20usize];
+    ["Alignment of tls_bt_host_msg_t"][::core::mem::align_of::<tls_bt_host_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_host_msg_t::adapter_state_change"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, adapter_state_change) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::adapter_prop"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, adapter_prop) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::remote_device_prop"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, remote_device_prop) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::device_found"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, device_found) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::discovery_state"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, discovery_state) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::pin_request"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, pin_request) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::ssp_request"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, ssp_request) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::bond_state"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, bond_state) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::acl_state"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, acl_state) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::energy_info"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, energy_info) - 0usize];
+    ["Offset of field: tls_bt_host_msg_t::ble_test"]
+        [::core::mem::offset_of!(tls_bt_host_msg_t, ble_test) - 0usize];
+};
+impl Default for tls_bt_host_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type tls_bt_host_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_bt_host_evt_t, p_data: *mut tls_bt_host_msg_t),
+>;
+impl tls_bt_log_level_t {
+    pub const TLS_BT_LOG_NONE: tls_bt_log_level_t = tls_bt_log_level_t(0);
+    pub const TLS_BT_LOG_ERROR: tls_bt_log_level_t = tls_bt_log_level_t(1);
+    pub const TLS_BT_LOG_WARNING: tls_bt_log_level_t = tls_bt_log_level_t(2);
+    pub const TLS_BT_LOG_API: tls_bt_log_level_t = tls_bt_log_level_t(3);
+    pub const TLS_BT_LOG_EVENT: tls_bt_log_level_t = tls_bt_log_level_t(4);
+    pub const TLS_BT_LOG_DEBUG: tls_bt_log_level_t = tls_bt_log_level_t(5);
+    pub const TLS_BT_LOG_VERBOSE: tls_bt_log_level_t = tls_bt_log_level_t(6);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_log_level_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_hci_if_t {
+    pub uart_index: u8,
+    pub band_rate: u32,
+    pub data_bit: u8,
+    pub verify_bit: u8,
+    pub stop_bit: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_hci_if_t"][::core::mem::size_of::<tls_bt_hci_if_t>() - 12usize];
+    ["Alignment of tls_bt_hci_if_t"][::core::mem::align_of::<tls_bt_hci_if_t>() - 4usize];
+    ["Offset of field: tls_bt_hci_if_t::uart_index"]
+        [::core::mem::offset_of!(tls_bt_hci_if_t, uart_index) - 0usize];
+    ["Offset of field: tls_bt_hci_if_t::band_rate"]
+        [::core::mem::offset_of!(tls_bt_hci_if_t, band_rate) - 4usize];
+    ["Offset of field: tls_bt_hci_if_t::data_bit"]
+        [::core::mem::offset_of!(tls_bt_hci_if_t, data_bit) - 8usize];
+    ["Offset of field: tls_bt_hci_if_t::verify_bit"]
+        [::core::mem::offset_of!(tls_bt_hci_if_t, verify_bit) - 9usize];
+    ["Offset of field: tls_bt_hci_if_t::stop_bit"]
+        [::core::mem::offset_of!(tls_bt_hci_if_t, stop_bit) - 10usize];
+};
+impl tls_ble_power_type_t {
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL0: tls_ble_power_type_t = tls_ble_power_type_t(0);
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL1: tls_ble_power_type_t = tls_ble_power_type_t(1);
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL2: tls_ble_power_type_t = tls_ble_power_type_t(2);
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL3: tls_ble_power_type_t = tls_ble_power_type_t(3);
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL4: tls_ble_power_type_t = tls_ble_power_type_t(4);
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL5: tls_ble_power_type_t = tls_ble_power_type_t(5);
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL6: tls_ble_power_type_t = tls_ble_power_type_t(6);
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL7: tls_ble_power_type_t = tls_ble_power_type_t(7);
+    pub const TLS_BLE_PWR_TYPE_CONN_HDL8: tls_ble_power_type_t = tls_ble_power_type_t(8);
+    pub const TLS_BLE_PWR_TYPE_ADV: tls_ble_power_type_t = tls_ble_power_type_t(9);
+    pub const TLS_BLE_PWR_TYPE_SCAN: tls_ble_power_type_t = tls_ble_power_type_t(10);
+    pub const TLS_BLE_PWR_TYPE_DEFAULT: tls_ble_power_type_t = tls_ble_power_type_t(11);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_ble_power_type_t(pub core::ffi::c_uint);
+impl tls_sco_data_path_t {
+    pub const WM_AUDIO_OVER_HCI: tls_sco_data_path_t = tls_sco_data_path_t(0);
+    pub const WM_AUDIO_INTERNAL_MODE: tls_sco_data_path_t = tls_sco_data_path_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_sco_data_path_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_host_if_t {
+    pub notify_controller_avaiable_hci_buffer:
+        ::core::option::Option<unsafe extern "C" fn(cnt: core::ffi::c_int)>,
+    pub notify_host_recv_h4:
+        ::core::option::Option<unsafe extern "C" fn(ptr: *mut u8, length: u16)>,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_host_if_t"][::core::mem::size_of::<tls_bt_host_if_t>() - 8usize];
+    ["Alignment of tls_bt_host_if_t"][::core::mem::align_of::<tls_bt_host_if_t>() - 4usize];
+    ["Offset of field: tls_bt_host_if_t::notify_controller_avaiable_hci_buffer"]
+        [::core::mem::offset_of!(tls_bt_host_if_t, notify_controller_avaiable_hci_buffer) - 0usize];
+    ["Offset of field: tls_bt_host_if_t::notify_host_recv_h4"]
+        [::core::mem::offset_of!(tls_bt_host_if_t, notify_host_recv_h4) - 4usize];
+};
+impl tls_ble_evt_t {
+    pub const WM_BLE_CL_REGISTER_EVT: tls_ble_evt_t = tls_ble_evt_t(0);
+    pub const WM_BLE_CL_DEREGISTER_EVT: tls_ble_evt_t = tls_ble_evt_t(1);
+    pub const WM_BLE_CL_READ_CHAR_EVT: tls_ble_evt_t = tls_ble_evt_t(2);
+    pub const WM_BLE_CL_WRITE_CHAR_EVT: tls_ble_evt_t = tls_ble_evt_t(3);
+    pub const WM_BLE_CL_PREP_WRITE_EVT: tls_ble_evt_t = tls_ble_evt_t(4);
+    pub const WM_BLE_CL_EXEC_CMPL_EVT: tls_ble_evt_t = tls_ble_evt_t(5);
+    pub const WM_BLE_CL_SEARCH_CMPL_EVT: tls_ble_evt_t = tls_ble_evt_t(6);
+    pub const WM_BLE_CL_SEARCH_RES_EVT: tls_ble_evt_t = tls_ble_evt_t(7);
+    pub const WM_BLE_CL_READ_DESCR_EVT: tls_ble_evt_t = tls_ble_evt_t(8);
+    pub const WM_BLE_CL_WRITE_DESCR_EVT: tls_ble_evt_t = tls_ble_evt_t(9);
+    pub const WM_BLE_CL_NOTIF_EVT: tls_ble_evt_t = tls_ble_evt_t(10);
+    pub const WM_BLE_CL_OPEN_EVT: tls_ble_evt_t = tls_ble_evt_t(11);
+    pub const WM_BLE_CL_CLOSE_EVT: tls_ble_evt_t = tls_ble_evt_t(12);
+    pub const WM_BLE_CL_LISTEN_EVT: tls_ble_evt_t = tls_ble_evt_t(13);
+    pub const WM_BLE_CL_CFG_MTU_EVT: tls_ble_evt_t = tls_ble_evt_t(14);
+    pub const WM_BLE_CL_CONGEST_EVT: tls_ble_evt_t = tls_ble_evt_t(15);
+    pub const WM_BLE_CL_REPORT_DB_EVT: tls_ble_evt_t = tls_ble_evt_t(16);
+    pub const WM_BLE_CL_REG_NOTIFY_EVT: tls_ble_evt_t = tls_ble_evt_t(17);
+    pub const WM_BLE_CL_DEREG_NOTIFY_EVT: tls_ble_evt_t = tls_ble_evt_t(18);
+    pub const WM_BLE_SE_REGISTER_EVT: tls_ble_evt_t = tls_ble_evt_t(19);
+    pub const WM_BLE_SE_DEREGISTER_EVT: tls_ble_evt_t = tls_ble_evt_t(20);
+    pub const WM_BLE_SE_CONNECT_EVT: tls_ble_evt_t = tls_ble_evt_t(21);
+    pub const WM_BLE_SE_DISCONNECT_EVT: tls_ble_evt_t = tls_ble_evt_t(22);
+    pub const WM_BLE_SE_CREATE_EVT: tls_ble_evt_t = tls_ble_evt_t(23);
+    pub const WM_BLE_SE_ADD_INCL_SRVC_EVT: tls_ble_evt_t = tls_ble_evt_t(24);
+    pub const WM_BLE_SE_ADD_CHAR_EVT: tls_ble_evt_t = tls_ble_evt_t(25);
+    pub const WM_BLE_SE_ADD_CHAR_DESCR_EVT: tls_ble_evt_t = tls_ble_evt_t(26);
+    pub const WM_BLE_SE_START_EVT: tls_ble_evt_t = tls_ble_evt_t(27);
+    pub const WM_BLE_SE_STOP_EVT: tls_ble_evt_t = tls_ble_evt_t(28);
+    pub const WM_BLE_SE_DELETE_EVT: tls_ble_evt_t = tls_ble_evt_t(29);
+    pub const WM_BLE_SE_READ_EVT: tls_ble_evt_t = tls_ble_evt_t(30);
+    pub const WM_BLE_SE_WRITE_EVT: tls_ble_evt_t = tls_ble_evt_t(31);
+    pub const WM_BLE_SE_EXEC_WRITE_EVT: tls_ble_evt_t = tls_ble_evt_t(32);
+    pub const WM_BLE_SE_CONFIRM_EVT: tls_ble_evt_t = tls_ble_evt_t(33);
+    pub const WM_BLE_SE_RESP_EVT: tls_ble_evt_t = tls_ble_evt_t(34);
+    pub const WM_BLE_SE_CONGEST_EVT: tls_ble_evt_t = tls_ble_evt_t(35);
+    pub const WM_BLE_SE_MTU_EVT: tls_ble_evt_t = tls_ble_evt_t(36);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_ble_evt_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_uuid_t {
+    pub uu: [u8; 16usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_uuid_t"][::core::mem::size_of::<tls_bt_uuid_t>() - 16usize];
+    ["Alignment of tls_bt_uuid_t"][::core::mem::align_of::<tls_bt_uuid_t>() - 1usize];
+    ["Offset of field: tls_bt_uuid_t::uu"][::core::mem::offset_of!(tls_bt_uuid_t, uu) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_register_msg_t {
+    pub status: u8,
+    pub client_if: u8,
+    pub app_uuid: tls_bt_uuid_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_register_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_register_msg_t>() - 18usize];
+    ["Alignment of tls_ble_cl_register_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_register_msg_t>() - 1usize];
+    ["Offset of field: tls_ble_cl_register_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_register_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_cl_register_msg_t::client_if"]
+        [::core::mem::offset_of!(tls_ble_cl_register_msg_t, client_if) - 1usize];
+    ["Offset of field: tls_ble_cl_register_msg_t::app_uuid"]
+        [::core::mem::offset_of!(tls_ble_cl_register_msg_t, app_uuid) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_ble_cl_read_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+    pub handle: u16,
+    pub len: u16,
+    pub value: *mut u8,
+    pub value_type: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_read_msg_t"][::core::mem::size_of::<tls_ble_cl_read_msg_t>() - 16usize];
+    ["Alignment of tls_ble_cl_read_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_read_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_cl_read_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_read_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_read_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_read_msg_t, status) - 2usize];
+    ["Offset of field: tls_ble_cl_read_msg_t::handle"]
+        [::core::mem::offset_of!(tls_ble_cl_read_msg_t, handle) - 4usize];
+    ["Offset of field: tls_ble_cl_read_msg_t::len"]
+        [::core::mem::offset_of!(tls_ble_cl_read_msg_t, len) - 6usize];
+    ["Offset of field: tls_ble_cl_read_msg_t::value"]
+        [::core::mem::offset_of!(tls_ble_cl_read_msg_t, value) - 8usize];
+    ["Offset of field: tls_ble_cl_read_msg_t::value_type"]
+        [::core::mem::offset_of!(tls_ble_cl_read_msg_t, value_type) - 12usize];
+};
+impl Default for tls_ble_cl_read_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_write_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+    pub handle: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_write_msg_t"][::core::mem::size_of::<tls_ble_cl_write_msg_t>() - 6usize];
+    ["Alignment of tls_ble_cl_write_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_write_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_write_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_write_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_write_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_write_msg_t, status) - 2usize];
+    ["Offset of field: tls_ble_cl_write_msg_t::handle"]
+        [::core::mem::offset_of!(tls_ble_cl_write_msg_t, handle) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_exec_cmpl_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_exec_cmpl_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_exec_cmpl_msg_t>() - 4usize];
+    ["Alignment of tls_ble_cl_exec_cmpl_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_exec_cmpl_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_exec_cmpl_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_exec_cmpl_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_exec_cmpl_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_exec_cmpl_msg_t, status) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_search_cmpl_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_search_cmpl_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_search_cmpl_msg_t>() - 4usize];
+    ["Alignment of tls_ble_cl_search_cmpl_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_search_cmpl_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_search_cmpl_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_search_cmpl_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_search_cmpl_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_search_cmpl_msg_t, status) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_search_res_msg_t {
+    pub conn_id: u16,
+    pub uuid: tls_bt_uuid_t,
+    pub inst_id: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_search_res_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_search_res_msg_t>() - 20usize];
+    ["Alignment of tls_ble_cl_search_res_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_search_res_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_search_res_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_search_res_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_search_res_msg_t::uuid"]
+        [::core::mem::offset_of!(tls_ble_cl_search_res_msg_t, uuid) - 2usize];
+    ["Offset of field: tls_ble_cl_search_res_msg_t::inst_id"]
+        [::core::mem::offset_of!(tls_ble_cl_search_res_msg_t, inst_id) - 18usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_ble_cl_notify_msg_t {
+    pub conn_id: u16,
+    pub value: *mut u8,
+    pub bda: [u8; 6usize],
+    pub handle: u16,
+    pub len: u16,
+    pub is_notify: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_notify_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_notify_msg_t>() - 20usize];
+    ["Alignment of tls_ble_cl_notify_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_notify_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_cl_notify_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_notify_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_notify_msg_t::value"]
+        [::core::mem::offset_of!(tls_ble_cl_notify_msg_t, value) - 4usize];
+    ["Offset of field: tls_ble_cl_notify_msg_t::bda"]
+        [::core::mem::offset_of!(tls_ble_cl_notify_msg_t, bda) - 8usize];
+    ["Offset of field: tls_ble_cl_notify_msg_t::handle"]
+        [::core::mem::offset_of!(tls_ble_cl_notify_msg_t, handle) - 14usize];
+    ["Offset of field: tls_ble_cl_notify_msg_t::len"]
+        [::core::mem::offset_of!(tls_ble_cl_notify_msg_t, len) - 16usize];
+    ["Offset of field: tls_ble_cl_notify_msg_t::is_notify"]
+        [::core::mem::offset_of!(tls_ble_cl_notify_msg_t, is_notify) - 18usize];
+};
+impl Default for tls_ble_cl_notify_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_open_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+    pub client_if: u8,
+    pub bd_addr: [u8; 6usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_open_msg_t"][::core::mem::size_of::<tls_ble_cl_open_msg_t>() - 10usize];
+    ["Alignment of tls_ble_cl_open_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_open_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_open_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_open_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_open_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_open_msg_t, status) - 2usize];
+    ["Offset of field: tls_ble_cl_open_msg_t::client_if"]
+        [::core::mem::offset_of!(tls_ble_cl_open_msg_t, client_if) - 3usize];
+    ["Offset of field: tls_ble_cl_open_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_ble_cl_open_msg_t, bd_addr) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_close_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+    pub client_if: u8,
+    pub remote_bda: [u8; 6usize],
+    pub reason: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_close_msg_t"][::core::mem::size_of::<tls_ble_cl_close_msg_t>() - 12usize];
+    ["Alignment of tls_ble_cl_close_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_close_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_close_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_close_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_close_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_close_msg_t, status) - 2usize];
+    ["Offset of field: tls_ble_cl_close_msg_t::client_if"]
+        [::core::mem::offset_of!(tls_ble_cl_close_msg_t, client_if) - 3usize];
+    ["Offset of field: tls_ble_cl_close_msg_t::remote_bda"]
+        [::core::mem::offset_of!(tls_ble_cl_close_msg_t, remote_bda) - 4usize];
+    ["Offset of field: tls_ble_cl_close_msg_t::reason"]
+        [::core::mem::offset_of!(tls_ble_cl_close_msg_t, reason) - 10usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_listen_msg_t {
+    pub status: u8,
+    pub client_if: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_listen_msg_t"][::core::mem::size_of::<tls_ble_cl_listen_msg_t>() - 2usize];
+    ["Alignment of tls_ble_cl_listen_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_listen_msg_t>() - 1usize];
+    ["Offset of field: tls_ble_cl_listen_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_listen_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_cl_listen_msg_t::client_if"]
+        [::core::mem::offset_of!(tls_ble_cl_listen_msg_t, client_if) - 1usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_cfg_mtu_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+    pub mtu: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_cfg_mtu_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_cfg_mtu_msg_t>() - 6usize];
+    ["Alignment of tls_ble_cl_cfg_mtu_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_cfg_mtu_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_cfg_mtu_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_cfg_mtu_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_cfg_mtu_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_cfg_mtu_msg_t, status) - 2usize];
+    ["Offset of field: tls_ble_cl_cfg_mtu_msg_t::mtu"]
+        [::core::mem::offset_of!(tls_ble_cl_cfg_mtu_msg_t, mtu) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_congest_msg_t {
+    pub conn_id: u16,
+    pub congested: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_congest_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_congest_msg_t>() - 4usize];
+    ["Alignment of tls_ble_cl_congest_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_congest_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_congest_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_congest_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_congest_msg_t::congested"]
+        [::core::mem::offset_of!(tls_ble_cl_congest_msg_t, congested) - 2usize];
+};
+impl tls_bt_gatt_db_attribute_type_t {
+    pub const WM_BTGATT_DB_PRIMARY_SERVICE: tls_bt_gatt_db_attribute_type_t =
+        tls_bt_gatt_db_attribute_type_t(0);
+    pub const WM_BTGATT_DB_SECONDARY_SERVICE: tls_bt_gatt_db_attribute_type_t =
+        tls_bt_gatt_db_attribute_type_t(1);
+    pub const WM_BTGATT_DB_INCLUDED_SERVICE: tls_bt_gatt_db_attribute_type_t =
+        tls_bt_gatt_db_attribute_type_t(2);
+    pub const WM_BTGATT_DB_CHARACTERISTIC: tls_bt_gatt_db_attribute_type_t =
+        tls_bt_gatt_db_attribute_type_t(3);
+    pub const WM_BTGATT_DB_DESCRIPTOR: tls_bt_gatt_db_attribute_type_t =
+        tls_bt_gatt_db_attribute_type_t(4);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_gatt_db_attribute_type_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btgatt_db_element_t {
+    pub id: u16,
+    pub uuid: tls_bt_uuid_t,
+    pub type_: tls_bt_gatt_db_attribute_type_t,
+    pub attribute_handle: u16,
+    pub start_handle: u16,
+    pub end_handle: u16,
+    pub properties: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btgatt_db_element_t"]
+        [::core::mem::size_of::<tls_btgatt_db_element_t>() - 32usize];
+    ["Alignment of tls_btgatt_db_element_t"]
+        [::core::mem::align_of::<tls_btgatt_db_element_t>() - 4usize];
+    ["Offset of field: tls_btgatt_db_element_t::id"]
+        [::core::mem::offset_of!(tls_btgatt_db_element_t, id) - 0usize];
+    ["Offset of field: tls_btgatt_db_element_t::uuid"]
+        [::core::mem::offset_of!(tls_btgatt_db_element_t, uuid) - 2usize];
+    ["Offset of field: tls_btgatt_db_element_t::type_"]
+        [::core::mem::offset_of!(tls_btgatt_db_element_t, type_) - 20usize];
+    ["Offset of field: tls_btgatt_db_element_t::attribute_handle"]
+        [::core::mem::offset_of!(tls_btgatt_db_element_t, attribute_handle) - 24usize];
+    ["Offset of field: tls_btgatt_db_element_t::start_handle"]
+        [::core::mem::offset_of!(tls_btgatt_db_element_t, start_handle) - 26usize];
+    ["Offset of field: tls_btgatt_db_element_t::end_handle"]
+        [::core::mem::offset_of!(tls_btgatt_db_element_t, end_handle) - 28usize];
+    ["Offset of field: tls_btgatt_db_element_t::properties"]
+        [::core::mem::offset_of!(tls_btgatt_db_element_t, properties) - 30usize];
+};
+impl Default for tls_btgatt_db_element_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_ble_cl_gatt_db_msg_t {
+    pub conn_id: u16,
+    pub db: *mut tls_btgatt_db_element_t,
+    pub count: core::ffi::c_int,
+    pub status: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_gatt_db_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_gatt_db_msg_t>() - 16usize];
+    ["Alignment of tls_ble_cl_gatt_db_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_gatt_db_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_cl_gatt_db_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_gatt_db_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_gatt_db_msg_t::db"]
+        [::core::mem::offset_of!(tls_ble_cl_gatt_db_msg_t, db) - 4usize];
+    ["Offset of field: tls_ble_cl_gatt_db_msg_t::count"]
+        [::core::mem::offset_of!(tls_ble_cl_gatt_db_msg_t, count) - 8usize];
+    ["Offset of field: tls_ble_cl_gatt_db_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_gatt_db_msg_t, status) - 12usize];
+};
+impl Default for tls_ble_cl_gatt_db_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_cl_reg_notify_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+    pub reg: bool,
+    pub handle: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_cl_reg_notify_msg_t"]
+        [::core::mem::size_of::<tls_ble_cl_reg_notify_msg_t>() - 6usize];
+    ["Alignment of tls_ble_cl_reg_notify_msg_t"]
+        [::core::mem::align_of::<tls_ble_cl_reg_notify_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_cl_reg_notify_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_cl_reg_notify_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_cl_reg_notify_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_cl_reg_notify_msg_t, status) - 2usize];
+    ["Offset of field: tls_ble_cl_reg_notify_msg_t::reg"]
+        [::core::mem::offset_of!(tls_ble_cl_reg_notify_msg_t, reg) - 3usize];
+    ["Offset of field: tls_ble_cl_reg_notify_msg_t::handle"]
+        [::core::mem::offset_of!(tls_ble_cl_reg_notify_msg_t, handle) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_register_msg_t {
+    pub status: u8,
+    pub server_if: u8,
+    pub app_uuid: tls_bt_uuid_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_register_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_register_msg_t>() - 18usize];
+    ["Alignment of tls_ble_se_register_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_register_msg_t>() - 1usize];
+    ["Offset of field: tls_ble_se_register_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_se_register_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_se_register_msg_t::server_if"]
+        [::core::mem::offset_of!(tls_ble_se_register_msg_t, server_if) - 1usize];
+    ["Offset of field: tls_ble_se_register_msg_t::app_uuid"]
+        [::core::mem::offset_of!(tls_ble_se_register_msg_t, app_uuid) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_connect_msg_t {
+    pub conn_id: u16,
+    pub server_if: u8,
+    pub connected: bool,
+    pub reason: u16,
+    pub addr: [u8; 6usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_connect_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_connect_msg_t>() - 12usize];
+    ["Alignment of tls_ble_se_connect_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_connect_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_connect_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_se_connect_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_se_connect_msg_t::server_if"]
+        [::core::mem::offset_of!(tls_ble_se_connect_msg_t, server_if) - 2usize];
+    ["Offset of field: tls_ble_se_connect_msg_t::connected"]
+        [::core::mem::offset_of!(tls_ble_se_connect_msg_t, connected) - 3usize];
+    ["Offset of field: tls_ble_se_connect_msg_t::reason"]
+        [::core::mem::offset_of!(tls_ble_se_connect_msg_t, reason) - 4usize];
+    ["Offset of field: tls_ble_se_connect_msg_t::addr"]
+        [::core::mem::offset_of!(tls_ble_se_connect_msg_t, addr) - 6usize];
+};
+pub type tls_ble_se_disconnect_msg_t = tls_ble_se_connect_msg_t;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_create_msg_t {
+    pub status: u8,
+    pub server_if: u8,
+    pub is_primary: bool,
+    pub inst_id: u8,
+    pub uuid: tls_bt_uuid_t,
+    pub service_id: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_create_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_create_msg_t>() - 22usize];
+    ["Alignment of tls_ble_se_create_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_create_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_create_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_se_create_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_se_create_msg_t::server_if"]
+        [::core::mem::offset_of!(tls_ble_se_create_msg_t, server_if) - 1usize];
+    ["Offset of field: tls_ble_se_create_msg_t::is_primary"]
+        [::core::mem::offset_of!(tls_ble_se_create_msg_t, is_primary) - 2usize];
+    ["Offset of field: tls_ble_se_create_msg_t::inst_id"]
+        [::core::mem::offset_of!(tls_ble_se_create_msg_t, inst_id) - 3usize];
+    ["Offset of field: tls_ble_se_create_msg_t::uuid"]
+        [::core::mem::offset_of!(tls_ble_se_create_msg_t, uuid) - 4usize];
+    ["Offset of field: tls_ble_se_create_msg_t::service_id"]
+        [::core::mem::offset_of!(tls_ble_se_create_msg_t, service_id) - 20usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_add_incl_srvc_msg_t {
+    pub status: u8,
+    pub server_if: u8,
+    pub service_id: u16,
+    pub attr_id: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_add_incl_srvc_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_add_incl_srvc_msg_t>() - 6usize];
+    ["Alignment of tls_ble_se_add_incl_srvc_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_add_incl_srvc_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_add_incl_srvc_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_se_add_incl_srvc_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_se_add_incl_srvc_msg_t::server_if"]
+        [::core::mem::offset_of!(tls_ble_se_add_incl_srvc_msg_t, server_if) - 1usize];
+    ["Offset of field: tls_ble_se_add_incl_srvc_msg_t::service_id"]
+        [::core::mem::offset_of!(tls_ble_se_add_incl_srvc_msg_t, service_id) - 2usize];
+    ["Offset of field: tls_ble_se_add_incl_srvc_msg_t::attr_id"]
+        [::core::mem::offset_of!(tls_ble_se_add_incl_srvc_msg_t, attr_id) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_add_char_msg_t {
+    pub status: u8,
+    pub server_if: u8,
+    pub uuid: tls_bt_uuid_t,
+    pub service_id: u16,
+    pub attr_id: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_add_char_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_add_char_msg_t>() - 22usize];
+    ["Alignment of tls_ble_se_add_char_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_add_char_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_add_char_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_se_add_char_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_se_add_char_msg_t::server_if"]
+        [::core::mem::offset_of!(tls_ble_se_add_char_msg_t, server_if) - 1usize];
+    ["Offset of field: tls_ble_se_add_char_msg_t::uuid"]
+        [::core::mem::offset_of!(tls_ble_se_add_char_msg_t, uuid) - 2usize];
+    ["Offset of field: tls_ble_se_add_char_msg_t::service_id"]
+        [::core::mem::offset_of!(tls_ble_se_add_char_msg_t, service_id) - 18usize];
+    ["Offset of field: tls_ble_se_add_char_msg_t::attr_id"]
+        [::core::mem::offset_of!(tls_ble_se_add_char_msg_t, attr_id) - 20usize];
+};
+pub type tls_ble_se_add_char_descr_msg_t = tls_ble_se_add_char_msg_t;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_start_msg_t {
+    pub status: u8,
+    pub server_if: u8,
+    pub service_id: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_start_msg_t"][::core::mem::size_of::<tls_ble_se_start_msg_t>() - 4usize];
+    ["Alignment of tls_ble_se_start_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_start_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_start_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_se_start_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_se_start_msg_t::server_if"]
+        [::core::mem::offset_of!(tls_ble_se_start_msg_t, server_if) - 1usize];
+    ["Offset of field: tls_ble_se_start_msg_t::service_id"]
+        [::core::mem::offset_of!(tls_ble_se_start_msg_t, service_id) - 2usize];
+};
+pub type tls_ble_se_stop_msg_t = tls_ble_se_start_msg_t;
+pub type tls_ble_se_delete_msg_t = tls_ble_se_start_msg_t;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_read_msg_t {
+    pub conn_id: u16,
+    pub trans_id: u32,
+    pub remote_bda: [u8; 6usize],
+    pub handle: u16,
+    pub offset: u16,
+    pub is_long: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_read_msg_t"][::core::mem::size_of::<tls_ble_se_read_msg_t>() - 20usize];
+    ["Alignment of tls_ble_se_read_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_read_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_se_read_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_se_read_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_se_read_msg_t::trans_id"]
+        [::core::mem::offset_of!(tls_ble_se_read_msg_t, trans_id) - 4usize];
+    ["Offset of field: tls_ble_se_read_msg_t::remote_bda"]
+        [::core::mem::offset_of!(tls_ble_se_read_msg_t, remote_bda) - 8usize];
+    ["Offset of field: tls_ble_se_read_msg_t::handle"]
+        [::core::mem::offset_of!(tls_ble_se_read_msg_t, handle) - 14usize];
+    ["Offset of field: tls_ble_se_read_msg_t::offset"]
+        [::core::mem::offset_of!(tls_ble_se_read_msg_t, offset) - 16usize];
+    ["Offset of field: tls_ble_se_read_msg_t::is_long"]
+        [::core::mem::offset_of!(tls_ble_se_read_msg_t, is_long) - 18usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_ble_se_write_msg_t {
+    pub conn_id: u16,
+    pub trans_id: u32,
+    pub remote_bda: [u8; 6usize],
+    pub handle: u16,
+    pub offset: u16,
+    pub len: u16,
+    pub need_rsp: bool,
+    pub is_prep: bool,
+    pub value: *mut u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_write_msg_t"][::core::mem::size_of::<tls_ble_se_write_msg_t>() - 28usize];
+    ["Alignment of tls_ble_se_write_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_write_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_se_write_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_se_write_msg_t::trans_id"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, trans_id) - 4usize];
+    ["Offset of field: tls_ble_se_write_msg_t::remote_bda"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, remote_bda) - 8usize];
+    ["Offset of field: tls_ble_se_write_msg_t::handle"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, handle) - 14usize];
+    ["Offset of field: tls_ble_se_write_msg_t::offset"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, offset) - 16usize];
+    ["Offset of field: tls_ble_se_write_msg_t::len"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, len) - 18usize];
+    ["Offset of field: tls_ble_se_write_msg_t::need_rsp"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, need_rsp) - 20usize];
+    ["Offset of field: tls_ble_se_write_msg_t::is_prep"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, is_prep) - 21usize];
+    ["Offset of field: tls_ble_se_write_msg_t::value"]
+        [::core::mem::offset_of!(tls_ble_se_write_msg_t, value) - 24usize];
+};
+impl Default for tls_ble_se_write_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_exec_write_msg_t {
+    pub conn_id: u16,
+    pub trans_id: u32,
+    pub remote_bda: [u8; 6usize],
+    pub exec_write: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_exec_write_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_exec_write_msg_t>() - 16usize];
+    ["Alignment of tls_ble_se_exec_write_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_exec_write_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_se_exec_write_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_se_exec_write_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_se_exec_write_msg_t::trans_id"]
+        [::core::mem::offset_of!(tls_ble_se_exec_write_msg_t, trans_id) - 4usize];
+    ["Offset of field: tls_ble_se_exec_write_msg_t::remote_bda"]
+        [::core::mem::offset_of!(tls_ble_se_exec_write_msg_t, remote_bda) - 8usize];
+    ["Offset of field: tls_ble_se_exec_write_msg_t::exec_write"]
+        [::core::mem::offset_of!(tls_ble_se_exec_write_msg_t, exec_write) - 14usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_confirm_msg_t {
+    pub conn_id: u16,
+    pub status: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_confirm_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_confirm_msg_t>() - 4usize];
+    ["Alignment of tls_ble_se_confirm_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_confirm_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_confirm_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_se_confirm_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_se_confirm_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_se_confirm_msg_t, status) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_response_msg_t {
+    pub status: u8,
+    pub conn_id: u16,
+    pub trans_id: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_response_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_response_msg_t>() - 6usize];
+    ["Alignment of tls_ble_se_response_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_response_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_response_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_se_response_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_se_response_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_se_response_msg_t, conn_id) - 2usize];
+    ["Offset of field: tls_ble_se_response_msg_t::trans_id"]
+        [::core::mem::offset_of!(tls_ble_se_response_msg_t, trans_id) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_congest_msg_t {
+    pub conn_id: u16,
+    pub congested: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_congest_msg_t"]
+        [::core::mem::size_of::<tls_ble_se_congest_msg_t>() - 4usize];
+    ["Alignment of tls_ble_se_congest_msg_t"]
+        [::core::mem::align_of::<tls_ble_se_congest_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_congest_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_se_congest_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_se_congest_msg_t::congested"]
+        [::core::mem::offset_of!(tls_ble_se_congest_msg_t, congested) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_se_mtu_msg_t {
+    pub conn_id: u16,
+    pub mtu: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_se_mtu_msg_t"][::core::mem::size_of::<tls_ble_se_mtu_msg_t>() - 4usize];
+    ["Alignment of tls_ble_se_mtu_msg_t"][::core::mem::align_of::<tls_ble_se_mtu_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_se_mtu_msg_t::conn_id"]
+        [::core::mem::offset_of!(tls_ble_se_mtu_msg_t, conn_id) - 0usize];
+    ["Offset of field: tls_ble_se_mtu_msg_t::mtu"]
+        [::core::mem::offset_of!(tls_ble_se_mtu_msg_t, mtu) - 2usize];
+};
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_ble_msg_t {
+    pub cli_register: tls_ble_cl_register_msg_t,
+    pub cli_read: tls_ble_cl_read_msg_t,
+    pub cli_write: tls_ble_cl_write_msg_t,
+    pub cli_exec_cmpl: tls_ble_cl_exec_cmpl_msg_t,
+    pub cli_search_cmpl: tls_ble_cl_search_cmpl_msg_t,
+    pub cli_search_res: tls_ble_cl_search_res_msg_t,
+    pub cli_notif: tls_ble_cl_notify_msg_t,
+    pub cli_open: tls_ble_cl_open_msg_t,
+    pub cli_close: tls_ble_cl_close_msg_t,
+    pub cli_listen: tls_ble_cl_listen_msg_t,
+    pub cli_cfg_mtu: tls_ble_cl_cfg_mtu_msg_t,
+    pub cli_congest: tls_ble_cl_congest_msg_t,
+    pub cli_db: tls_ble_cl_gatt_db_msg_t,
+    pub cli_reg_notify: tls_ble_cl_reg_notify_msg_t,
+    pub ser_register: tls_ble_se_register_msg_t,
+    pub ser_connect: tls_ble_se_connect_msg_t,
+    pub ser_disconnect: tls_ble_se_disconnect_msg_t,
+    pub ser_create: tls_ble_se_create_msg_t,
+    pub ser_add_incl_srvc: tls_ble_se_add_incl_srvc_msg_t,
+    pub ser_add_char: tls_ble_se_add_char_msg_t,
+    pub ser_add_char_descr: tls_ble_se_add_char_descr_msg_t,
+    pub ser_start_srvc: tls_ble_se_start_msg_t,
+    pub ser_stop_srvc: tls_ble_se_stop_msg_t,
+    pub ser_delete_srvc: tls_ble_se_delete_msg_t,
+    pub ser_read: tls_ble_se_read_msg_t,
+    pub ser_write: tls_ble_se_write_msg_t,
+    pub ser_exec_write: tls_ble_se_exec_write_msg_t,
+    pub ser_confirm: tls_ble_se_confirm_msg_t,
+    pub ser_congest: tls_ble_se_congest_msg_t,
+    pub ser_mtu: tls_ble_se_mtu_msg_t,
+    pub ser_resp: tls_ble_se_response_msg_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_msg_t"][::core::mem::size_of::<tls_ble_msg_t>() - 28usize];
+    ["Alignment of tls_ble_msg_t"][::core::mem::align_of::<tls_ble_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_msg_t::cli_register"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_register) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_read"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_read) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_write"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_write) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_exec_cmpl"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_exec_cmpl) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_search_cmpl"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_search_cmpl) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_search_res"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_search_res) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_notif"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_notif) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_open"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_open) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_close"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_close) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_listen"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_listen) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_cfg_mtu"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_cfg_mtu) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_congest"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_congest) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_db"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_db) - 0usize];
+    ["Offset of field: tls_ble_msg_t::cli_reg_notify"]
+        [::core::mem::offset_of!(tls_ble_msg_t, cli_reg_notify) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_register"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_register) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_connect"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_connect) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_disconnect"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_disconnect) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_create"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_create) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_add_incl_srvc"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_add_incl_srvc) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_add_char"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_add_char) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_add_char_descr"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_add_char_descr) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_start_srvc"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_start_srvc) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_stop_srvc"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_stop_srvc) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_delete_srvc"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_delete_srvc) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_read"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_read) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_write"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_write) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_exec_write"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_exec_write) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_confirm"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_confirm) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_congest"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_congest) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_mtu"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_mtu) - 0usize];
+    ["Offset of field: tls_ble_msg_t::ser_resp"]
+        [::core::mem::offset_of!(tls_ble_msg_t, ser_resp) - 0usize];
+};
+impl Default for tls_ble_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type tls_ble_callback_t =
+    ::core::option::Option<unsafe extern "C" fn(event: tls_ble_evt_t, p_data: *mut tls_ble_msg_t)>;
+pub type tls_ble_output_func_ptr =
+    ::core::option::Option<unsafe extern "C" fn(p_data: *mut u8, length: u32)>;
+impl tls_ble_dm_evt_t {
+    pub const WM_BLE_DM_SET_ADV_DATA_CMPL_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(1);
+    pub const WM_BLE_DM_TIMER_EXPIRED_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(2);
+    pub const WM_BLE_DM_TRIGER_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(4);
+    pub const WM_BLE_DM_SCAN_RES_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(8);
+    pub const WM_BLE_DM_SET_SCAN_PARAM_CMPL_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(16);
+    pub const WM_BLE_DM_REPORT_RSSI_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(32);
+    pub const WM_BLE_DM_SCAN_RES_CMPL_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(64);
+    pub const WM_BLE_DM_SEC_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(128);
+    pub const WM_BLE_DM_ADV_STARTED_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(256);
+    pub const WM_BLE_DM_ADV_STOPPED_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(512);
+    pub const WM_BLE_DM_HOST_SHUTDOWN_EVT: tls_ble_dm_evt_t = tls_ble_dm_evt_t(-2147483648);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_ble_dm_evt_t(pub core::ffi::c_int);
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_dm_set_adv_data_cmpl_msg_t {
+    pub status: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_set_adv_data_cmpl_msg_t"]
+        [::core::mem::size_of::<tls_ble_dm_set_adv_data_cmpl_msg_t>() - 1usize];
+    ["Alignment of tls_ble_dm_set_adv_data_cmpl_msg_t"]
+        [::core::mem::align_of::<tls_ble_dm_set_adv_data_cmpl_msg_t>() - 1usize];
+    ["Offset of field: tls_ble_dm_set_adv_data_cmpl_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_dm_set_adv_data_cmpl_msg_t, status) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_dm_set_scan_param_cmpl_msg_t {
+    pub status: u8,
+    pub dm_id: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_set_scan_param_cmpl_msg_t"]
+        [::core::mem::size_of::<tls_ble_dm_set_scan_param_cmpl_msg_t>() - 2usize];
+    ["Alignment of tls_ble_dm_set_scan_param_cmpl_msg_t"]
+        [::core::mem::align_of::<tls_ble_dm_set_scan_param_cmpl_msg_t>() - 1usize];
+    ["Offset of field: tls_ble_dm_set_scan_param_cmpl_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_dm_set_scan_param_cmpl_msg_t, status) - 0usize];
+    ["Offset of field: tls_ble_dm_set_scan_param_cmpl_msg_t::dm_id"]
+        [::core::mem::offset_of!(tls_ble_dm_set_scan_param_cmpl_msg_t, dm_id) - 1usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_dm_timer_expired_msg_t {
+    pub id: u32,
+    pub func_ptr: i32,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_timer_expired_msg_t"]
+        [::core::mem::size_of::<tls_ble_dm_timer_expired_msg_t>() - 8usize];
+    ["Alignment of tls_ble_dm_timer_expired_msg_t"]
+        [::core::mem::align_of::<tls_ble_dm_timer_expired_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_dm_timer_expired_msg_t::id"]
+        [::core::mem::offset_of!(tls_ble_dm_timer_expired_msg_t, id) - 0usize];
+    ["Offset of field: tls_ble_dm_timer_expired_msg_t::func_ptr"]
+        [::core::mem::offset_of!(tls_ble_dm_timer_expired_msg_t, func_ptr) - 4usize];
+};
+pub type tls_ble_dm_evt_triger_msg_t = tls_ble_dm_timer_expired_msg_t;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_ble_dm_scan_res_msg_t {
+    pub address: [u8; 6usize],
+    pub rssi: i8,
+    pub value: *mut u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_scan_res_msg_t"]
+        [::core::mem::size_of::<tls_ble_dm_scan_res_msg_t>() - 12usize];
+    ["Alignment of tls_ble_dm_scan_res_msg_t"]
+        [::core::mem::align_of::<tls_ble_dm_scan_res_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_dm_scan_res_msg_t::address"]
+        [::core::mem::offset_of!(tls_ble_dm_scan_res_msg_t, address) - 0usize];
+    ["Offset of field: tls_ble_dm_scan_res_msg_t::rssi"]
+        [::core::mem::offset_of!(tls_ble_dm_scan_res_msg_t, rssi) - 6usize];
+    ["Offset of field: tls_ble_dm_scan_res_msg_t::value"]
+        [::core::mem::offset_of!(tls_ble_dm_scan_res_msg_t, value) - 8usize];
+};
+impl Default for tls_ble_dm_scan_res_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_report_rssi_msg_t {
+    pub address: [u8; 6usize],
+    pub rssi: i8,
+    pub status: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_report_rssi_msg_t"]
+        [::core::mem::size_of::<tls_ble_report_rssi_msg_t>() - 8usize];
+    ["Alignment of tls_ble_report_rssi_msg_t"]
+        [::core::mem::align_of::<tls_ble_report_rssi_msg_t>() - 1usize];
+    ["Offset of field: tls_ble_report_rssi_msg_t::address"]
+        [::core::mem::offset_of!(tls_ble_report_rssi_msg_t, address) - 0usize];
+    ["Offset of field: tls_ble_report_rssi_msg_t::rssi"]
+        [::core::mem::offset_of!(tls_ble_report_rssi_msg_t, rssi) - 6usize];
+    ["Offset of field: tls_ble_report_rssi_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_report_rssi_msg_t, status) - 7usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_sec_msg_t {
+    pub address: [u8; 6usize],
+    pub transport: i8,
+    pub status: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_sec_msg_t"][::core::mem::size_of::<tls_ble_sec_msg_t>() - 8usize];
+    ["Alignment of tls_ble_sec_msg_t"][::core::mem::align_of::<tls_ble_sec_msg_t>() - 1usize];
+    ["Offset of field: tls_ble_sec_msg_t::address"]
+        [::core::mem::offset_of!(tls_ble_sec_msg_t, address) - 0usize];
+    ["Offset of field: tls_ble_sec_msg_t::transport"]
+        [::core::mem::offset_of!(tls_ble_sec_msg_t, transport) - 6usize];
+    ["Offset of field: tls_ble_sec_msg_t::status"]
+        [::core::mem::offset_of!(tls_ble_sec_msg_t, status) - 7usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_dm_scan_res_cmpl_msg_t {
+    pub num_responses: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_scan_res_cmpl_msg_t"]
+        [::core::mem::size_of::<tls_ble_dm_scan_res_cmpl_msg_t>() - 2usize];
+    ["Alignment of tls_ble_dm_scan_res_cmpl_msg_t"]
+        [::core::mem::align_of::<tls_ble_dm_scan_res_cmpl_msg_t>() - 2usize];
+    ["Offset of field: tls_ble_dm_scan_res_cmpl_msg_t::num_responses"]
+        [::core::mem::offset_of!(tls_ble_dm_scan_res_cmpl_msg_t, num_responses) - 0usize];
+};
+pub type tls_ble_dm_adv_cmpl_msg_t = tls_ble_dm_set_adv_data_cmpl_msg_t;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_ble_dm_msg_t {
+    pub dm_set_adv_data_cmpl: tls_ble_dm_set_adv_data_cmpl_msg_t,
+    pub dm_timer_expired: tls_ble_dm_timer_expired_msg_t,
+    pub dm_evt_trigered: tls_ble_dm_evt_triger_msg_t,
+    pub dm_scan_result: tls_ble_dm_scan_res_msg_t,
+    pub dm_set_scan_param_cmpl: tls_ble_dm_set_scan_param_cmpl_msg_t,
+    pub dm_scan_result_cmpl: tls_ble_dm_scan_res_cmpl_msg_t,
+    pub dm_report_rssi: tls_ble_report_rssi_msg_t,
+    pub dm_sec_result: tls_ble_sec_msg_t,
+    pub dm_adv_cmpl: tls_ble_dm_adv_cmpl_msg_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_msg_t"][::core::mem::size_of::<tls_ble_dm_msg_t>() - 12usize];
+    ["Alignment of tls_ble_dm_msg_t"][::core::mem::align_of::<tls_ble_dm_msg_t>() - 4usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_set_adv_data_cmpl"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_set_adv_data_cmpl) - 0usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_timer_expired"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_timer_expired) - 0usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_evt_trigered"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_evt_trigered) - 0usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_scan_result"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_scan_result) - 0usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_set_scan_param_cmpl"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_set_scan_param_cmpl) - 0usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_scan_result_cmpl"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_scan_result_cmpl) - 0usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_report_rssi"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_report_rssi) - 0usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_sec_result"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_sec_result) - 0usize];
+    ["Offset of field: tls_ble_dm_msg_t::dm_adv_cmpl"]
+        [::core::mem::offset_of!(tls_ble_dm_msg_t, dm_adv_cmpl) - 0usize];
+};
+impl Default for tls_ble_dm_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_ble_dm_adv_data_t {
+    pub set_scan_rsp: bool,
+    pub include_name: bool,
+    pub include_txpower: bool,
+    pub pure_data: bool,
+    pub min_interval: core::ffi::c_int,
+    pub max_interval: core::ffi::c_int,
+    pub appearance: core::ffi::c_int,
+    pub manufacturer_len: u16,
+    pub manufacturer_data: [u8; 31usize],
+    pub service_data_len: u16,
+    pub service_data: [u8; 31usize],
+    pub service_uuid_len: u16,
+    pub service_uuid: [u8; 31usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_adv_data_t"][::core::mem::size_of::<tls_ble_dm_adv_data_t>() - 115usize];
+    ["Alignment of tls_ble_dm_adv_data_t"]
+        [::core::mem::align_of::<tls_ble_dm_adv_data_t>() - 1usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::set_scan_rsp"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, set_scan_rsp) - 0usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::include_name"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, include_name) - 1usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::include_txpower"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, include_txpower) - 2usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::pure_data"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, pure_data) - 3usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::min_interval"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, min_interval) - 4usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::max_interval"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, max_interval) - 8usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::appearance"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, appearance) - 12usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::manufacturer_len"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, manufacturer_len) - 16usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::manufacturer_data"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, manufacturer_data) - 18usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::service_data_len"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, service_data_len) - 49usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::service_data"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, service_data) - 51usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::service_uuid_len"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, service_uuid_len) - 82usize];
+    ["Offset of field: tls_ble_dm_adv_data_t::service_uuid"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_data_t, service_uuid) - 84usize];
+};
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_ble_dm_adv_param_t {
+    pub adv_int_min: u16,
+    pub adv_int_max: u16,
+    pub dir_addr: *mut tls_bt_addr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_adv_param_t"][::core::mem::size_of::<tls_ble_dm_adv_param_t>() - 8usize];
+    ["Alignment of tls_ble_dm_adv_param_t"]
+        [::core::mem::align_of::<tls_ble_dm_adv_param_t>() - 1usize];
+    ["Offset of field: tls_ble_dm_adv_param_t::adv_int_min"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_param_t, adv_int_min) - 0usize];
+    ["Offset of field: tls_ble_dm_adv_param_t::adv_int_max"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_param_t, adv_int_max) - 2usize];
+    ["Offset of field: tls_ble_dm_adv_param_t::dir_addr"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_param_t, dir_addr) - 4usize];
+};
+impl Default for tls_ble_dm_adv_param_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_ble_dm_adv_ext_param_t {
+    pub adv_int_min: u16,
+    pub adv_int_max: u16,
+    pub adv_type: u8,
+    pub own_addr_type: u8,
+    pub chnl_map: u8,
+    pub afp: u8,
+    pub peer_addr_type: u8,
+    pub dir_addr: *mut tls_bt_addr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_ble_dm_adv_ext_param_t"]
+        [::core::mem::size_of::<tls_ble_dm_adv_ext_param_t>() - 13usize];
+    ["Alignment of tls_ble_dm_adv_ext_param_t"]
+        [::core::mem::align_of::<tls_ble_dm_adv_ext_param_t>() - 1usize];
+    ["Offset of field: tls_ble_dm_adv_ext_param_t::adv_int_min"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_ext_param_t, adv_int_min) - 0usize];
+    ["Offset of field: tls_ble_dm_adv_ext_param_t::adv_int_max"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_ext_param_t, adv_int_max) - 2usize];
+    ["Offset of field: tls_ble_dm_adv_ext_param_t::adv_type"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_ext_param_t, adv_type) - 4usize];
+    ["Offset of field: tls_ble_dm_adv_ext_param_t::own_addr_type"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_ext_param_t, own_addr_type) - 5usize];
+    ["Offset of field: tls_ble_dm_adv_ext_param_t::chnl_map"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_ext_param_t, chnl_map) - 6usize];
+    ["Offset of field: tls_ble_dm_adv_ext_param_t::afp"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_ext_param_t, afp) - 7usize];
+    ["Offset of field: tls_ble_dm_adv_ext_param_t::peer_addr_type"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_ext_param_t, peer_addr_type) - 8usize];
+    ["Offset of field: tls_ble_dm_adv_ext_param_t::dir_addr"]
+        [::core::mem::offset_of!(tls_ble_dm_adv_ext_param_t, dir_addr) - 9usize];
+};
+impl Default for tls_ble_dm_adv_ext_param_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type tls_ble_dm_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_ble_dm_evt_t, p_data: *mut tls_ble_dm_msg_t),
+>;
+pub type tls_ble_dm_timer_callback_t = ::core::option::Option<unsafe extern "C" fn(timer_id: u8)>;
+pub type tls_ble_dm_triger_callback_t = ::core::option::Option<unsafe extern "C" fn(evt_id: u32)>;
+pub type tls_ble_scan_res_notify_t =
+    ::core::option::Option<unsafe extern "C" fn(msg: *mut tls_ble_dm_scan_res_msg_t)>;
+impl tls_btav_connection_state_t {
+    pub const WM_BTAV_CONNECTION_STATE_DISCONNECTED: tls_btav_connection_state_t =
+        tls_btav_connection_state_t(0);
+    pub const WM_BTAV_CONNECTION_STATE_CONNECTING: tls_btav_connection_state_t =
+        tls_btav_connection_state_t(1);
+    pub const WM_BTAV_CONNECTION_STATE_CONNECTED: tls_btav_connection_state_t =
+        tls_btav_connection_state_t(2);
+    pub const WM_BTAV_CONNECTION_STATE_DISCONNECTING: tls_btav_connection_state_t =
+        tls_btav_connection_state_t(3);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btav_connection_state_t(pub core::ffi::c_uint);
+impl tls_btav_audio_state_t {
+    pub const WM_BTAV_AUDIO_STATE_REMOTE_SUSPEND: tls_btav_audio_state_t =
+        tls_btav_audio_state_t(0);
+    pub const WM_BTAV_AUDIO_STATE_STOPPED: tls_btav_audio_state_t = tls_btav_audio_state_t(1);
+    pub const WM_BTAV_AUDIO_STATE_STARTED: tls_btav_audio_state_t = tls_btav_audio_state_t(2);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btav_audio_state_t(pub core::ffi::c_uint);
+impl tls_bt_av_evt_t {
+    pub const WMBT_A2DP_CONNECTION_STATE_EVT: tls_bt_av_evt_t = tls_bt_av_evt_t(0);
+    pub const WMBT_A2DP_AUDIO_STATE_EVT: tls_bt_av_evt_t = tls_bt_av_evt_t(1);
+    pub const WMBT_A2DP_AUDIO_CONFIG_EVT: tls_bt_av_evt_t = tls_bt_av_evt_t(2);
+    pub const WMBT_A2DP_AUDIO_PAYLOAD_EVT: tls_bt_av_evt_t = tls_bt_av_evt_t(3);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_av_evt_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_av_connection_state_t {
+    pub stat: tls_btav_connection_state_t,
+    pub bd_addr: *mut tls_bt_addr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_av_connection_state_t"]
+        [::core::mem::size_of::<tls_bt_av_connection_state_t>() - 8usize];
+    ["Alignment of tls_bt_av_connection_state_t"]
+        [::core::mem::align_of::<tls_bt_av_connection_state_t>() - 4usize];
+    ["Offset of field: tls_bt_av_connection_state_t::stat"]
+        [::core::mem::offset_of!(tls_bt_av_connection_state_t, stat) - 0usize];
+    ["Offset of field: tls_bt_av_connection_state_t::bd_addr"]
+        [::core::mem::offset_of!(tls_bt_av_connection_state_t, bd_addr) - 4usize];
+};
+impl Default for tls_bt_av_connection_state_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_av_audio_state_t {
+    pub stat: tls_btav_audio_state_t,
+    pub bd_addr: *mut tls_bt_addr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_av_audio_state_t"][::core::mem::size_of::<tls_bt_av_audio_state_t>() - 8usize];
+    ["Alignment of tls_bt_av_audio_state_t"]
+        [::core::mem::align_of::<tls_bt_av_audio_state_t>() - 4usize];
+    ["Offset of field: tls_bt_av_audio_state_t::stat"]
+        [::core::mem::offset_of!(tls_bt_av_audio_state_t, stat) - 0usize];
+    ["Offset of field: tls_bt_av_audio_state_t::bd_addr"]
+        [::core::mem::offset_of!(tls_bt_av_audio_state_t, bd_addr) - 4usize];
+};
+impl Default for tls_bt_av_audio_state_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_av_audio_config_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub sample_rate: u32,
+    pub channel_count: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_av_audio_config_t"]
+        [::core::mem::size_of::<tls_bt_av_audio_config_t>() - 12usize];
+    ["Alignment of tls_bt_av_audio_config_t"]
+        [::core::mem::align_of::<tls_bt_av_audio_config_t>() - 4usize];
+    ["Offset of field: tls_bt_av_audio_config_t::bd_addr"]
+        [::core::mem::offset_of!(tls_bt_av_audio_config_t, bd_addr) - 0usize];
+    ["Offset of field: tls_bt_av_audio_config_t::sample_rate"]
+        [::core::mem::offset_of!(tls_bt_av_audio_config_t, sample_rate) - 4usize];
+    ["Offset of field: tls_bt_av_audio_config_t::channel_count"]
+        [::core::mem::offset_of!(tls_bt_av_audio_config_t, channel_count) - 8usize];
+};
+impl Default for tls_bt_av_audio_config_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bt_av_audio_payload_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub audio_format: u8,
+    pub payload: *mut u8,
+    pub payload_length: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_av_audio_payload_t"]
+        [::core::mem::size_of::<tls_bt_av_audio_payload_t>() - 16usize];
+    ["Alignment of tls_bt_av_audio_payload_t"]
+        [::core::mem::align_of::<tls_bt_av_audio_payload_t>() - 4usize];
+    ["Offset of field: tls_bt_av_audio_payload_t::bd_addr"]
+        [::core::mem::offset_of!(tls_bt_av_audio_payload_t, bd_addr) - 0usize];
+    ["Offset of field: tls_bt_av_audio_payload_t::audio_format"]
+        [::core::mem::offset_of!(tls_bt_av_audio_payload_t, audio_format) - 4usize];
+    ["Offset of field: tls_bt_av_audio_payload_t::payload"]
+        [::core::mem::offset_of!(tls_bt_av_audio_payload_t, payload) - 8usize];
+    ["Offset of field: tls_bt_av_audio_payload_t::payload_length"]
+        [::core::mem::offset_of!(tls_bt_av_audio_payload_t, payload_length) - 12usize];
+};
+impl Default for tls_bt_av_audio_payload_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_bt_av_msg_t {
+    pub av_connection_state: tls_bt_av_connection_state_t,
+    pub av_audio_state: tls_bt_av_audio_state_t,
+    pub av_audio_config: tls_bt_av_audio_config_t,
+    pub av_audio_payload: tls_bt_av_audio_payload_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_av_msg_t"][::core::mem::size_of::<tls_bt_av_msg_t>() - 16usize];
+    ["Alignment of tls_bt_av_msg_t"][::core::mem::align_of::<tls_bt_av_msg_t>() - 4usize];
+    ["Offset of field: tls_bt_av_msg_t::av_connection_state"]
+        [::core::mem::offset_of!(tls_bt_av_msg_t, av_connection_state) - 0usize];
+    ["Offset of field: tls_bt_av_msg_t::av_audio_state"]
+        [::core::mem::offset_of!(tls_bt_av_msg_t, av_audio_state) - 0usize];
+    ["Offset of field: tls_bt_av_msg_t::av_audio_config"]
+        [::core::mem::offset_of!(tls_bt_av_msg_t, av_audio_config) - 0usize];
+    ["Offset of field: tls_bt_av_msg_t::av_audio_payload"]
+        [::core::mem::offset_of!(tls_bt_av_msg_t, av_audio_payload) - 0usize];
+};
+impl Default for tls_bt_av_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type tls_bt_a2dp_sink_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_bt_av_evt_t, p_data: *mut tls_bt_av_msg_t),
+>;
+pub type tls_bt_a2dp_src_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_bt_av_evt_t, p_data: *mut tls_bt_av_msg_t),
+>;
+pub type tls_btrc_uid_t = [u8; 8usize];
+impl tls_btrc_play_status_t {
+    pub const WM_BTRC_PLAYSTATE_STOPPED: tls_btrc_play_status_t = tls_btrc_play_status_t(0);
+    pub const WM_BTRC_PLAYSTATE_PLAYING: tls_btrc_play_status_t = tls_btrc_play_status_t(1);
+    pub const WM_BTRC_PLAYSTATE_PAUSED: tls_btrc_play_status_t = tls_btrc_play_status_t(2);
+    pub const WM_BTRC_PLAYSTATE_FWD_SEEK: tls_btrc_play_status_t = tls_btrc_play_status_t(3);
+    pub const WM_BTRC_PLAYSTATE_REV_SEEK: tls_btrc_play_status_t = tls_btrc_play_status_t(4);
+    pub const WM_BTRC_PLAYSTATE_ERROR: tls_btrc_play_status_t = tls_btrc_play_status_t(255);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_play_status_t(pub core::ffi::c_uint);
+impl tls_btrc_remote_features_t {
+    pub const WM_BTRC_FEAT_NONE: tls_btrc_remote_features_t = tls_btrc_remote_features_t(0);
+    pub const WM_BTRC_FEAT_METADATA: tls_btrc_remote_features_t = tls_btrc_remote_features_t(1);
+    pub const WM_BTRC_FEAT_ABSOLUTE_VOLUME: tls_btrc_remote_features_t =
+        tls_btrc_remote_features_t(2);
+    pub const WM_BTRC_FEAT_BROWSE: tls_btrc_remote_features_t = tls_btrc_remote_features_t(4);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_remote_features_t(pub core::ffi::c_uint);
+impl tls_btrc_notification_type_t {
+    pub const WM_BTRC_NOTIFICATION_TYPE_INTERIM: tls_btrc_notification_type_t =
+        tls_btrc_notification_type_t(0);
+    pub const WM_BTRC_NOTIFICATION_TYPE_CHANGED: tls_btrc_notification_type_t =
+        tls_btrc_notification_type_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_notification_type_t(pub core::ffi::c_uint);
+impl tls_btrc_player_attr_t {
+    pub const WM_BTRC_PLAYER_ATTR_EQUALIZER: tls_btrc_player_attr_t = tls_btrc_player_attr_t(1);
+    pub const WM_BTRC_PLAYER_ATTR_REPEAT: tls_btrc_player_attr_t = tls_btrc_player_attr_t(2);
+    pub const WM_BTRC_PLAYER_ATTR_SHUFFLE: tls_btrc_player_attr_t = tls_btrc_player_attr_t(3);
+    pub const WM_BTRC_PLAYER_ATTR_SCAN: tls_btrc_player_attr_t = tls_btrc_player_attr_t(4);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_player_attr_t(pub core::ffi::c_uint);
+impl tls_btrc_media_attr_t {
+    pub const WM_BTRC_MEDIA_ATTR_TITLE: tls_btrc_media_attr_t = tls_btrc_media_attr_t(1);
+    pub const WM_BTRC_MEDIA_ATTR_ARTIST: tls_btrc_media_attr_t = tls_btrc_media_attr_t(2);
+    pub const WM_BTRC_MEDIA_ATTR_ALBUM: tls_btrc_media_attr_t = tls_btrc_media_attr_t(3);
+    pub const WM_BTRC_MEDIA_ATTR_TRACK_NUM: tls_btrc_media_attr_t = tls_btrc_media_attr_t(4);
+    pub const WM_BTRC_MEDIA_ATTR_NUM_TRACKS: tls_btrc_media_attr_t = tls_btrc_media_attr_t(5);
+    pub const WM_BTRC_MEDIA_ATTR_GENRE: tls_btrc_media_attr_t = tls_btrc_media_attr_t(6);
+    pub const WM_BTRC_MEDIA_ATTR_PLAYING_TIME: tls_btrc_media_attr_t = tls_btrc_media_attr_t(7);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_media_attr_t(pub core::ffi::c_uint);
+impl tls_btrc_player_repeat_val_t {
+    pub const WM_BTRC_PLAYER_VAL_OFF_REPEAT: tls_btrc_player_repeat_val_t =
+        tls_btrc_player_repeat_val_t(1);
+    pub const WM_BTRC_PLAYER_VAL_SINGLE_REPEAT: tls_btrc_player_repeat_val_t =
+        tls_btrc_player_repeat_val_t(2);
+    pub const WM_BTRC_PLAYER_VAL_ALL_REPEAT: tls_btrc_player_repeat_val_t =
+        tls_btrc_player_repeat_val_t(3);
+    pub const WM_BTRC_PLAYER_VAL_GROUP_REPEAT: tls_btrc_player_repeat_val_t =
+        tls_btrc_player_repeat_val_t(4);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_player_repeat_val_t(pub core::ffi::c_uint);
+impl tls_btrc_event_id_t {
+    pub const WM_BTRC_EVT_PLAY_STATUS_CHANGED: tls_btrc_event_id_t = tls_btrc_event_id_t(1);
+    pub const WM_BTRC_EVT_TRACK_CHANGE: tls_btrc_event_id_t = tls_btrc_event_id_t(2);
+    pub const WM_BTRC_EVT_TRACK_REACHED_END: tls_btrc_event_id_t = tls_btrc_event_id_t(3);
+    pub const WM_BTRC_EVT_TRACK_REACHED_START: tls_btrc_event_id_t = tls_btrc_event_id_t(4);
+    pub const WM_BTRC_EVT_PLAY_POS_CHANGED: tls_btrc_event_id_t = tls_btrc_event_id_t(5);
+    pub const WM_BTRC_EVT_APP_SETTINGS_CHANGED: tls_btrc_event_id_t = tls_btrc_event_id_t(8);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_event_id_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_btrc_player_settings_t {
+    pub num_attr: u8,
+    pub attr_ids: [u8; 8usize],
+    pub attr_values: [u8; 8usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_player_settings_t"]
+        [::core::mem::size_of::<tls_btrc_player_settings_t>() - 17usize];
+    ["Alignment of tls_btrc_player_settings_t"]
+        [::core::mem::align_of::<tls_btrc_player_settings_t>() - 1usize];
+    ["Offset of field: tls_btrc_player_settings_t::num_attr"]
+        [::core::mem::offset_of!(tls_btrc_player_settings_t, num_attr) - 0usize];
+    ["Offset of field: tls_btrc_player_settings_t::attr_ids"]
+        [::core::mem::offset_of!(tls_btrc_player_settings_t, attr_ids) - 1usize];
+    ["Offset of field: tls_btrc_player_settings_t::attr_values"]
+        [::core::mem::offset_of!(tls_btrc_player_settings_t, attr_values) - 9usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_element_attr_val_t {
+    pub attr_id: u32,
+    pub text: [u8; 255usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_element_attr_val_t"]
+        [::core::mem::size_of::<tls_btrc_element_attr_val_t>() - 260usize];
+    ["Alignment of tls_btrc_element_attr_val_t"]
+        [::core::mem::align_of::<tls_btrc_element_attr_val_t>() - 4usize];
+    ["Offset of field: tls_btrc_element_attr_val_t::attr_id"]
+        [::core::mem::offset_of!(tls_btrc_element_attr_val_t, attr_id) - 0usize];
+    ["Offset of field: tls_btrc_element_attr_val_t::text"]
+        [::core::mem::offset_of!(tls_btrc_element_attr_val_t, text) - 4usize];
+};
+impl Default for tls_btrc_element_attr_val_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_btrc_player_app_attr_t {
+    pub attr_id: u8,
+    pub num_val: u8,
+    pub attr_val: [u8; 16usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_player_app_attr_t"]
+        [::core::mem::size_of::<tls_btrc_player_app_attr_t>() - 18usize];
+    ["Alignment of tls_btrc_player_app_attr_t"]
+        [::core::mem::align_of::<tls_btrc_player_app_attr_t>() - 1usize];
+    ["Offset of field: tls_btrc_player_app_attr_t::attr_id"]
+        [::core::mem::offset_of!(tls_btrc_player_app_attr_t, attr_id) - 0usize];
+    ["Offset of field: tls_btrc_player_app_attr_t::num_val"]
+        [::core::mem::offset_of!(tls_btrc_player_app_attr_t, num_val) - 1usize];
+    ["Offset of field: tls_btrc_player_app_attr_t::attr_val"]
+        [::core::mem::offset_of!(tls_btrc_player_app_attr_t, attr_val) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_player_app_ext_attr_val_t {
+    pub val: u8,
+    pub charset_id: u16,
+    pub str_len: u16,
+    pub p_str: *mut u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_player_app_ext_attr_val_t"]
+        [::core::mem::size_of::<tls_btrc_player_app_ext_attr_val_t>() - 12usize];
+    ["Alignment of tls_btrc_player_app_ext_attr_val_t"]
+        [::core::mem::align_of::<tls_btrc_player_app_ext_attr_val_t>() - 4usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_val_t::val"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_val_t, val) - 0usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_val_t::charset_id"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_val_t, charset_id) - 2usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_val_t::str_len"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_val_t, str_len) - 4usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_val_t::p_str"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_val_t, p_str) - 8usize];
+};
+impl Default for tls_btrc_player_app_ext_attr_val_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_player_app_ext_attr_t {
+    pub attr_id: u8,
+    pub charset_id: u16,
+    pub str_len: u16,
+    pub p_str: *mut u8,
+    pub num_val: u8,
+    pub ext_attr_val: [tls_btrc_player_app_ext_attr_val_t; 16usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_player_app_ext_attr_t"]
+        [::core::mem::size_of::<tls_btrc_player_app_ext_attr_t>() - 208usize];
+    ["Alignment of tls_btrc_player_app_ext_attr_t"]
+        [::core::mem::align_of::<tls_btrc_player_app_ext_attr_t>() - 4usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_t::attr_id"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_t, attr_id) - 0usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_t::charset_id"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_t, charset_id) - 2usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_t::str_len"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_t, str_len) - 4usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_t::p_str"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_t, p_str) - 8usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_t::num_val"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_t, num_val) - 12usize];
+    ["Offset of field: tls_btrc_player_app_ext_attr_t::ext_attr_val"]
+        [::core::mem::offset_of!(tls_btrc_player_app_ext_attr_t, ext_attr_val) - 16usize];
+};
+impl Default for tls_btrc_player_app_ext_attr_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_btrc_register_notification_t {
+    pub play_status: tls_btrc_play_status_t,
+    pub track: tls_btrc_uid_t,
+    pub song_pos: u32,
+    pub player_setting: tls_btrc_player_settings_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_register_notification_t"]
+        [::core::mem::size_of::<tls_btrc_register_notification_t>() - 20usize];
+    ["Alignment of tls_btrc_register_notification_t"]
+        [::core::mem::align_of::<tls_btrc_register_notification_t>() - 4usize];
+    ["Offset of field: tls_btrc_register_notification_t::play_status"]
+        [::core::mem::offset_of!(tls_btrc_register_notification_t, play_status) - 0usize];
+    ["Offset of field: tls_btrc_register_notification_t::track"]
+        [::core::mem::offset_of!(tls_btrc_register_notification_t, track) - 0usize];
+    ["Offset of field: tls_btrc_register_notification_t::song_pos"]
+        [::core::mem::offset_of!(tls_btrc_register_notification_t, song_pos) - 0usize];
+    ["Offset of field: tls_btrc_register_notification_t::player_setting"]
+        [::core::mem::offset_of!(tls_btrc_register_notification_t, player_setting) - 0usize];
+};
+impl Default for tls_btrc_register_notification_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl tls_btrc_ctrl_evt_t {
+    pub const WM_BTRC_PASSTHROUGH_RSP_EVT: tls_btrc_ctrl_evt_t = tls_btrc_ctrl_evt_t(0);
+    pub const WM_BTRC_GROUPNAVIGATION_RSP_EVT: tls_btrc_ctrl_evt_t = tls_btrc_ctrl_evt_t(1);
+    pub const WM_BTRC_CONNECTION_STATE_EVT: tls_btrc_ctrl_evt_t = tls_btrc_ctrl_evt_t(2);
+    pub const WM_BTRC_CTRL_GETRCFEATURES_EVT: tls_btrc_ctrl_evt_t = tls_btrc_ctrl_evt_t(3);
+    pub const WM_BTRC_CTRL_SETPLAYERAPPLICATIONSETTING_RSP_EVT: tls_btrc_ctrl_evt_t =
+        tls_btrc_ctrl_evt_t(4);
+    pub const WM_BTRC_CTRL_PLAYERAPPLICATIONSETTING_EVT: tls_btrc_ctrl_evt_t =
+        tls_btrc_ctrl_evt_t(5);
+    pub const WM_BTRC_CTRL_PLAYERAPPLICATIONSETTING_CHANGED_EVT: tls_btrc_ctrl_evt_t =
+        tls_btrc_ctrl_evt_t(6);
+    pub const WM_BTRC_CTRL_SETABSVOL_CMD_EVT: tls_btrc_ctrl_evt_t = tls_btrc_ctrl_evt_t(7);
+    pub const WM_BTRC_CTRL_REGISTERNOTIFICATION_ABS_VOL_EVT: tls_btrc_ctrl_evt_t =
+        tls_btrc_ctrl_evt_t(8);
+    pub const WM_BTRC_CTRL_TRACK_CHANGED_EVT: tls_btrc_ctrl_evt_t = tls_btrc_ctrl_evt_t(9);
+    pub const WM_BTRC_CTRL_PLAY_POSITION_CHANGED_EVT: tls_btrc_ctrl_evt_t = tls_btrc_ctrl_evt_t(10);
+    pub const WM_BTRC_CTRL_PLAY_STATUS_CHANGED_EVT: tls_btrc_ctrl_evt_t = tls_btrc_ctrl_evt_t(11);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_ctrl_evt_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_btrc_passthrough_rsp_msg_t {
+    pub id: core::ffi::c_int,
+    pub key_state: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_passthrough_rsp_msg_t"]
+        [::core::mem::size_of::<tls_btrc_passthrough_rsp_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_passthrough_rsp_msg_t"]
+        [::core::mem::align_of::<tls_btrc_passthrough_rsp_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_passthrough_rsp_msg_t::id"]
+        [::core::mem::offset_of!(tls_btrc_passthrough_rsp_msg_t, id) - 0usize];
+    ["Offset of field: tls_btrc_passthrough_rsp_msg_t::key_state"]
+        [::core::mem::offset_of!(tls_btrc_passthrough_rsp_msg_t, key_state) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_btrc_groupnavigation_rsp_msg_t {
+    pub id: core::ffi::c_int,
+    pub key_state: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_groupnavigation_rsp_msg_t"]
+        [::core::mem::size_of::<tls_btrc_groupnavigation_rsp_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_groupnavigation_rsp_msg_t"]
+        [::core::mem::align_of::<tls_btrc_groupnavigation_rsp_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_groupnavigation_rsp_msg_t::id"]
+        [::core::mem::offset_of!(tls_btrc_groupnavigation_rsp_msg_t, id) - 0usize];
+    ["Offset of field: tls_btrc_groupnavigation_rsp_msg_t::key_state"]
+        [::core::mem::offset_of!(tls_btrc_groupnavigation_rsp_msg_t, key_state) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_connection_state_msg_t {
+    pub state: u8,
+    pub bd_addr: *mut tls_bt_addr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_connection_state_msg_t"]
+        [::core::mem::size_of::<tls_btrc_connection_state_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_connection_state_msg_t"]
+        [::core::mem::align_of::<tls_btrc_connection_state_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_connection_state_msg_t::state"]
+        [::core::mem::offset_of!(tls_btrc_connection_state_msg_t, state) - 0usize];
+    ["Offset of field: tls_btrc_connection_state_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_btrc_connection_state_msg_t, bd_addr) - 4usize];
+};
+impl Default for tls_btrc_connection_state_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_getrcfeatures_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub features: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_getrcfeatures_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_getrcfeatures_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_ctrl_getrcfeatures_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_getrcfeatures_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_getrcfeatures_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_getrcfeatures_msg_t, bd_addr) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_getrcfeatures_msg_t::features"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_getrcfeatures_msg_t, features) - 4usize];
+};
+impl Default for tls_btrc_ctrl_getrcfeatures_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_setabsvol_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub abs_vol: u8,
+    pub label: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_setabsvol_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_setabsvol_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_ctrl_setabsvol_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_setabsvol_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_setabsvol_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_setabsvol_msg_t, bd_addr) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_setabsvol_msg_t::abs_vol"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_setabsvol_msg_t, abs_vol) - 4usize];
+    ["Offset of field: tls_btrc_ctrl_setabsvol_msg_t::label"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_setabsvol_msg_t, label) - 5usize];
+};
+impl Default for tls_btrc_ctrl_setabsvol_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_registernotification_abs_vol_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub label: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_registernotification_abs_vol_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_registernotification_abs_vol_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_ctrl_registernotification_abs_vol_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_registernotification_abs_vol_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_registernotification_abs_vol_msg_t::bd_addr"][::core::mem::offset_of!(
+        tls_btrc_ctrl_registernotification_abs_vol_msg_t,
+        bd_addr
+    ) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_registernotification_abs_vol_msg_t::label"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_registernotification_abs_vol_msg_t, label) - 4usize];
+};
+impl Default for tls_btrc_ctrl_registernotification_abs_vol_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub accepted: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t::bd_addr"][::core::mem::offset_of!(
+        tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t,
+        bd_addr
+    ) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t::accepted"][::core::mem::offset_of!(
+        tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t,
+        accepted
+    ) - 4usize];
+};
+impl Default for tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_playerapplicationsetting_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub num_attr: u8,
+    pub app_attrs: *mut tls_btrc_player_app_attr_t,
+    pub num_ext_attr: u8,
+    pub ext_attrs: *mut tls_btrc_player_app_ext_attr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_playerapplicationsetting_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_playerapplicationsetting_msg_t>() - 20usize];
+    ["Alignment of tls_btrc_ctrl_playerapplicationsetting_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_playerapplicationsetting_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_playerapplicationsetting_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_playerapplicationsetting_msg_t, bd_addr) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_playerapplicationsetting_msg_t::num_attr"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_playerapplicationsetting_msg_t, num_attr) - 4usize];
+    ["Offset of field: tls_btrc_ctrl_playerapplicationsetting_msg_t::app_attrs"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_playerapplicationsetting_msg_t, app_attrs) - 8usize];
+    ["Offset of field: tls_btrc_ctrl_playerapplicationsetting_msg_t::num_ext_attr"][::core::mem::offset_of!(
+        tls_btrc_ctrl_playerapplicationsetting_msg_t,
+        num_ext_attr
+    ) - 12usize];
+    ["Offset of field: tls_btrc_ctrl_playerapplicationsetting_msg_t::ext_attrs"][::core::mem::offset_of!(
+        tls_btrc_ctrl_playerapplicationsetting_msg_t,
+        ext_attrs
+    ) - 16usize];
+};
+impl Default for tls_btrc_ctrl_playerapplicationsetting_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_playerapplicationsetting_changed_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub p_vals: *mut tls_btrc_player_settings_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_playerapplicationsetting_changed_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_playerapplicationsetting_changed_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_ctrl_playerapplicationsetting_changed_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_playerapplicationsetting_changed_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_playerapplicationsetting_changed_msg_t::bd_addr"][::core::mem::offset_of!(
+        tls_btrc_ctrl_playerapplicationsetting_changed_msg_t,
+        bd_addr
+    ) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_playerapplicationsetting_changed_msg_t::p_vals"][::core::mem::offset_of!(
+        tls_btrc_ctrl_playerapplicationsetting_changed_msg_t,
+        p_vals
+    ) - 4usize];
+};
+impl Default for tls_btrc_ctrl_playerapplicationsetting_changed_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_track_changed_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub num_attr: u8,
+    pub p_attrs: *mut tls_btrc_element_attr_val_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_track_changed_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_track_changed_msg_t>() - 12usize];
+    ["Alignment of tls_btrc_ctrl_track_changed_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_track_changed_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_track_changed_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_track_changed_msg_t, bd_addr) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_track_changed_msg_t::num_attr"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_track_changed_msg_t, num_attr) - 4usize];
+    ["Offset of field: tls_btrc_ctrl_track_changed_msg_t::p_attrs"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_track_changed_msg_t, p_attrs) - 8usize];
+};
+impl Default for tls_btrc_ctrl_track_changed_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_play_position_changed_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub song_len: u32,
+    pub song_pos: u32,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_play_position_changed_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_play_position_changed_msg_t>() - 12usize];
+    ["Alignment of tls_btrc_ctrl_play_position_changed_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_play_position_changed_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_play_position_changed_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_play_position_changed_msg_t, bd_addr) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_play_position_changed_msg_t::song_len"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_play_position_changed_msg_t, song_len) - 4usize];
+    ["Offset of field: tls_btrc_ctrl_play_position_changed_msg_t::song_pos"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_play_position_changed_msg_t, song_pos) - 8usize];
+};
+impl Default for tls_btrc_ctrl_play_position_changed_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_ctrl_play_status_changed_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub play_status: tls_btrc_play_status_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_play_status_changed_msg_t"]
+        [::core::mem::size_of::<tls_btrc_ctrl_play_status_changed_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_ctrl_play_status_changed_msg_t"]
+        [::core::mem::align_of::<tls_btrc_ctrl_play_status_changed_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_play_status_changed_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_play_status_changed_msg_t, bd_addr) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_play_status_changed_msg_t::play_status"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_play_status_changed_msg_t, play_status) - 4usize];
+};
+impl Default for tls_btrc_ctrl_play_status_changed_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_btrc_ctrl_msg_t {
+    pub passthrough_rsp: tls_btrc_passthrough_rsp_msg_t,
+    pub groupnavigation_rsp: tls_btrc_groupnavigation_rsp_msg_t,
+    pub connection_state: tls_btrc_connection_state_msg_t,
+    pub getrcfeatures: tls_btrc_ctrl_getrcfeatures_msg_t,
+    pub setabsvol: tls_btrc_ctrl_setabsvol_msg_t,
+    pub registernotification_abs_vol: tls_btrc_ctrl_registernotification_abs_vol_msg_t,
+    pub setplayerapplicationsetting_rsp: tls_btrc_ctrl_setplayerapplicationsetting_rsp_msg_t,
+    pub playerapplicationsetting: tls_btrc_ctrl_playerapplicationsetting_msg_t,
+    pub playerapplicationsetting_changed: tls_btrc_ctrl_playerapplicationsetting_changed_msg_t,
+    pub track_changed: tls_btrc_ctrl_track_changed_msg_t,
+    pub play_position_changed: tls_btrc_ctrl_play_position_changed_msg_t,
+    pub play_status_changed: tls_btrc_ctrl_play_status_changed_msg_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_ctrl_msg_t"][::core::mem::size_of::<tls_btrc_ctrl_msg_t>() - 20usize];
+    ["Alignment of tls_btrc_ctrl_msg_t"][::core::mem::align_of::<tls_btrc_ctrl_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::passthrough_rsp"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, passthrough_rsp) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::groupnavigation_rsp"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, groupnavigation_rsp) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::connection_state"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, connection_state) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::getrcfeatures"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, getrcfeatures) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::setabsvol"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, setabsvol) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::registernotification_abs_vol"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, registernotification_abs_vol) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::setplayerapplicationsetting_rsp"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, setplayerapplicationsetting_rsp) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::playerapplicationsetting"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, playerapplicationsetting) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::playerapplicationsetting_changed"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, playerapplicationsetting_changed) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::track_changed"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, track_changed) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::play_position_changed"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, play_position_changed) - 0usize];
+    ["Offset of field: tls_btrc_ctrl_msg_t::play_status_changed"]
+        [::core::mem::offset_of!(tls_btrc_ctrl_msg_t, play_status_changed) - 0usize];
+};
+impl Default for tls_btrc_ctrl_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type tls_btrc_ctrl_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_btrc_ctrl_evt_t, p_data: *mut tls_btrc_ctrl_msg_t),
+>;
+impl tls_btrc_evt_t {
+    pub const WM_BTRC_REMOTE_FEATURE_EVT: tls_btrc_evt_t = tls_btrc_evt_t(0);
+    pub const WM_BTRC_GET_PLAY_STATUS_EVT: tls_btrc_evt_t = tls_btrc_evt_t(1);
+    pub const WM_BTRC_LIST_PLAYER_APP_ATTR_EVT: tls_btrc_evt_t = tls_btrc_evt_t(2);
+    pub const WM_BTRC_LIST_PLAYER_APP_VALUES_EVT: tls_btrc_evt_t = tls_btrc_evt_t(3);
+    pub const WM_BTRC_GET_PLAYER_APP_VALUE_EVT: tls_btrc_evt_t = tls_btrc_evt_t(4);
+    pub const WM_BTRC_GET_PLAYER_APP_ATTRS_TEXT_EVT: tls_btrc_evt_t = tls_btrc_evt_t(5);
+    pub const WM_BTRC_GET_PLAYER_APP_VALUES_TEXT_EVT: tls_btrc_evt_t = tls_btrc_evt_t(6);
+    pub const WM_BTRC_SET_PLAYER_APP_VALUE_EVT: tls_btrc_evt_t = tls_btrc_evt_t(7);
+    pub const WM_BTRC_GET_ELEMENT_ATTR_EVT: tls_btrc_evt_t = tls_btrc_evt_t(8);
+    pub const WM_BTRC_REGISTER_NOTIFICATION_EVT: tls_btrc_evt_t = tls_btrc_evt_t(9);
+    pub const WM_BTRC_VOLUME_CHANGED_EVT: tls_btrc_evt_t = tls_btrc_evt_t(10);
+    pub const WM_BTRC_PASSTHROUGH_CMD_EVT: tls_btrc_evt_t = tls_btrc_evt_t(11);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_btrc_evt_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_remote_features_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub features: tls_btrc_remote_features_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_remote_features_msg_t"]
+        [::core::mem::size_of::<tls_btrc_remote_features_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_remote_features_msg_t"]
+        [::core::mem::align_of::<tls_btrc_remote_features_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_remote_features_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_btrc_remote_features_msg_t, bd_addr) - 0usize];
+    ["Offset of field: tls_btrc_remote_features_msg_t::features"]
+        [::core::mem::offset_of!(tls_btrc_remote_features_msg_t, features) - 4usize];
+};
+impl Default for tls_btrc_remote_features_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_get_play_status_msg_t {
+    pub reserved: *mut core::ffi::c_void,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_get_play_status_msg_t"]
+        [::core::mem::size_of::<tls_btrc_get_play_status_msg_t>() - 4usize];
+    ["Alignment of tls_btrc_get_play_status_msg_t"]
+        [::core::mem::align_of::<tls_btrc_get_play_status_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_get_play_status_msg_t::reserved"]
+        [::core::mem::offset_of!(tls_btrc_get_play_status_msg_t, reserved) - 0usize];
+};
+impl Default for tls_btrc_get_play_status_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_list_player_app_attr_msg_t {
+    pub reserved: *mut core::ffi::c_void,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_list_player_app_attr_msg_t"]
+        [::core::mem::size_of::<tls_btrc_list_player_app_attr_msg_t>() - 4usize];
+    ["Alignment of tls_btrc_list_player_app_attr_msg_t"]
+        [::core::mem::align_of::<tls_btrc_list_player_app_attr_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_list_player_app_attr_msg_t::reserved"]
+        [::core::mem::offset_of!(tls_btrc_list_player_app_attr_msg_t, reserved) - 0usize];
+};
+impl Default for tls_btrc_list_player_app_attr_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_list_player_app_values_msg_t {
+    pub attr_id: tls_btrc_player_attr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_list_player_app_values_msg_t"]
+        [::core::mem::size_of::<tls_btrc_list_player_app_values_msg_t>() - 4usize];
+    ["Alignment of tls_btrc_list_player_app_values_msg_t"]
+        [::core::mem::align_of::<tls_btrc_list_player_app_values_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_list_player_app_values_msg_t::attr_id"]
+        [::core::mem::offset_of!(tls_btrc_list_player_app_values_msg_t, attr_id) - 0usize];
+};
+impl Default for tls_btrc_list_player_app_values_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_get_player_app_value_msg_t {
+    pub num_attr: u8,
+    pub p_attrs: *mut tls_btrc_player_attr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_get_player_app_value_msg_t"]
+        [::core::mem::size_of::<tls_btrc_get_player_app_value_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_get_player_app_value_msg_t"]
+        [::core::mem::align_of::<tls_btrc_get_player_app_value_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_get_player_app_value_msg_t::num_attr"]
+        [::core::mem::offset_of!(tls_btrc_get_player_app_value_msg_t, num_attr) - 0usize];
+    ["Offset of field: tls_btrc_get_player_app_value_msg_t::p_attrs"]
+        [::core::mem::offset_of!(tls_btrc_get_player_app_value_msg_t, p_attrs) - 4usize];
+};
+impl Default for tls_btrc_get_player_app_value_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_get_player_app_attrs_text_msg_t {
+    pub attr_id: u8,
+    pub num_val: u8,
+    pub p_vals: *mut u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_get_player_app_attrs_text_msg_t"]
+        [::core::mem::size_of::<tls_btrc_get_player_app_attrs_text_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_get_player_app_attrs_text_msg_t"]
+        [::core::mem::align_of::<tls_btrc_get_player_app_attrs_text_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_get_player_app_attrs_text_msg_t::attr_id"]
+        [::core::mem::offset_of!(tls_btrc_get_player_app_attrs_text_msg_t, attr_id) - 0usize];
+    ["Offset of field: tls_btrc_get_player_app_attrs_text_msg_t::num_val"]
+        [::core::mem::offset_of!(tls_btrc_get_player_app_attrs_text_msg_t, num_val) - 1usize];
+    ["Offset of field: tls_btrc_get_player_app_attrs_text_msg_t::p_vals"]
+        [::core::mem::offset_of!(tls_btrc_get_player_app_attrs_text_msg_t, p_vals) - 4usize];
+};
+impl Default for tls_btrc_get_player_app_attrs_text_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_get_player_app_values_text_msg_t {
+    pub num_attr: u8,
+    pub p_attrs: *mut tls_btrc_player_attr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_get_player_app_values_text_msg_t"]
+        [::core::mem::size_of::<tls_btrc_get_player_app_values_text_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_get_player_app_values_text_msg_t"]
+        [::core::mem::align_of::<tls_btrc_get_player_app_values_text_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_get_player_app_values_text_msg_t::num_attr"]
+        [::core::mem::offset_of!(tls_btrc_get_player_app_values_text_msg_t, num_attr) - 0usize];
+    ["Offset of field: tls_btrc_get_player_app_values_text_msg_t::p_attrs"]
+        [::core::mem::offset_of!(tls_btrc_get_player_app_values_text_msg_t, p_attrs) - 4usize];
+};
+impl Default for tls_btrc_get_player_app_values_text_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_set_player_app_value_msg_t {
+    pub p_vals: *mut tls_btrc_player_settings_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_set_player_app_value_msg_t"]
+        [::core::mem::size_of::<tls_btrc_set_player_app_value_msg_t>() - 4usize];
+    ["Alignment of tls_btrc_set_player_app_value_msg_t"]
+        [::core::mem::align_of::<tls_btrc_set_player_app_value_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_set_player_app_value_msg_t::p_vals"]
+        [::core::mem::offset_of!(tls_btrc_set_player_app_value_msg_t, p_vals) - 0usize];
+};
+impl Default for tls_btrc_set_player_app_value_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_get_element_attr_msg_t {
+    pub num_attr: u8,
+    pub p_attrs: *mut tls_btrc_media_attr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_get_element_attr_msg_t"]
+        [::core::mem::size_of::<tls_btrc_get_element_attr_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_get_element_attr_msg_t"]
+        [::core::mem::align_of::<tls_btrc_get_element_attr_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_get_element_attr_msg_t::num_attr"]
+        [::core::mem::offset_of!(tls_btrc_get_element_attr_msg_t, num_attr) - 0usize];
+    ["Offset of field: tls_btrc_get_element_attr_msg_t::p_attrs"]
+        [::core::mem::offset_of!(tls_btrc_get_element_attr_msg_t, p_attrs) - 4usize];
+};
+impl Default for tls_btrc_get_element_attr_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_btrc_register_notification_msg_t {
+    pub event_id: tls_btrc_event_id_t,
+    pub param: u32,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_register_notification_msg_t"]
+        [::core::mem::size_of::<tls_btrc_register_notification_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_register_notification_msg_t"]
+        [::core::mem::align_of::<tls_btrc_register_notification_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_register_notification_msg_t::event_id"]
+        [::core::mem::offset_of!(tls_btrc_register_notification_msg_t, event_id) - 0usize];
+    ["Offset of field: tls_btrc_register_notification_msg_t::param"]
+        [::core::mem::offset_of!(tls_btrc_register_notification_msg_t, param) - 4usize];
+};
+impl Default for tls_btrc_register_notification_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_btrc_volume_change_msg_t {
+    pub volume: u8,
+    pub ctype: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_volume_change_msg_t"]
+        [::core::mem::size_of::<tls_btrc_volume_change_msg_t>() - 2usize];
+    ["Alignment of tls_btrc_volume_change_msg_t"]
+        [::core::mem::align_of::<tls_btrc_volume_change_msg_t>() - 1usize];
+    ["Offset of field: tls_btrc_volume_change_msg_t::volume"]
+        [::core::mem::offset_of!(tls_btrc_volume_change_msg_t, volume) - 0usize];
+    ["Offset of field: tls_btrc_volume_change_msg_t::ctype"]
+        [::core::mem::offset_of!(tls_btrc_volume_change_msg_t, ctype) - 1usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_btrc_passthrough_cmd_msg_t {
+    pub id: core::ffi::c_int,
+    pub key_state: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_passthrough_cmd_msg_t"]
+        [::core::mem::size_of::<tls_btrc_passthrough_cmd_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_passthrough_cmd_msg_t"]
+        [::core::mem::align_of::<tls_btrc_passthrough_cmd_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_passthrough_cmd_msg_t::id"]
+        [::core::mem::offset_of!(tls_btrc_passthrough_cmd_msg_t, id) - 0usize];
+    ["Offset of field: tls_btrc_passthrough_cmd_msg_t::key_state"]
+        [::core::mem::offset_of!(tls_btrc_passthrough_cmd_msg_t, key_state) - 4usize];
+};
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_btrc_msg_t {
+    pub remote_features: tls_btrc_remote_features_msg_t,
+    pub get_play_status: tls_btrc_get_play_status_msg_t,
+    pub list_player_app_attr: tls_btrc_list_player_app_attr_msg_t,
+    pub list_player_app_values: tls_btrc_list_player_app_values_msg_t,
+    pub get_player_app_value: tls_btrc_get_player_app_value_msg_t,
+    pub get_player_app_attrs_text: tls_btrc_get_player_app_attrs_text_msg_t,
+    pub get_player_app_values_text: tls_btrc_get_player_app_values_text_msg_t,
+    pub set_player_app_value: tls_btrc_set_player_app_value_msg_t,
+    pub get_element_attr: tls_btrc_get_element_attr_msg_t,
+    pub register_notification: tls_btrc_register_notification_msg_t,
+    pub volume_change: tls_btrc_volume_change_msg_t,
+    pub passthrough_cmd: tls_btrc_passthrough_cmd_msg_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_btrc_msg_t"][::core::mem::size_of::<tls_btrc_msg_t>() - 8usize];
+    ["Alignment of tls_btrc_msg_t"][::core::mem::align_of::<tls_btrc_msg_t>() - 4usize];
+    ["Offset of field: tls_btrc_msg_t::remote_features"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, remote_features) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::get_play_status"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, get_play_status) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::list_player_app_attr"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, list_player_app_attr) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::list_player_app_values"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, list_player_app_values) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::get_player_app_value"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, get_player_app_value) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::get_player_app_attrs_text"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, get_player_app_attrs_text) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::get_player_app_values_text"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, get_player_app_values_text) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::set_player_app_value"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, set_player_app_value) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::get_element_attr"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, get_element_attr) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::register_notification"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, register_notification) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::volume_change"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, volume_change) - 0usize];
+    ["Offset of field: tls_btrc_msg_t::passthrough_cmd"]
+        [::core::mem::offset_of!(tls_btrc_msg_t, passthrough_cmd) - 0usize];
+};
+impl Default for tls_btrc_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type tls_btrc_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_btrc_evt_t, p_data: *mut tls_btrc_msg_t),
+>;
+impl tls_bthf_client_connection_state_t {
+    pub const WM_BTHF_CLIENT_CONNECTION_STATE_DISCONNECTED: tls_bthf_client_connection_state_t =
+        tls_bthf_client_connection_state_t(0);
+    pub const WM_BTHF_CLIENT_CONNECTION_STATE_CONNECTING: tls_bthf_client_connection_state_t =
+        tls_bthf_client_connection_state_t(1);
+    pub const WM_BTHF_CLIENT_CONNECTION_STATE_CONNECTED: tls_bthf_client_connection_state_t =
+        tls_bthf_client_connection_state_t(2);
+    pub const WM_BTHF_CLIENT_CONNECTION_STATE_SLC_CONNECTED: tls_bthf_client_connection_state_t =
+        tls_bthf_client_connection_state_t(3);
+    pub const WM_BTHF_CLIENT_CONNECTION_STATE_DISCONNECTING: tls_bthf_client_connection_state_t =
+        tls_bthf_client_connection_state_t(4);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_connection_state_t(pub core::ffi::c_uint);
+impl tls_bthf_client_audio_state_t {
+    pub const WM_BTHF_CLIENT_AUDIO_STATE_DISCONNECTED: tls_bthf_client_audio_state_t =
+        tls_bthf_client_audio_state_t(0);
+    pub const WM_BTHF_CLIENT_AUDIO_STATE_CONNECTING: tls_bthf_client_audio_state_t =
+        tls_bthf_client_audio_state_t(1);
+    pub const WM_BTHF_CLIENT_AUDIO_STATE_CONNECTED: tls_bthf_client_audio_state_t =
+        tls_bthf_client_audio_state_t(2);
+    pub const WM_BTHF_CLIENT_AUDIO_STATE_CONNECTED_MSBC: tls_bthf_client_audio_state_t =
+        tls_bthf_client_audio_state_t(3);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_audio_state_t(pub core::ffi::c_uint);
+impl tls_bthf_client_vr_state_t {
+    pub const WM_BTHF_CLIENT_VR_STATE_STOPPED: tls_bthf_client_vr_state_t =
+        tls_bthf_client_vr_state_t(0);
+    pub const WM_BTHF_CLIENT_VR_STATE_STARTED: tls_bthf_client_vr_state_t =
+        tls_bthf_client_vr_state_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_vr_state_t(pub core::ffi::c_uint);
+impl tls_bthf_client_volume_type_t {
+    pub const WM_BTHF_CLIENT_VOLUME_TYPE_SPK: tls_bthf_client_volume_type_t =
+        tls_bthf_client_volume_type_t(0);
+    pub const WM_BTHF_CLIENT_VOLUME_TYPE_MIC: tls_bthf_client_volume_type_t =
+        tls_bthf_client_volume_type_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_volume_type_t(pub core::ffi::c_uint);
+impl tls_bthf_client_network_state_t {
+    pub const WM_BTHF_CLIENT_NETWORK_STATE_NOT_AVAILABLE: tls_bthf_client_network_state_t =
+        tls_bthf_client_network_state_t(0);
+    pub const WM_BTHF_CLIENT_NETWORK_STATE_AVAILABLE: tls_bthf_client_network_state_t =
+        tls_bthf_client_network_state_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_network_state_t(pub core::ffi::c_uint);
+impl tls_bthf_client_service_type_t {
+    pub const WM_BTHF_CLIENT_SERVICE_TYPE_HOME: tls_bthf_client_service_type_t =
+        tls_bthf_client_service_type_t(0);
+    pub const WM_BTHF_CLIENT_SERVICE_TYPE_ROAMING: tls_bthf_client_service_type_t =
+        tls_bthf_client_service_type_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_service_type_t(pub core::ffi::c_uint);
+impl tls_bthf_client_call_state_t {
+    pub const WM_BTHF_CLIENT_CALL_STATE_ACTIVE: tls_bthf_client_call_state_t =
+        tls_bthf_client_call_state_t(0);
+    pub const WM_BTHF_CLIENT_CALL_STATE_HELD: tls_bthf_client_call_state_t =
+        tls_bthf_client_call_state_t(1);
+    pub const WM_BTHF_CLIENT_CALL_STATE_DIALING: tls_bthf_client_call_state_t =
+        tls_bthf_client_call_state_t(2);
+    pub const WM_BTHF_CLIENT_CALL_STATE_ALERTING: tls_bthf_client_call_state_t =
+        tls_bthf_client_call_state_t(3);
+    pub const WM_BTHF_CLIENT_CALL_STATE_INCOMING: tls_bthf_client_call_state_t =
+        tls_bthf_client_call_state_t(4);
+    pub const WM_BTHF_CLIENT_CALL_STATE_WAITING: tls_bthf_client_call_state_t =
+        tls_bthf_client_call_state_t(5);
+    pub const WM_BTHF_CLIENT_CALL_STATE_HELD_BY_RESP_HOLD: tls_bthf_client_call_state_t =
+        tls_bthf_client_call_state_t(6);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_call_state_t(pub core::ffi::c_uint);
+impl tls_bthf_client_call_t {
+    pub const WM_BTHF_CLIENT_CALL_NO_CALLS_IN_PROGRESS: tls_bthf_client_call_t =
+        tls_bthf_client_call_t(0);
+    pub const WM_BTHF_CLIENT_CALL_CALLS_IN_PROGRESS: tls_bthf_client_call_t =
+        tls_bthf_client_call_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_call_t(pub core::ffi::c_uint);
+impl tls_bthf_client_callsetup_t {
+    pub const WM_BTHF_CLIENT_CALLSETUP_NONE: tls_bthf_client_callsetup_t =
+        tls_bthf_client_callsetup_t(0);
+    pub const WM_BTHF_CLIENT_CALLSETUP_INCOMING: tls_bthf_client_callsetup_t =
+        tls_bthf_client_callsetup_t(1);
+    pub const WM_BTHF_CLIENT_CALLSETUP_OUTGOING: tls_bthf_client_callsetup_t =
+        tls_bthf_client_callsetup_t(2);
+    pub const WM_BTHF_CLIENT_CALLSETUP_ALERTING: tls_bthf_client_callsetup_t =
+        tls_bthf_client_callsetup_t(3);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_callsetup_t(pub core::ffi::c_uint);
+impl tls_bthf_client_callheld_t {
+    pub const WM_BTHF_CLIENT_CALLHELD_NONE: tls_bthf_client_callheld_t =
+        tls_bthf_client_callheld_t(0);
+    pub const WM_BTHF_CLIENT_CALLHELD_HOLD_AND_ACTIVE: tls_bthf_client_callheld_t =
+        tls_bthf_client_callheld_t(1);
+    pub const WM_BTHF_CLIENT_CALLHELD_HOLD: tls_bthf_client_callheld_t =
+        tls_bthf_client_callheld_t(2);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_callheld_t(pub core::ffi::c_uint);
+impl tls_bthf_client_resp_and_hold_t {
+    pub const WM_BTHF_CLIENT_RESP_AND_HOLD_HELD: tls_bthf_client_resp_and_hold_t =
+        tls_bthf_client_resp_and_hold_t(0);
+    pub const WM_BTRH_CLIENT_RESP_AND_HOLD_ACCEPT: tls_bthf_client_resp_and_hold_t =
+        tls_bthf_client_resp_and_hold_t(1);
+    pub const WM_BTRH_CLIENT_RESP_AND_HOLD_REJECT: tls_bthf_client_resp_and_hold_t =
+        tls_bthf_client_resp_and_hold_t(2);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_resp_and_hold_t(pub core::ffi::c_uint);
+impl tls_bthf_client_call_direction_t {
+    pub const WM_BTHF_CLIENT_CALL_DIRECTION_OUTGOING: tls_bthf_client_call_direction_t =
+        tls_bthf_client_call_direction_t(0);
+    pub const WM_BTHF_CLIENT_CALL_DIRECTION_INCOMING: tls_bthf_client_call_direction_t =
+        tls_bthf_client_call_direction_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_call_direction_t(pub core::ffi::c_uint);
+impl tls_bthf_client_call_mpty_type_t {
+    pub const WM_BTHF_CLIENT_CALL_MPTY_TYPE_SINGLE: tls_bthf_client_call_mpty_type_t =
+        tls_bthf_client_call_mpty_type_t(0);
+    pub const WM_BTHF_CLIENT_CALL_MPTY_TYPE_MULTI: tls_bthf_client_call_mpty_type_t =
+        tls_bthf_client_call_mpty_type_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_call_mpty_type_t(pub core::ffi::c_uint);
+impl tls_bthf_client_cmd_complete_t {
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_OK: tls_bthf_client_cmd_complete_t =
+        tls_bthf_client_cmd_complete_t(0);
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_ERROR: tls_bthf_client_cmd_complete_t =
+        tls_bthf_client_cmd_complete_t(1);
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_ERROR_NO_CARRIER: tls_bthf_client_cmd_complete_t =
+        tls_bthf_client_cmd_complete_t(2);
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_ERROR_BUSY: tls_bthf_client_cmd_complete_t =
+        tls_bthf_client_cmd_complete_t(3);
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_ERROR_NO_ANSWER: tls_bthf_client_cmd_complete_t =
+        tls_bthf_client_cmd_complete_t(4);
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_ERROR_DELAYED: tls_bthf_client_cmd_complete_t =
+        tls_bthf_client_cmd_complete_t(5);
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_ERROR_BLACKLISTED: tls_bthf_client_cmd_complete_t =
+        tls_bthf_client_cmd_complete_t(6);
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_ERROR_CME: tls_bthf_client_cmd_complete_t =
+        tls_bthf_client_cmd_complete_t(7);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_cmd_complete_t(pub core::ffi::c_uint);
+impl tls_bthf_client_call_action_t {
+    pub const WM_BTHF_CLIENT_CALL_ACTION_CHLD_0: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(0);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_CHLD_1: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(1);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_CHLD_2: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(2);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_CHLD_3: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(3);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_CHLD_4: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(4);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_CHLD_1x: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(5);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_CHLD_2x: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(6);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_ATA: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(7);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_CHUP: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(8);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_BTRH_0: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(9);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_BTRH_1: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(10);
+    pub const WM_BTHF_CLIENT_CALL_ACTION_BTRH_2: tls_bthf_client_call_action_t =
+        tls_bthf_client_call_action_t(11);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_call_action_t(pub core::ffi::c_uint);
+impl tls_bthf_client_subscriber_service_type_t {
+    pub const WM_BTHF_CLIENT_SERVICE_UNKNOWN: tls_bthf_client_subscriber_service_type_t =
+        tls_bthf_client_subscriber_service_type_t(0);
+    pub const WM_BTHF_CLIENT_SERVICE_VOICE: tls_bthf_client_subscriber_service_type_t =
+        tls_bthf_client_subscriber_service_type_t(1);
+    pub const WM_BTHF_CLIENT_SERVICE_FAX: tls_bthf_client_subscriber_service_type_t =
+        tls_bthf_client_subscriber_service_type_t(2);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_subscriber_service_type_t(pub core::ffi::c_uint);
+impl tls_bthf_client_in_band_ring_state_t {
+    pub const WM_BTHF_CLIENT_IN_BAND_RINGTONE_NOT_PROVIDED: tls_bthf_client_in_band_ring_state_t =
+        tls_bthf_client_in_band_ring_state_t(0);
+    pub const WM_BTHF_CLIENT_IN_BAND_RINGTONE_PROVIDED: tls_bthf_client_in_band_ring_state_t =
+        tls_bthf_client_in_band_ring_state_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_in_band_ring_state_t(pub core::ffi::c_uint);
+impl tls_bthf_client_evt_t {
+    pub const WM_BTHF_CLIENT_CONNECTION_STATE_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(0);
+    pub const WM_BTHF_CLIENT_AUDIO_STATE_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(1);
+    pub const WM_BTHF_CLIENT_VR_CMD_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(2);
+    pub const WM_BTHF_CLIENT_NETWORK_STATE_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(3);
+    pub const WM_BTHF_CLIENT_NETWORK_ROAMING_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(4);
+    pub const WM_BTHF_CLIENT_NETWORK_SIGNAL_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(5);
+    pub const WM_BTHF_CLIENT_BATTERY_LEVEL_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(6);
+    pub const WM_BTHF_CLIENT_CURRENT_OPERATOR_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(7);
+    pub const WM_BTHF_CLIENT_CALL_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(8);
+    pub const WM_BTHF_CLIENT_CALLSETUP_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(9);
+    pub const WM_BTHF_CLIENT_CALLHELD_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(10);
+    pub const WM_BTHF_CLIENT_RESP_AND_HOLD_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(11);
+    pub const WM_BTHF_CLIENT_CLIP_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(12);
+    pub const WM_BTHF_CLIENT_CALL_WAITING_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(13);
+    pub const WM_BTHF_CLIENT_CURRENT_CALLS_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(14);
+    pub const WM_BTHF_CLIENT_VOLUME_CHANGE_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(15);
+    pub const WM_BTHF_CLIENT_CMD_COMPLETE_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(16);
+    pub const WM_BTHF_CLIENT_SUBSCRIBER_INFO_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(17);
+    pub const WM_BTHF_CLIENT_IN_BAND_RING_TONE_EVT: tls_bthf_client_evt_t =
+        tls_bthf_client_evt_t(18);
+    pub const WM_BTHF_CLIENT_LAST_VOICE_TAG_NUMBER_EVT: tls_bthf_client_evt_t =
+        tls_bthf_client_evt_t(19);
+    pub const WM_BTHF_CLIENT_RING_INDICATION_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(20);
+    pub const WM_BTHF_CLIENT_AUDIO_PAYLOAD_EVT: tls_bthf_client_evt_t = tls_bthf_client_evt_t(21);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bthf_client_evt_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_connection_state_msg_t {
+    pub state: tls_bthf_client_connection_state_t,
+    pub peer_feat: core::ffi::c_uint,
+    pub chld_feat: core::ffi::c_uint,
+    pub bd_addr: *mut tls_bt_addr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_connection_state_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_connection_state_msg_t>() - 16usize];
+    ["Alignment of tls_bthf_client_connection_state_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_connection_state_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_connection_state_msg_t::state"]
+        [::core::mem::offset_of!(tls_bthf_client_connection_state_msg_t, state) - 0usize];
+    ["Offset of field: tls_bthf_client_connection_state_msg_t::peer_feat"]
+        [::core::mem::offset_of!(tls_bthf_client_connection_state_msg_t, peer_feat) - 4usize];
+    ["Offset of field: tls_bthf_client_connection_state_msg_t::chld_feat"]
+        [::core::mem::offset_of!(tls_bthf_client_connection_state_msg_t, chld_feat) - 8usize];
+    ["Offset of field: tls_bthf_client_connection_state_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_bthf_client_connection_state_msg_t, bd_addr) - 12usize];
+};
+impl Default for tls_bthf_client_connection_state_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_audio_state_msg_t {
+    pub state: tls_bthf_client_audio_state_t,
+    pub bd_addr: *mut tls_bt_addr_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_audio_state_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_audio_state_msg_t>() - 8usize];
+    ["Alignment of tls_bthf_client_audio_state_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_audio_state_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_audio_state_msg_t::state"]
+        [::core::mem::offset_of!(tls_bthf_client_audio_state_msg_t, state) - 0usize];
+    ["Offset of field: tls_bthf_client_audio_state_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_bthf_client_audio_state_msg_t, bd_addr) - 4usize];
+};
+impl Default for tls_bthf_client_audio_state_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_vr_cmd_msg_t {
+    pub state: tls_bthf_client_vr_state_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_vr_cmd_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_vr_cmd_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_vr_cmd_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_vr_cmd_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_vr_cmd_msg_t::state"]
+        [::core::mem::offset_of!(tls_bthf_client_vr_cmd_msg_t, state) - 0usize];
+};
+impl Default for tls_bthf_client_vr_cmd_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_network_state_msg_t {
+    pub state: tls_bthf_client_network_state_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_network_state_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_network_state_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_network_state_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_network_state_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_network_state_msg_t::state"]
+        [::core::mem::offset_of!(tls_bthf_client_network_state_msg_t, state) - 0usize];
+};
+impl Default for tls_bthf_client_network_state_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_network_roaming_msg_t {
+    pub type_: tls_bthf_client_service_type_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_network_roaming_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_network_roaming_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_network_roaming_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_network_roaming_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_network_roaming_msg_t::type_"]
+        [::core::mem::offset_of!(tls_bthf_client_network_roaming_msg_t, type_) - 0usize];
+};
+impl Default for tls_bthf_client_network_roaming_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bthf_client_network_signal_msg_t {
+    pub signal_strength: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_network_signal_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_network_signal_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_network_signal_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_network_signal_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_network_signal_msg_t::signal_strength"]
+        [::core::mem::offset_of!(tls_bthf_client_network_signal_msg_t, signal_strength) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bthf_client_battery_level_msg_t {
+    pub battery_level: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_battery_level_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_battery_level_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_battery_level_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_battery_level_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_battery_level_msg_t::battery_level"]
+        [::core::mem::offset_of!(tls_bthf_client_battery_level_msg_t, battery_level) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_current_operator_msg_t {
+    pub name: *mut core::ffi::c_char,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_current_operator_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_current_operator_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_current_operator_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_current_operator_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_current_operator_msg_t::name"]
+        [::core::mem::offset_of!(tls_bthf_client_current_operator_msg_t, name) - 0usize];
+};
+impl Default for tls_bthf_client_current_operator_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_call_msg_t {
+    pub call: tls_bthf_client_call_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_call_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_call_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_call_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_call_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_call_msg_t::call"]
+        [::core::mem::offset_of!(tls_bthf_client_call_msg_t, call) - 0usize];
+};
+impl Default for tls_bthf_client_call_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_callsetup_msg_t {
+    pub callsetup: tls_bthf_client_callsetup_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_callsetup_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_callsetup_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_callsetup_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_callsetup_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_callsetup_msg_t::callsetup"]
+        [::core::mem::offset_of!(tls_bthf_client_callsetup_msg_t, callsetup) - 0usize];
+};
+impl Default for tls_bthf_client_callsetup_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_callheld_msg_t {
+    pub callheld: tls_bthf_client_callheld_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_callheld_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_callheld_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_callheld_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_callheld_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_callheld_msg_t::callheld"]
+        [::core::mem::offset_of!(tls_bthf_client_callheld_msg_t, callheld) - 0usize];
+};
+impl Default for tls_bthf_client_callheld_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_resp_and_hold_msg_t {
+    pub resp_and_hold: tls_bthf_client_resp_and_hold_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_resp_and_hold_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_resp_and_hold_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_resp_and_hold_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_resp_and_hold_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_resp_and_hold_msg_t::resp_and_hold"]
+        [::core::mem::offset_of!(tls_bthf_client_resp_and_hold_msg_t, resp_and_hold) - 0usize];
+};
+impl Default for tls_bthf_client_resp_and_hold_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_clip_msg_t {
+    pub number: *mut core::ffi::c_char,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_clip_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_clip_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_clip_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_clip_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_clip_msg_t::number"]
+        [::core::mem::offset_of!(tls_bthf_client_clip_msg_t, number) - 0usize];
+};
+impl Default for tls_bthf_client_clip_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_call_waiting_msg_t {
+    pub number: *mut core::ffi::c_char,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_call_waiting_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_call_waiting_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_call_waiting_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_call_waiting_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_call_waiting_msg_t::number"]
+        [::core::mem::offset_of!(tls_bthf_client_call_waiting_msg_t, number) - 0usize];
+};
+impl Default for tls_bthf_client_call_waiting_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_current_calls_msg_t {
+    pub index: core::ffi::c_int,
+    pub dir: tls_bthf_client_call_direction_t,
+    pub state: tls_bthf_client_call_state_t,
+    pub mpty: tls_bthf_client_call_mpty_type_t,
+    pub number: *mut core::ffi::c_char,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_current_calls_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_current_calls_msg_t>() - 20usize];
+    ["Alignment of tls_bthf_client_current_calls_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_current_calls_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_current_calls_msg_t::index"]
+        [::core::mem::offset_of!(tls_bthf_client_current_calls_msg_t, index) - 0usize];
+    ["Offset of field: tls_bthf_client_current_calls_msg_t::dir"]
+        [::core::mem::offset_of!(tls_bthf_client_current_calls_msg_t, dir) - 4usize];
+    ["Offset of field: tls_bthf_client_current_calls_msg_t::state"]
+        [::core::mem::offset_of!(tls_bthf_client_current_calls_msg_t, state) - 8usize];
+    ["Offset of field: tls_bthf_client_current_calls_msg_t::mpty"]
+        [::core::mem::offset_of!(tls_bthf_client_current_calls_msg_t, mpty) - 12usize];
+    ["Offset of field: tls_bthf_client_current_calls_msg_t::number"]
+        [::core::mem::offset_of!(tls_bthf_client_current_calls_msg_t, number) - 16usize];
+};
+impl Default for tls_bthf_client_current_calls_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_volume_change_msg_t {
+    pub type_: tls_bthf_client_volume_type_t,
+    pub volume: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_volume_change_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_volume_change_msg_t>() - 8usize];
+    ["Alignment of tls_bthf_client_volume_change_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_volume_change_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_volume_change_msg_t::type_"]
+        [::core::mem::offset_of!(tls_bthf_client_volume_change_msg_t, type_) - 0usize];
+    ["Offset of field: tls_bthf_client_volume_change_msg_t::volume"]
+        [::core::mem::offset_of!(tls_bthf_client_volume_change_msg_t, volume) - 4usize];
+};
+impl Default for tls_bthf_client_volume_change_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_cmd_complete_msg_t {
+    pub type_: tls_bthf_client_cmd_complete_t,
+    pub cme: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_cmd_complete_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_cmd_complete_msg_t>() - 8usize];
+    ["Alignment of tls_bthf_client_cmd_complete_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_cmd_complete_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_cmd_complete_msg_t::type_"]
+        [::core::mem::offset_of!(tls_bthf_client_cmd_complete_msg_t, type_) - 0usize];
+    ["Offset of field: tls_bthf_client_cmd_complete_msg_t::cme"]
+        [::core::mem::offset_of!(tls_bthf_client_cmd_complete_msg_t, cme) - 4usize];
+};
+impl Default for tls_bthf_client_cmd_complete_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_subscriber_info_msg_t {
+    pub name: *const core::ffi::c_char,
+    pub type_: tls_bthf_client_subscriber_service_type_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_subscriber_info_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_subscriber_info_msg_t>() - 8usize];
+    ["Alignment of tls_bthf_client_subscriber_info_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_subscriber_info_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_subscriber_info_msg_t::name"]
+        [::core::mem::offset_of!(tls_bthf_client_subscriber_info_msg_t, name) - 0usize];
+    ["Offset of field: tls_bthf_client_subscriber_info_msg_t::type_"]
+        [::core::mem::offset_of!(tls_bthf_client_subscriber_info_msg_t, type_) - 4usize];
+};
+impl Default for tls_bthf_client_subscriber_info_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_in_band_ring_tone_msg_t {
+    pub state: tls_bthf_client_in_band_ring_state_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_in_band_ring_tone_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_in_band_ring_tone_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_in_band_ring_tone_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_in_band_ring_tone_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_in_band_ring_tone_msg_t::state"]
+        [::core::mem::offset_of!(tls_bthf_client_in_band_ring_tone_msg_t, state) - 0usize];
+};
+impl Default for tls_bthf_client_in_band_ring_tone_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_client_last_voice_tag_number_msg_t {
+    pub number: *mut core::ffi::c_char,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_last_voice_tag_number_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_last_voice_tag_number_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_last_voice_tag_number_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_last_voice_tag_number_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_last_voice_tag_number_msg_t::number"]
+        [::core::mem::offset_of!(tls_bthf_client_last_voice_tag_number_msg_t, number) - 0usize];
+};
+impl Default for tls_bthf_client_last_voice_tag_number_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bthf_client_ring_indication_msg_t {
+    pub ring: core::ffi::c_int,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_ring_indication_msg_t"]
+        [::core::mem::size_of::<tls_bthf_client_ring_indication_msg_t>() - 4usize];
+    ["Alignment of tls_bthf_client_ring_indication_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_ring_indication_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_ring_indication_msg_t::ring"]
+        [::core::mem::offset_of!(tls_bthf_client_ring_indication_msg_t, ring) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_bthf_audio_payload_msg_t {
+    pub bd_addr: *mut tls_bt_addr_t,
+    pub audio_format: u8,
+    pub payload: *mut u8,
+    pub payload_length: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_audio_payload_msg_t"]
+        [::core::mem::size_of::<tls_bthf_audio_payload_msg_t>() - 16usize];
+    ["Alignment of tls_bthf_audio_payload_msg_t"]
+        [::core::mem::align_of::<tls_bthf_audio_payload_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_audio_payload_msg_t::bd_addr"]
+        [::core::mem::offset_of!(tls_bthf_audio_payload_msg_t, bd_addr) - 0usize];
+    ["Offset of field: tls_bthf_audio_payload_msg_t::audio_format"]
+        [::core::mem::offset_of!(tls_bthf_audio_payload_msg_t, audio_format) - 4usize];
+    ["Offset of field: tls_bthf_audio_payload_msg_t::payload"]
+        [::core::mem::offset_of!(tls_bthf_audio_payload_msg_t, payload) - 8usize];
+    ["Offset of field: tls_bthf_audio_payload_msg_t::payload_length"]
+        [::core::mem::offset_of!(tls_bthf_audio_payload_msg_t, payload_length) - 12usize];
+};
+impl Default for tls_bthf_audio_payload_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_bthf_client_msg_t {
+    pub connection_state_msg: tls_bthf_client_connection_state_msg_t,
+    pub audio_state_msg: tls_bthf_client_audio_state_msg_t,
+    pub vr_cmd_msg: tls_bthf_client_vr_cmd_msg_t,
+    pub network_state_msg: tls_bthf_client_network_state_msg_t,
+    pub network_roaming_msg: tls_bthf_client_network_roaming_msg_t,
+    pub network_signal_msg: tls_bthf_client_network_signal_msg_t,
+    pub battery_level_msg: tls_bthf_client_battery_level_msg_t,
+    pub current_operator_msg: tls_bthf_client_current_operator_msg_t,
+    pub call_msg: tls_bthf_client_call_msg_t,
+    pub callsetup_msg: tls_bthf_client_callsetup_msg_t,
+    pub callheld_msg: tls_bthf_client_callheld_msg_t,
+    pub resp_and_hold_msg: tls_bthf_client_resp_and_hold_msg_t,
+    pub clip_msg: tls_bthf_client_clip_msg_t,
+    pub call_waiting_msg: tls_bthf_client_call_waiting_msg_t,
+    pub current_calls_msg: tls_bthf_client_current_calls_msg_t,
+    pub volume_change_msg: tls_bthf_client_volume_change_msg_t,
+    pub cmd_complete_msg: tls_bthf_client_cmd_complete_msg_t,
+    pub subscriber_info_msg: tls_bthf_client_subscriber_info_msg_t,
+    pub in_band_ring_tone_msg: tls_bthf_client_in_band_ring_tone_msg_t,
+    pub last_voice_tag_number_msg: tls_bthf_client_last_voice_tag_number_msg_t,
+    pub ring_indication_msg: tls_bthf_client_ring_indication_msg_t,
+    pub audio_payload_msg: tls_bthf_audio_payload_msg_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bthf_client_msg_t"][::core::mem::size_of::<tls_bthf_client_msg_t>() - 20usize];
+    ["Alignment of tls_bthf_client_msg_t"]
+        [::core::mem::align_of::<tls_bthf_client_msg_t>() - 4usize];
+    ["Offset of field: tls_bthf_client_msg_t::connection_state_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, connection_state_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::audio_state_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, audio_state_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::vr_cmd_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, vr_cmd_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::network_state_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, network_state_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::network_roaming_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, network_roaming_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::network_signal_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, network_signal_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::battery_level_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, battery_level_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::current_operator_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, current_operator_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::call_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, call_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::callsetup_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, callsetup_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::callheld_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, callheld_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::resp_and_hold_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, resp_and_hold_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::clip_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, clip_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::call_waiting_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, call_waiting_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::current_calls_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, current_calls_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::volume_change_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, volume_change_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::cmd_complete_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, cmd_complete_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::subscriber_info_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, subscriber_info_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::in_band_ring_tone_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, in_band_ring_tone_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::last_voice_tag_number_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, last_voice_tag_number_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::ring_indication_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, ring_indication_msg) - 0usize];
+    ["Offset of field: tls_bthf_client_msg_t::audio_payload_msg"]
+        [::core::mem::offset_of!(tls_bthf_client_msg_t, audio_payload_msg) - 0usize];
+};
+impl Default for tls_bthf_client_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type tls_bthf_client_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_bthf_client_evt_t, p_data: *mut tls_bthf_client_msg_t),
+>;
+pub type wm_spp_sec_t = u16;
+impl tls_spp_role_t {
+    pub const WM_SPP_ROLE_CLIENT: tls_spp_role_t = tls_spp_role_t(0);
+    pub const WM_SPP_ROLE_SERVER: tls_spp_role_t = tls_spp_role_t(1);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_spp_role_t(pub core::ffi::c_uint);
+impl tls_spp_event_t {
+    pub const WM_SPP_INIT_EVT: tls_spp_event_t = tls_spp_event_t(0);
+    pub const WM_SPP_DISCOVERY_COMP_EVT: tls_spp_event_t = tls_spp_event_t(8);
+    pub const WM_SPP_OPEN_EVT: tls_spp_event_t = tls_spp_event_t(26);
+    pub const WM_SPP_CLOSE_EVT: tls_spp_event_t = tls_spp_event_t(27);
+    pub const WM_SPP_START_EVT: tls_spp_event_t = tls_spp_event_t(28);
+    pub const WM_SPP_CL_INIT_EVT: tls_spp_event_t = tls_spp_event_t(29);
+    pub const WM_SPP_DATA_IND_EVT: tls_spp_event_t = tls_spp_event_t(30);
+    pub const WM_SPP_CONG_EVT: tls_spp_event_t = tls_spp_event_t(31);
+    pub const WM_SPP_WRITE_EVT: tls_spp_event_t = tls_spp_event_t(33);
+    pub const WM_SPP_SRV_OPEN_EVT: tls_spp_event_t = tls_spp_event_t(34);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_spp_event_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_init_msg_t {
+    pub status: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_init_msg_t"][::core::mem::size_of::<tls_spp_init_msg_t>() - 1usize];
+    ["Alignment of tls_spp_init_msg_t"][::core::mem::align_of::<tls_spp_init_msg_t>() - 1usize];
+    ["Offset of field: tls_spp_init_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_init_msg_t, status) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_disc_comp_msg_t {
+    pub status: u8,
+    pub scn_num: u8,
+    pub scn: [u8; 31usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_disc_comp_msg_t"]
+        [::core::mem::size_of::<tls_spp_disc_comp_msg_t>() - 33usize];
+    ["Alignment of tls_spp_disc_comp_msg_t"]
+        [::core::mem::align_of::<tls_spp_disc_comp_msg_t>() - 1usize];
+    ["Offset of field: tls_spp_disc_comp_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_disc_comp_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_disc_comp_msg_t::scn_num"]
+        [::core::mem::offset_of!(tls_spp_disc_comp_msg_t, scn_num) - 1usize];
+    ["Offset of field: tls_spp_disc_comp_msg_t::scn"]
+        [::core::mem::offset_of!(tls_spp_disc_comp_msg_t, scn) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_open_msg_t {
+    pub status: u8,
+    pub handle: u32,
+    pub addr: [u8; 6usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_open_msg_t"][::core::mem::size_of::<tls_spp_open_msg_t>() - 16usize];
+    ["Alignment of tls_spp_open_msg_t"][::core::mem::align_of::<tls_spp_open_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_open_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_open_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_open_msg_t::handle"]
+        [::core::mem::offset_of!(tls_spp_open_msg_t, handle) - 4usize];
+    ["Offset of field: tls_spp_open_msg_t::addr"]
+        [::core::mem::offset_of!(tls_spp_open_msg_t, addr) - 8usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_srv_open_msg_t {
+    pub status: u8,
+    pub handle: u32,
+    pub new_listen_handle: u32,
+    pub addr: [u8; 6usize],
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_srv_open_msg_t"][::core::mem::size_of::<tls_spp_srv_open_msg_t>() - 20usize];
+    ["Alignment of tls_spp_srv_open_msg_t"]
+        [::core::mem::align_of::<tls_spp_srv_open_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_srv_open_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_srv_open_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_srv_open_msg_t::handle"]
+        [::core::mem::offset_of!(tls_spp_srv_open_msg_t, handle) - 4usize];
+    ["Offset of field: tls_spp_srv_open_msg_t::new_listen_handle"]
+        [::core::mem::offset_of!(tls_spp_srv_open_msg_t, new_listen_handle) - 8usize];
+    ["Offset of field: tls_spp_srv_open_msg_t::addr"]
+        [::core::mem::offset_of!(tls_spp_srv_open_msg_t, addr) - 12usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_close_msg_t {
+    pub status: u8,
+    pub port_status: u32,
+    pub handle: u32,
+    pub local: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_close_msg_t"][::core::mem::size_of::<tls_spp_close_msg_t>() - 16usize];
+    ["Alignment of tls_spp_close_msg_t"][::core::mem::align_of::<tls_spp_close_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_close_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_close_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_close_msg_t::port_status"]
+        [::core::mem::offset_of!(tls_spp_close_msg_t, port_status) - 4usize];
+    ["Offset of field: tls_spp_close_msg_t::handle"]
+        [::core::mem::offset_of!(tls_spp_close_msg_t, handle) - 8usize];
+    ["Offset of field: tls_spp_close_msg_t::local"]
+        [::core::mem::offset_of!(tls_spp_close_msg_t, local) - 12usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_start_msg_t {
+    pub status: u8,
+    pub handle: u32,
+    pub sec_id: u8,
+    pub use_co_rfc: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_start_msg_t"][::core::mem::size_of::<tls_spp_start_msg_t>() - 12usize];
+    ["Alignment of tls_spp_start_msg_t"][::core::mem::align_of::<tls_spp_start_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_start_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_start_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_start_msg_t::handle"]
+        [::core::mem::offset_of!(tls_spp_start_msg_t, handle) - 4usize];
+    ["Offset of field: tls_spp_start_msg_t::sec_id"]
+        [::core::mem::offset_of!(tls_spp_start_msg_t, sec_id) - 8usize];
+    ["Offset of field: tls_spp_start_msg_t::use_co_rfc"]
+        [::core::mem::offset_of!(tls_spp_start_msg_t, use_co_rfc) - 9usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_cli_init_msg_t {
+    pub status: u8,
+    pub handle: u32,
+    pub sec_id: u8,
+    pub use_co_rfc: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_cli_init_msg_t"][::core::mem::size_of::<tls_spp_cli_init_msg_t>() - 12usize];
+    ["Alignment of tls_spp_cli_init_msg_t"]
+        [::core::mem::align_of::<tls_spp_cli_init_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_cli_init_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_cli_init_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_cli_init_msg_t::handle"]
+        [::core::mem::offset_of!(tls_spp_cli_init_msg_t, handle) - 4usize];
+    ["Offset of field: tls_spp_cli_init_msg_t::sec_id"]
+        [::core::mem::offset_of!(tls_spp_cli_init_msg_t, sec_id) - 8usize];
+    ["Offset of field: tls_spp_cli_init_msg_t::use_co_rfc"]
+        [::core::mem::offset_of!(tls_spp_cli_init_msg_t, use_co_rfc) - 9usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_write_msg_t {
+    pub status: u8,
+    pub handle: u32,
+    pub length: core::ffi::c_int,
+    pub congest: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_write_msg_t"][::core::mem::size_of::<tls_spp_write_msg_t>() - 16usize];
+    ["Alignment of tls_spp_write_msg_t"][::core::mem::align_of::<tls_spp_write_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_write_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_write_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_write_msg_t::handle"]
+        [::core::mem::offset_of!(tls_spp_write_msg_t, handle) - 4usize];
+    ["Offset of field: tls_spp_write_msg_t::length"]
+        [::core::mem::offset_of!(tls_spp_write_msg_t, length) - 8usize];
+    ["Offset of field: tls_spp_write_msg_t::congest"]
+        [::core::mem::offset_of!(tls_spp_write_msg_t, congest) - 12usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_spp_data_ind_msg_t {
+    pub status: u8,
+    pub handle: u32,
+    pub length: u16,
+    pub data: *mut u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_data_ind_msg_t"][::core::mem::size_of::<tls_spp_data_ind_msg_t>() - 16usize];
+    ["Alignment of tls_spp_data_ind_msg_t"]
+        [::core::mem::align_of::<tls_spp_data_ind_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_data_ind_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_data_ind_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_data_ind_msg_t::handle"]
+        [::core::mem::offset_of!(tls_spp_data_ind_msg_t, handle) - 4usize];
+    ["Offset of field: tls_spp_data_ind_msg_t::length"]
+        [::core::mem::offset_of!(tls_spp_data_ind_msg_t, length) - 8usize];
+    ["Offset of field: tls_spp_data_ind_msg_t::data"]
+        [::core::mem::offset_of!(tls_spp_data_ind_msg_t, data) - 12usize];
+};
+impl Default for tls_spp_data_ind_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_spp_cong_msg_t {
+    pub status: u8,
+    pub handle: u32,
+    pub congest: bool,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_cong_msg_t"][::core::mem::size_of::<tls_spp_cong_msg_t>() - 12usize];
+    ["Alignment of tls_spp_cong_msg_t"][::core::mem::align_of::<tls_spp_cong_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_cong_msg_t::status"]
+        [::core::mem::offset_of!(tls_spp_cong_msg_t, status) - 0usize];
+    ["Offset of field: tls_spp_cong_msg_t::handle"]
+        [::core::mem::offset_of!(tls_spp_cong_msg_t, handle) - 4usize];
+    ["Offset of field: tls_spp_cong_msg_t::congest"]
+        [::core::mem::offset_of!(tls_spp_cong_msg_t, congest) - 8usize];
+};
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_spp_msg_t {
+    pub init_msg: tls_spp_init_msg_t,
+    pub disc_comp_msg: tls_spp_disc_comp_msg_t,
+    pub open_msg: tls_spp_open_msg_t,
+    pub srv_open_msg: tls_spp_srv_open_msg_t,
+    pub close_msg: tls_spp_close_msg_t,
+    pub start_msg: tls_spp_start_msg_t,
+    pub cli_init_msg: tls_spp_cli_init_msg_t,
+    pub write_msg: tls_spp_write_msg_t,
+    pub data_ind_msg: tls_spp_data_ind_msg_t,
+    pub congest_msg: tls_spp_cong_msg_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_spp_msg_t"][::core::mem::size_of::<tls_spp_msg_t>() - 36usize];
+    ["Alignment of tls_spp_msg_t"][::core::mem::align_of::<tls_spp_msg_t>() - 4usize];
+    ["Offset of field: tls_spp_msg_t::init_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, init_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::disc_comp_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, disc_comp_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::open_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, open_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::srv_open_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, srv_open_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::close_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, close_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::start_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, start_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::cli_init_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, cli_init_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::write_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, write_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::data_ind_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, data_ind_msg) - 0usize];
+    ["Offset of field: tls_spp_msg_t::congest_msg"]
+        [::core::mem::offset_of!(tls_spp_msg_t, congest_msg) - 0usize];
+};
+impl Default for tls_spp_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type tls_bt_spp_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_spp_event_t, p_data: *mut tls_spp_msg_t),
+>;
+impl tls_ble_uart_mode_t {
+    pub const BLE_UART_SERVER_MODE: tls_ble_uart_mode_t = tls_ble_uart_mode_t(0);
+    pub const BLE_UART_CLIENT_MODE: tls_ble_uart_mode_t = tls_ble_uart_mode_t(1);
+    pub const BLE_UART_UNKNOWN_MODE: tls_ble_uart_mode_t = tls_ble_uart_mode_t(2);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_ble_uart_mode_t(pub core::ffi::c_uint);
+impl tls_uart_msg_out_t {
+    pub const UART_OUTPUT_DATA: tls_uart_msg_out_t = tls_uart_msg_out_t(0);
+    pub const UART_OUTPUT_CMD_ADVERTISING: tls_uart_msg_out_t = tls_uart_msg_out_t(1);
+    pub const UART_OUTPUT_CMD_CONNECTED: tls_uart_msg_out_t = tls_uart_msg_out_t(2);
+    pub const UART_OUTPUT_CMD_DISCONNECTED: tls_uart_msg_out_t = tls_uart_msg_out_t(3);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_uart_msg_out_t(pub core::ffi::c_uint);
+pub type tls_ble_uart_output_ptr = ::core::option::Option<
+    unsafe extern "C" fn(type_: tls_uart_msg_out_t, payload: *mut u8, length: core::ffi::c_int),
+>;
+pub type tls_ble_uart_sent_ptr = ::core::option::Option<
+    unsafe extern "C" fn(mode: tls_ble_uart_mode_t, status: core::ffi::c_int),
+>;
+impl tls_bt_mesh_role_t {
+    pub const MESH_ROLE_UNKNOWN: tls_bt_mesh_role_t = tls_bt_mesh_role_t(0);
+    pub const MESH_ROLE_NODE: tls_bt_mesh_role_t = tls_bt_mesh_role_t(1);
+    pub const MESH_ROLE_PROVISIONER: tls_bt_mesh_role_t = tls_bt_mesh_role_t(2);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_bt_mesh_role_t(pub core::ffi::c_uint);
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_mesh_primary_cfg_t {
+    pub net_transmit_count: u8,
+    pub net_transmit_intvl: u8,
+    pub relay: u8,
+    pub relay_retransmit_count: u8,
+    pub relay_retransmit_intvl: u8,
+    pub beacon: u8,
+    pub gatt_proxy: u8,
+    pub frnd: u8,
+    pub default_ttl: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_primary_cfg_t"][::core::mem::size_of::<tls_mesh_primary_cfg_t>() - 9usize];
+    ["Alignment of tls_mesh_primary_cfg_t"]
+        [::core::mem::align_of::<tls_mesh_primary_cfg_t>() - 1usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::net_transmit_count"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, net_transmit_count) - 0usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::net_transmit_intvl"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, net_transmit_intvl) - 1usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::relay"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, relay) - 2usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::relay_retransmit_count"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, relay_retransmit_count) - 3usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::relay_retransmit_intvl"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, relay_retransmit_intvl) - 4usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::beacon"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, beacon) - 5usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::gatt_proxy"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, gatt_proxy) - 6usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::frnd"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, frnd) - 7usize];
+    ["Offset of field: tls_mesh_primary_cfg_t::default_ttl"]
+        [::core::mem::offset_of!(tls_mesh_primary_cfg_t, default_ttl) - 8usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_mesh_cfg_mod_pub {
+    pub addr: u16,
+    pub app_idx: u16,
+    pub cred_flag: u8,
+    pub ttl: u8,
+    pub period: u8,
+    pub transmit: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_mesh_cfg_mod_pub"][::core::mem::size_of::<tls_bt_mesh_cfg_mod_pub>() - 8usize];
+    ["Alignment of tls_bt_mesh_cfg_mod_pub"]
+        [::core::mem::align_of::<tls_bt_mesh_cfg_mod_pub>() - 2usize];
+    ["Offset of field: tls_bt_mesh_cfg_mod_pub::addr"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_mod_pub, addr) - 0usize];
+    ["Offset of field: tls_bt_mesh_cfg_mod_pub::app_idx"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_mod_pub, app_idx) - 2usize];
+    ["Offset of field: tls_bt_mesh_cfg_mod_pub::cred_flag"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_mod_pub, cred_flag) - 4usize];
+    ["Offset of field: tls_bt_mesh_cfg_mod_pub::ttl"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_mod_pub, ttl) - 5usize];
+    ["Offset of field: tls_bt_mesh_cfg_mod_pub::period"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_mod_pub, period) - 6usize];
+    ["Offset of field: tls_bt_mesh_cfg_mod_pub::transmit"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_mod_pub, transmit) - 7usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_mesh_cfg_hb_pub {
+    pub dst: u16,
+    pub count: u8,
+    pub period: u8,
+    pub ttl: u8,
+    pub feat: u16,
+    pub net_idx: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_mesh_cfg_hb_pub"][::core::mem::size_of::<tls_bt_mesh_cfg_hb_pub>() - 10usize];
+    ["Alignment of tls_bt_mesh_cfg_hb_pub"]
+        [::core::mem::align_of::<tls_bt_mesh_cfg_hb_pub>() - 2usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_pub::dst"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_pub, dst) - 0usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_pub::count"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_pub, count) - 2usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_pub::period"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_pub, period) - 3usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_pub::ttl"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_pub, ttl) - 4usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_pub::feat"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_pub, feat) - 6usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_pub::net_idx"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_pub, net_idx) - 8usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_bt_mesh_cfg_hb_sub {
+    pub src: u16,
+    pub dst: u16,
+    pub period: u8,
+    pub count: u8,
+    pub min: u8,
+    pub max: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_bt_mesh_cfg_hb_sub"][::core::mem::size_of::<tls_bt_mesh_cfg_hb_sub>() - 8usize];
+    ["Alignment of tls_bt_mesh_cfg_hb_sub"]
+        [::core::mem::align_of::<tls_bt_mesh_cfg_hb_sub>() - 2usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_sub::src"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_sub, src) - 0usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_sub::dst"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_sub, dst) - 2usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_sub::period"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_sub, period) - 4usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_sub::count"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_sub, count) - 5usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_sub::min"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_sub, min) - 6usize];
+    ["Offset of field: tls_bt_mesh_cfg_hb_sub::max"]
+        [::core::mem::offset_of!(tls_bt_mesh_cfg_hb_sub, max) - 7usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_mesh_unprov_msg_t {
+    pub addr: [u8; 6usize],
+    pub addr_type: u8,
+    pub uuid: [u8; 16usize],
+    pub oob_info: u32,
+    pub uri_hash: u32,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_unprov_msg_t"][::core::mem::size_of::<tls_mesh_unprov_msg_t>() - 32usize];
+    ["Alignment of tls_mesh_unprov_msg_t"]
+        [::core::mem::align_of::<tls_mesh_unprov_msg_t>() - 4usize];
+    ["Offset of field: tls_mesh_unprov_msg_t::addr"]
+        [::core::mem::offset_of!(tls_mesh_unprov_msg_t, addr) - 0usize];
+    ["Offset of field: tls_mesh_unprov_msg_t::addr_type"]
+        [::core::mem::offset_of!(tls_mesh_unprov_msg_t, addr_type) - 6usize];
+    ["Offset of field: tls_mesh_unprov_msg_t::uuid"]
+        [::core::mem::offset_of!(tls_mesh_unprov_msg_t, uuid) - 7usize];
+    ["Offset of field: tls_mesh_unprov_msg_t::oob_info"]
+        [::core::mem::offset_of!(tls_mesh_unprov_msg_t, oob_info) - 24usize];
+    ["Offset of field: tls_mesh_unprov_msg_t::uri_hash"]
+        [::core::mem::offset_of!(tls_mesh_unprov_msg_t, uri_hash) - 28usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_mesh_node_added_msg_t {
+    pub net_idx: u16,
+    pub addr: u16,
+    pub num_elem: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_node_added_msg_t"]
+        [::core::mem::size_of::<tls_mesh_node_added_msg_t>() - 6usize];
+    ["Alignment of tls_mesh_node_added_msg_t"]
+        [::core::mem::align_of::<tls_mesh_node_added_msg_t>() - 2usize];
+    ["Offset of field: tls_mesh_node_added_msg_t::net_idx"]
+        [::core::mem::offset_of!(tls_mesh_node_added_msg_t, net_idx) - 0usize];
+    ["Offset of field: tls_mesh_node_added_msg_t::addr"]
+        [::core::mem::offset_of!(tls_mesh_node_added_msg_t, addr) - 2usize];
+    ["Offset of field: tls_mesh_node_added_msg_t::num_elem"]
+        [::core::mem::offset_of!(tls_mesh_node_added_msg_t, num_elem) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_mesh_prov_complete_msg_t {
+    pub net_idx: u16,
+    pub addr: u16,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_prov_complete_msg_t"]
+        [::core::mem::size_of::<tls_mesh_prov_complete_msg_t>() - 4usize];
+    ["Alignment of tls_mesh_prov_complete_msg_t"]
+        [::core::mem::align_of::<tls_mesh_prov_complete_msg_t>() - 2usize];
+    ["Offset of field: tls_mesh_prov_complete_msg_t::net_idx"]
+        [::core::mem::offset_of!(tls_mesh_prov_complete_msg_t, net_idx) - 0usize];
+    ["Offset of field: tls_mesh_prov_complete_msg_t::addr"]
+        [::core::mem::offset_of!(tls_mesh_prov_complete_msg_t, addr) - 2usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tls_mesh_oob_output_str_msg_t {
+    pub str_: *mut core::ffi::c_char,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_oob_output_str_msg_t"]
+        [::core::mem::size_of::<tls_mesh_oob_output_str_msg_t>() - 4usize];
+    ["Alignment of tls_mesh_oob_output_str_msg_t"]
+        [::core::mem::align_of::<tls_mesh_oob_output_str_msg_t>() - 4usize];
+    ["Offset of field: tls_mesh_oob_output_str_msg_t::str_"]
+        [::core::mem::offset_of!(tls_mesh_oob_output_str_msg_t, str_) - 0usize];
+};
+impl Default for tls_mesh_oob_output_str_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_mesh_oob_output_number_msg_t {
+    pub number: u32,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_oob_output_number_msg_t"]
+        [::core::mem::size_of::<tls_mesh_oob_output_number_msg_t>() - 4usize];
+    ["Alignment of tls_mesh_oob_output_number_msg_t"]
+        [::core::mem::align_of::<tls_mesh_oob_output_number_msg_t>() - 4usize];
+    ["Offset of field: tls_mesh_oob_output_number_msg_t::number"]
+        [::core::mem::offset_of!(tls_mesh_oob_output_number_msg_t, number) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_mesh_oob_input_msg_t {
+    pub act: u32,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_oob_input_msg_t"]
+        [::core::mem::size_of::<tls_mesh_oob_input_msg_t>() - 4usize];
+    ["Alignment of tls_mesh_oob_input_msg_t"]
+        [::core::mem::align_of::<tls_mesh_oob_input_msg_t>() - 4usize];
+    ["Offset of field: tls_mesh_oob_input_msg_t::act"]
+        [::core::mem::offset_of!(tls_mesh_oob_input_msg_t, act) - 0usize];
+};
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct tls_mesh_prov_end_msg_t {
+    pub success: bool,
+    pub net_idx: u16,
+    pub addr: u16,
+    pub num_elem: u8,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_prov_end_msg_t"][::core::mem::size_of::<tls_mesh_prov_end_msg_t>() - 8usize];
+    ["Alignment of tls_mesh_prov_end_msg_t"]
+        [::core::mem::align_of::<tls_mesh_prov_end_msg_t>() - 2usize];
+    ["Offset of field: tls_mesh_prov_end_msg_t::success"]
+        [::core::mem::offset_of!(tls_mesh_prov_end_msg_t, success) - 0usize];
+    ["Offset of field: tls_mesh_prov_end_msg_t::net_idx"]
+        [::core::mem::offset_of!(tls_mesh_prov_end_msg_t, net_idx) - 2usize];
+    ["Offset of field: tls_mesh_prov_end_msg_t::addr"]
+        [::core::mem::offset_of!(tls_mesh_prov_end_msg_t, addr) - 4usize];
+    ["Offset of field: tls_mesh_prov_end_msg_t::num_elem"]
+        [::core::mem::offset_of!(tls_mesh_prov_end_msg_t, num_elem) - 6usize];
+};
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tls_mesh_msg_t {
+    pub unprov_msg: tls_mesh_unprov_msg_t,
+    pub node_added_msg: tls_mesh_node_added_msg_t,
+    pub oob_output_string_msg: tls_mesh_oob_output_str_msg_t,
+    pub oob_output_number_msg: tls_mesh_oob_output_number_msg_t,
+    pub prov_cmplt_msg: tls_mesh_prov_complete_msg_t,
+    pub oob_input_msg: tls_mesh_oob_input_msg_t,
+    pub prov_end_msg: tls_mesh_prov_end_msg_t,
+}
+#[allow(clippy::unnecessary_operation, clippy::identity_op)]
+const _: () = {
+    ["Size of tls_mesh_msg_t"][::core::mem::size_of::<tls_mesh_msg_t>() - 32usize];
+    ["Alignment of tls_mesh_msg_t"][::core::mem::align_of::<tls_mesh_msg_t>() - 4usize];
+    ["Offset of field: tls_mesh_msg_t::unprov_msg"]
+        [::core::mem::offset_of!(tls_mesh_msg_t, unprov_msg) - 0usize];
+    ["Offset of field: tls_mesh_msg_t::node_added_msg"]
+        [::core::mem::offset_of!(tls_mesh_msg_t, node_added_msg) - 0usize];
+    ["Offset of field: tls_mesh_msg_t::oob_output_string_msg"]
+        [::core::mem::offset_of!(tls_mesh_msg_t, oob_output_string_msg) - 0usize];
+    ["Offset of field: tls_mesh_msg_t::oob_output_number_msg"]
+        [::core::mem::offset_of!(tls_mesh_msg_t, oob_output_number_msg) - 0usize];
+    ["Offset of field: tls_mesh_msg_t::prov_cmplt_msg"]
+        [::core::mem::offset_of!(tls_mesh_msg_t, prov_cmplt_msg) - 0usize];
+    ["Offset of field: tls_mesh_msg_t::oob_input_msg"]
+        [::core::mem::offset_of!(tls_mesh_msg_t, oob_input_msg) - 0usize];
+    ["Offset of field: tls_mesh_msg_t::prov_end_msg"]
+        [::core::mem::offset_of!(tls_mesh_msg_t, prov_end_msg) - 0usize];
+};
+impl Default for tls_mesh_msg_t {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl tls_mesh_event_t {
+    pub const WM_MESH_UNPROVISION_BEACON_EVT: tls_mesh_event_t = tls_mesh_event_t(2);
+    pub const WM_MESH_SECURE_BEACON_EVT: tls_mesh_event_t = tls_mesh_event_t(4);
+    pub const WM_MESH_NODE_ADDED_EVT: tls_mesh_event_t = tls_mesh_event_t(8);
+    pub const WM_MESH_OOB_STRING_EVT: tls_mesh_event_t = tls_mesh_event_t(16);
+    pub const WM_MESH_OOB_NUMBER_EVT: tls_mesh_event_t = tls_mesh_event_t(32);
+    pub const WM_MESH_PROV_CMPLT_EVT: tls_mesh_event_t = tls_mesh_event_t(64);
+    pub const WM_MESH_OOB_INPUT_EVT: tls_mesh_event_t = tls_mesh_event_t(128);
+    pub const WM_MESH_PROV_END_EVT: tls_mesh_event_t = tls_mesh_event_t(256);
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct tls_mesh_event_t(pub core::ffi::c_uint);
+pub type tls_bt_mesh_at_callback_t = ::core::option::Option<
+    unsafe extern "C" fn(event: tls_mesh_event_t, p_data: *mut tls_mesh_msg_t),
+>;
+pub type tls_bt_controller_sleep_enter_func_ptr =
+    ::core::option::Option<unsafe extern "C" fn(sleep_duration_ms: u32)>;
+pub type tls_bt_controller_sleep_exit_func_ptr = ::core::option::Option<unsafe extern "C" fn()>;
+pub type tls_bt_app_pending_process_func_ptr = ::core::option::Option<unsafe extern "C" fn()>;
 unsafe extern "C" {
     pub fn printf(format: *const core::ffi::c_char, ...) -> core::ffi::c_int;
     pub fn tls_os_timer_init();
@@ -3750,6 +8356,182 @@ unsafe extern "C" {
     pub fn tls_oneshot_find_chlist(ssid: *mut u8_, ssid_len: u8_, chlist: *mut u16_);
     pub fn wm_oneshot_netif_status_event(status: u8_);
     pub fn tls_oneshot_send_web_connect_msg();
+    pub fn tls_bt_pin_reply(
+        bd_addr: *const tls_bt_addr_t,
+        accept: u8,
+        pin_len: u8,
+        pin_code: *mut tls_bt_pin_code_t,
+    ) -> tls_bt_status_t;
+    pub fn tls_bt_ssp_reply(
+        bd_addr: *const tls_bt_addr_t,
+        variant: tls_bt_ssp_variant_t,
+        accept: u8,
+        passkey: u32,
+    ) -> tls_bt_status_t;
+    pub fn tls_bt_set_adapter_property(
+        property: *const tls_bt_property_t,
+        update_to_flash: u8,
+    ) -> tls_bt_status_t;
+    pub fn tls_bt_get_adapter_property(type_: tls_bt_property_type_t) -> tls_bt_status_t;
+    pub fn tls_bt_start_discovery() -> tls_bt_status_t;
+    pub fn tls_bt_cancel_discovery() -> tls_bt_status_t;
+    pub fn tls_bt_create_bond(
+        bd_addr: *const tls_bt_addr_t,
+        transport: core::ffi::c_int,
+    ) -> tls_bt_status_t;
+    pub fn tls_bt_cancel_bond(bd_addr: *const tls_bt_addr_t) -> tls_bt_status_t;
+    pub fn tls_bt_remove_bond(bd_addr: *const tls_bt_addr_t) -> tls_bt_status_t;
+    pub fn tls_bt_host_cleanup() -> tls_bt_status_t;
+    pub fn tls_bt_enable(
+        callback: tls_bt_host_callback_t,
+        p_hci_if: *mut tls_bt_hci_if_t,
+        log_level: tls_bt_log_level_t,
+    ) -> tls_bt_status_t;
+    pub fn tls_bt_disable() -> tls_bt_status_t;
+    pub fn tls_bt_ctrl_enable(
+        p_hci_if: *mut tls_bt_hci_if_t,
+        log_level: tls_bt_log_level_t,
+    ) -> tls_bt_status_t;
+    pub fn tls_bt_ctrl_disable() -> tls_bt_status_t;
+    pub fn tls_ble_set_tx_power(
+        power_type: tls_ble_power_type_t,
+        power_level_index: i8,
+    ) -> tls_bt_status_t;
+    pub fn tls_ble_get_tx_power(power_type: tls_ble_power_type_t) -> i8;
+    pub fn tls_bredr_set_tx_power(min_power_level: i8, max_power_level: i8) -> tls_bt_status_t;
+    pub fn tls_bredr_get_tx_power(
+        min_power_level: *mut i8,
+        max_power_level: *mut i8,
+    ) -> tls_bt_status_t;
+    pub fn tls_bredr_sco_datapath_set(data_path: tls_sco_data_path_t) -> tls_bt_status_t;
+    pub fn tls_bt_controller_get_status() -> tls_bt_ctrl_status_t;
+    pub fn tls_bt_vuart_host_send_packet(data: *mut u8, len: u16) -> tls_bt_status_t;
+    pub fn tls_bt_ctrl_if_register(p_host_if: *const tls_bt_host_if_t) -> tls_bt_status_t;
+    pub fn tls_bt_ctrl_if_unregister() -> tls_bt_status_t;
+    pub fn tls_bt_ctrl_sleep(enable: bool) -> tls_bt_status_t;
+    pub fn tls_bt_ctrl_is_sleep() -> bool;
+    pub fn tls_bt_ctrl_wakeup() -> tls_bt_status_t;
+    pub fn tls_bt_vuart_host_check_send_available() -> bool;
+    pub fn tls_rf_bt_mode(enable: u8);
+    pub fn tls_bt_set_mesh_mode(enable: u8) -> tls_bt_status_t;
+    pub fn tls_bt_register_sleep_callback(
+        sleep_enter: tls_bt_controller_sleep_enter_func_ptr,
+        sleep_exit: tls_bt_controller_sleep_exit_func_ptr,
+    ) -> tls_bt_status_t;
+    pub fn tls_bt_register_pending_process_callback(
+        process_ptr: tls_bt_app_pending_process_func_ptr,
+    ) -> tls_bt_status_t;
+    pub fn tls_ble_dm_init(callback: tls_ble_dm_callback_t) -> tls_bt_status_t;
+    pub fn tls_ble_adv(adv_state: u8) -> tls_bt_status_t;
+    pub fn tls_ble_set_adv_data(data: *mut tls_ble_dm_adv_data_t) -> tls_bt_status_t;
+    pub fn tls_ble_set_adv_param(param: *mut tls_ble_dm_adv_param_t) -> tls_bt_status_t;
+    pub fn tls_ble_set_adv_ext_param(param: *mut tls_ble_dm_adv_ext_param_t) -> tls_bt_status_t;
+    pub fn tls_ble_scan(start: bool) -> tls_bt_status_t;
+    pub fn tls_ble_set_scan_param(
+        window: core::ffi::c_int,
+        interval: core::ffi::c_int,
+        scan_mode: u8,
+    ) -> tls_bt_status_t;
+    pub fn tls_dm_evt_triger(
+        id: core::ffi::c_int,
+        callback: tls_ble_dm_triger_callback_t,
+    ) -> tls_bt_status_t;
+    pub fn tls_dm_set_data_length(bd_addr: *mut tls_bt_addr_t, length: u16) -> tls_bt_status_t;
+    pub fn tls_dm_set_privacy(enable: u8) -> tls_bt_status_t;
+    pub fn tls_ble_conn_parameter_update(
+        bd_addr: *const tls_bt_addr_t,
+        min_interval: core::ffi::c_int,
+        max_interval: core::ffi::c_int,
+        latency: core::ffi::c_int,
+        timeout: core::ffi::c_int,
+    ) -> tls_bt_status_t;
+    pub fn tls_dm_read_remote_rssi(bd_addr: *const tls_bt_addr_t) -> tls_bt_status_t;
+    pub fn tls_ble_set_sec_io_cap(io_cap: u8) -> tls_bt_status_t;
+    pub fn tls_ble_set_sec_auth_req(auth_req: u8) -> tls_bt_status_t;
+    pub fn tls_ble_set_sec(bd_addr: *const tls_bt_addr_t, sec_act: u8) -> tls_bt_status_t;
+    pub fn tls_ble_gap_adv(start: u8, duration: core::ffi::c_int) -> tls_bt_status_t;
+    pub fn tls_at_bt_enable(
+        uart_no: core::ffi::c_int,
+        log_level: tls_bt_log_level_t,
+    ) -> core::ffi::c_int;
+    pub fn tls_at_bt_destroy() -> core::ffi::c_int;
+    pub fn tls_ble_client_demo_api_init(
+        output_func_ptr: tls_ble_uart_output_ptr,
+        uart_in_and_sent_ptr: tls_ble_uart_sent_ptr,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_server_demo_api_init(
+        output_func_ptr: tls_ble_uart_output_ptr,
+        uart_in_and_sent_ptr: tls_ble_uart_sent_ptr,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_client_demo_api_deinit() -> core::ffi::c_int;
+    pub fn tls_ble_server_demo_api_deinit() -> core::ffi::c_int;
+    pub fn tls_ble_client_multi_conn_demo_api_init() -> core::ffi::c_int;
+    pub fn tls_ble_client_multi_conn_demo_api_deinit() -> core::ffi::c_int;
+    pub fn tls_ble_uart_init(
+        mode: tls_ble_uart_mode_t,
+        uart_id: u8,
+        p_hci_if: *mut tls_uart_options_t,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_uart_deinit(mode: tls_ble_uart_mode_t, uart_id: u8) -> core::ffi::c_int;
+    pub fn tls_ble_demo_adv(type_: u8) -> core::ffi::c_int;
+    pub fn tls_ble_demo_scan(start: u8) -> core::ffi::c_int;
+    pub fn tls_ble_set_scan_chnl_map(map: u8) -> tls_bt_status_t;
+    pub fn tls_ble_client_demo_api_send_msg(
+        ptr: *mut u8,
+        length: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_server_demo_api_send_msg(
+        data: *mut u8,
+        data_len: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_gap_set_name(
+        dev_name: *const core::ffi::c_char,
+        update_flash: u8,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_gap_get_name(dev_name: *mut core::ffi::c_char) -> core::ffi::c_int;
+    pub fn tls_ble_gap_set_data(
+        type_: wm_ble_gap_data_t,
+        data: *mut u8,
+        data_len: u8,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_gap_set_adv_param(
+        adv_type: u8,
+        min: u32,
+        max: u32,
+        chn_map: u8,
+        filter_policy: u8,
+        dir_mac: *mut u8,
+        dir_mac_type: u8,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_gap_set_scan_param(
+        intv: u32,
+        window: u32,
+        filter_policy: u8,
+        limited: bool,
+        passive: bool,
+        filter_duplicate: bool,
+    ) -> core::ffi::c_int;
+    pub fn tls_nimble_gap_adv(
+        type_: wm_ble_adv_type_t,
+        duration: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn tls_ble_demo_scan_at_cmd_register(
+        scan_resp_cb_fn: ::core::option::Option<
+            unsafe extern "C" fn(
+                type_: core::ffi::c_int,
+                rssi: i8,
+                addr: *mut u8,
+                name: *const u8,
+                name_len: core::ffi::c_int,
+                raw_scan_resp: *const u8,
+                raw_scan_resp_length: core::ffi::c_int,
+            ),
+        >,
+    );
+    pub fn tls_ble_demo_scan_at_cmd_unregister();
+    pub fn tls_ble_gap_scan(type_: wm_ble_scan_type_t, filter_duplicate: bool) -> core::ffi::c_int;
     pub fn sendchar(ch: core::ffi::c_int) -> core::ffi::c_int;
     pub fn tls_mem_get_avail_heapsize() -> u32_;
+    pub fn tls_bt_init(uart_idx: u8) -> core::ffi::c_int;
+    pub fn ble_svc_gap_device_name_set(name: *const core::ffi::c_char) -> core::ffi::c_int;
 }

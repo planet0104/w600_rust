@@ -187,7 +187,7 @@ pub fn generate_bindings() -> Result<()> {
         .derive_default(true)
         .generate_comments(false)
         .merge_extern_blocks(true)
-        .allowlist_function(format!("{FUNCTIONS}|sendchar|close|lwip_gethostbyname"))
+        .allowlist_function(format!("{FUNCTIONS}|sendchar|close|lwip_gethostbyname|ble_svc_gap_device_name_set"))
         .allowlist_type(TYPES)
         .allowlist_var(format!("{VARS}|LWIP_SOCKET_OFFSET"))
         .generate()

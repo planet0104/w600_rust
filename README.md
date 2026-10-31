@@ -192,7 +192,8 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
    烧录完成后程序会立即运行，`--monitor` 切换到 115200 波特率之前的输出会丢失，需要看启动日志时按一下复位键。
 
 示例的 LED 使用 PB0 / PB1 / PB2（低电平点亮），适用于 TB-08 开发板和海凌科 HLK-W800-KIT（需打开板上的 LED 拨码开关），
-其他开发板请按原理图修改。新项目复制 `examples-w800` 目录即可，需要的文件是 `.cargo/config.toml`、
+其他开发板请按原理图修改。除了与 W600 相同的示例，还有 `ble`：以 `W800-Rust` 为名广播，
+用手机蓝牙调试工具（nRF Connect、LightBlue 等）连接后向服务 `0xFFF0` 的特征 `0xFFF2` 写入数据，串口会打印收到的内容。新项目复制 `examples-w800` 目录即可，需要的文件是 `.cargo/config.toml`、
 `rust-toolchain.toml` 和 `csky-none-elfabiv2hf.json`。
 
 ### 与 W600 的差异
@@ -206,6 +207,8 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
   `Uart::new` 打开 UART1 会接管它，但建议使用其他串口（示例用 UART4：PB4 / PB5）。
 - **PWM**：通道 0 ～ 4（`pwm0` ～ `pwm4`）对应 SDK 的 `wm_pwm0_config` ～ `wm_pwm4_config`。
 - **ADC**：`read_millivolts` 由 SDK 直接换算，通道 0 ～ 3 依次对应 PA1、PA4、PA3、PA2；没有 `read_raw`。
+- **蓝牙**：`w600::ble` 提供 BLE 从机：广播设备名，接收主机写入的数据，以及连接 / 断开事件。
+  它基于 SDK 自带的 NimBLE 协议栈和其中的 GATT 服务（服务 `0xFFF0`，写特征 `0xFFF2`），暂不支持自定义服务和向主机发送数据。
 - **Flash 用户区共 104KB**（0x81E0000 起）。应用代码区约 1087KB，SDK 默认配置（含 AT 指令、蓝牙）下示例约占 700KB；
   堆约 166KB。
 - 没有 W600 的“任务栈必须位于 0x20028000 以下”和“PB31 不支持中断”限制；其余限制（优先级范围、2ms 节拍、

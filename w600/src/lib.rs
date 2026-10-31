@@ -10,6 +10,7 @@
 //! - 外设：[`gpio`]、[`pwm`]、[`uart`]、[`i2c`]、[`spi`]、[`adc`]、[`timer`]、[`flash`]，
 //!   并实现 `embedded-hal` 1.0 / `embedded-io` 0.7 的 trait
 //! - 网络：[`wifi`]（STA 联网）、[`net`]（TCP/UDP socket、DNS）
+//! - 蓝牙（仅 W800）：`ble`（BLE 从机广播、接收主机写入的数据）
 //!
 //! ```no_run
 //! #![no_std]
@@ -54,6 +55,8 @@ mod print;
 pub mod rt;
 
 pub mod adc;
+#[cfg(target_arch = "csky")]
+pub mod ble;
 pub mod delay;
 pub mod flash;
 pub mod gpio;
