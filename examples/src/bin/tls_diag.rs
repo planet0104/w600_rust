@@ -17,8 +17,8 @@ use w600::{println, wifi};
 
 const SSID: &str = "your-ssid";
 const PASSWORD: &str = "your-password";
-/// (主机, 是否关闭 Wi-Fi 省电)
-const TESTS: [(&str, bool); 4] = [("www.nmc.cn", false), ("www.nmc.cn", false), ("www.nmc.cn", true), ("www.nmc.cn", true)];
+/// (主机, 读超时秒数)
+const TESTS: [(&str, u64); 4] = [("www.nmc.cn", 60), ("www.qq.com", 10), ("www.taobao.com", 10), ("www.weather.com.cn", 10)];
 
 w600::entry!(main, stack_size = 24 * 1024);
 
@@ -83,13 +83,8 @@ fn main() {
 
     let mut read_buf = alloc::vec![0u8; 16640];
     let mut write_buf = alloc::vec![0u8; 4096];
-    // 等 SDK 的系统任务按参数打开省电模式之后再开始测试。
-    w600::thread::sleep(Duration::from_secs(1));
-    for (i, (host, disable_ps)) in TESTS.iter().enumerate() {
-        if *disable_ps {
-            unsafe { w600::sys::tls_wifi_set_psflag(false as _, false as _) };
-        }
-        println!("\n=== {host}, wifi power save flag = {}", unsafe { w600::sys::tls_wifi_get_psflag() });
+    for (i, (host, timeout)) in TESTS.iter().enumerate() {
+        println!("\n=== {host}, read timeout {timeout} s");
         let tcp = match TcpStream::connect_host(host, 443) {
             Ok(s) => s,
             Err(e) => {
@@ -98,7 +93,7 @@ fn main() {
             }
         };
         let mut tcp = tcp;
-        tcp.set_read_timeout(Some(Duration::from_secs(10)));
+        tcp.set_read_timeout(Some(Duration::from_secs(*timeout)));
         let peer: Option<SocketAddrV4> = tcp.peer_addr().ok();
         println!("tcp connected to {peer:?}");
 
