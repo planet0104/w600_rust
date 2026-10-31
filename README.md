@@ -1,4 +1,4 @@
-# lib_w600：用 Rust 开发联盟微 W600 / W800
+# lib_w600：用 Rust 开发联盛德 W600 / W800
 
 在官方 SDK（W600：WM_SDK_W60X_G3.04.00；W800：W80X_SDK_v1.00.10）之上提供的 Rust 开发库。
 FreeRTOS、Wi-Fi 协议栈、lwIP 和外设驱动继续使用官方实现，Rust 一侧提供符合习惯的安全接口，
@@ -151,7 +151,7 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
 
 `xtask` 会：
 
-1. 从联盟微官网下载 SDK 并校验 SHA-256（也可以用 `W600_SDK_DIR` 指向已解压或修改过的 SDK）；
+1. 从联盛德官网下载 SDK 并校验 SHA-256（也可以用 `W600_SDK_DIR` 指向已解压或修改过的 SDK）；
 2. 修改 `Include/wm_config.h`（目前只关闭 `TLS_CONFIG_HOSTIF`）；
 3. 解析各模块的 Makefile 得到源文件列表，直接调用 `arm-none-eabi-gcc` 并行编译（不需要 make 或 bash），
    打包为 `w600-sys/lib/libw600sdk.a`，并复制闭源的 `libwlan.a`、`libairkiss_log.a`、`secboot.img`、`wm_tool`，
@@ -253,7 +253,7 @@ cargo xtask w800-all   # 等价于 cargo xtask w800-sdk && cargo xtask w800-bind
 
 W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的各模块静态库，`xtask` 不重新编译 SDK，而是：
 
-1. 从联盟微官网下载 `W80X_SDK_v1.00.10.rar` 并校验 SHA-256，用 bsdtar 解压（Windows 自带；Linux 需安装 `libarchive-tools`），
+1. 从联盛德官网下载 `W80X_SDK_v1.00.10.rar` 并校验 SHA-256，用 bsdtar 解压（Windows 自带；Linux 需安装 `libarchive-tools`），
    也可以用 `W800_SDK_DIR` 指向已解压的 SDK；
 2. 把 `lib/w800` 下的库去掉调试信息（约 30MB → 5MB）后复制到 `w800-sys/lib`，并复制 `w800_secboot.img`、`wm_tool` 和 zlib 源码；
 3. 用 bindgen（`--target=csky-unknown-elf`）从 `w800-sys/wrapper.h` 生成 `w800-sys/src/bindings.rs`。
@@ -286,7 +286,7 @@ W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的�
 ## 许可
 
 Rust 代码以 MIT 或 Apache-2.0 授权。`w600-sys/bin`、`w800-sys/bin`、`tools/wm_tool`、`tools/wm_tool_w800` 以及
-`w600-sys/lib`、`w800-sys/lib` 中的 SDK 库（`libw600sdk.a`、`libwlan.a`、`libairkiss_log.a` 等）来自联盟微官方 SDK，
+`w600-sys/lib`、`w800-sys/lib` 中的 SDK 库（`libw600sdk.a`、`libwlan.a`、`libairkiss_log.a` 等）来自联盛德官方 SDK，
 版权归北京联盛德微电子有限责任公司所有；`w800.x` 基于 C-SKY 的 Apache-2.0 链接脚本；`tools/wm_tool_w800/zlib-1.2.11`
 为 zlib（zlib 许可）；`libc.a`、`libm.a` 来自 newlib（BSD 类许可），`libgcc.a` 来自 GCC（GPL 附运行库例外，允许链接进任意程序）。
 TLS 使用的 embedded-tls（`third_party/embedded-tls`，Apache-2.0）及 RustCrypto 系列 crate 以 Apache-2.0 / MIT 授权。

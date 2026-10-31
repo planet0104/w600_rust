@@ -1,6 +1,6 @@
 [package]
 name = "w600"
-description = "联盟微 W600 / W800 Wi-Fi 芯片的 Rust 开发库：运行时、RTOS、外设、Wi-Fi 与网络"
+description = "联盛德 W600 / W800 Wi-Fi 芯片的 Rust 开发库：运行时、RTOS、外设、Wi-Fi 与网络"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

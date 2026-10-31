@@ -1,4 +1,4 @@
-//! 联盟微 W800 官方 SDK（W80X_SDK_v1.00.10）的原始 FFI 绑定。
+//! 联盛德 W800 官方 SDK（W80X_SDK_v1.00.10）的原始 FFI 绑定。
 //!
 //! 绑定由 `cargo xtask w800-bindgen` 从 SDK 头文件自动生成，SDK 自带的预编译静态库随 crate 一起发布，
 //! 使用者不需要安装 SDK 或 libclang。一般应使用上层的 `w600` crate，而不是直接调用这里的函数。

@@ -1,4 +1,4 @@
-//! 联盟微 W600 官方 SDK（WM_SDK_W60X_G3.04.00）的原始 FFI 绑定。
+//! 联盛德 W600 官方 SDK（WM_SDK_W60X_G3.04.00）的原始 FFI 绑定。
 //!
 //! 绑定由 `cargo xtask bindgen` 从 SDK 头文件自动生成，SDK 静态库和 newlib 预编译后随 crate 一起发布，
 //! 使用者不需要安装 SDK、libclang 或 ARM 工具链。一般应使用上层的 `w600` crate，而不是直接调用这里的函数。

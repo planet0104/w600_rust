@@ -1,6 +1,6 @@
 [package]
 name = "w600-sys"
-description = "联盟微 W600 官方 SDK 的原始 FFI 绑定，附带预编译静态库"
+description = "联盛德 W600 官方 SDK 的原始 FFI 绑定，附带预编译静态库"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
