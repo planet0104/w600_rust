@@ -18,7 +18,7 @@ use w600::{println, wifi};
 const SSID: &str = "REDMI K100 Pro Max";
 const PASSWORD: &str = "jy123456";
 /// (主机, 读超时秒数)
-const TESTS: [(&str, u64); 4] = [("www.nmc.cn", 60), ("www.qq.com", 10), ("www.taobao.com", 10), ("www.weather.com.cn", 10)];
+const TESTS: [(&str, u64); 4] = [("www.nmc.cn", 15), ("www.qq.com", 10), ("www.taobao.com", 10), ("www.weather.com.cn", 10)];
 
 w600::entry!(main, stack_size = 24 * 1024);
 

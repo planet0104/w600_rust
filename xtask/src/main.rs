@@ -304,10 +304,38 @@ fn patch_startup(sdk: &Path) -> Result<()> {
     Ok(())
 }
 
+/// lwIP 的 TCP MSS 从 SDK 默认的 1024 改为以太网标准的 1460：部分服务器（如 www.nmc.cn）的前端
+/// 不遵守 W600 通告的 1024 字节 MSS，之后的数据包 W600 收不到，连接会一直卡住。
+/// 接收窗口随之变为 6 × 1460 字节；lwIP 的缓冲区都从堆上按需分配（MEMP_MEM_MALLOC），不增加静态内存。
+/// 该值也写入编译标记，修改后会触发全量重编（增量编译只比较 .c 与 .o 的时间，感知不到头文件变化）。
+const LWIP_TCP_MSS: &str = "1460";
+
+fn patch_lwipopts(sdk: &Path) -> Result<()> {
+    let path = sdk.join("Src/Network/lwip2.0.3/include/lwip/lwipopts.h");
+    let text = fs::read_to_string(&path)?;
+    let out = text
+        .lines()
+        .map(|line| {
+            if line.starts_with("#define TCP_MSS ") {
+                format!("#define TCP_MSS                   {LWIP_TCP_MSS}")
+            } else {
+                line.to_string()
+            }
+        })
+        .collect::<Vec<_>>()
+        .join("\n")
+        + "\n";
+    if out != text {
+        fs::write(&path, out)?;
+    }
+    Ok(())
+}
+
 fn build_sdk() -> Result<()> {
     let sdk = ensure_sdk()?;
     apply_config(&sdk)?;
     patch_startup(&sdk)?;
+    patch_lwipopts(&sdk)?;
     let root = workspace_root();
     let obj_dir = work_dir().join("obj");
     let gcc = tool("gcc");
@@ -325,7 +353,7 @@ fn build_sdk() -> Result<()> {
             });
         }
     }
-    let stamp = format!("{gcc:?}{CPU_FLAGS:?}{C_FLAGS:?}{CONFIG_OVERRIDES:?}{incs:?}{file_prefix_map:?}");
+    let stamp = format!("{gcc:?}{CPU_FLAGS:?}{C_FLAGS:?}{CONFIG_OVERRIDES:?}{incs:?}{file_prefix_map:?}{LWIP_TCP_MSS}");
     let stamp_path = obj_dir.join("flags.stamp");
     if fs::read_to_string(&stamp_path).ok().as_deref() != Some(stamp.as_str()) {
         let _ = fs::remove_dir_all(&obj_dir);
@@ -421,6 +449,7 @@ fn is_up_to_date(src: &Path, obj: &Path) -> bool {
 fn generate_bindings() -> Result<()> {
     let sdk = ensure_sdk()?;
     apply_config(&sdk)?;
+    patch_lwipopts(&sdk)?;
     let root = workspace_root();
     let gcc = tool("gcc");
     let sysroot = run(Command::new(&gcc).arg("-print-sysroot"))?;
