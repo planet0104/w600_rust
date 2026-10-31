@@ -21,7 +21,7 @@ FreeRTOS、Wi-Fi 协议栈、lwIP 和外设驱动继续使用官方实现，Rust
 | `examples` | W600 示例，同时也是新项目的模板 |
 | `examples-w800` | W800 示例与模板（含 C-SKY 目标描述 `csky-none-elfabiv2hf.json`） |
 | `xtask` | 维护者工具：下载 SDK、生成静态库和绑定 |
-| `third_party/embedded-tls` | TLS 1.3 库 embedded-tls 0.19.0，附一处兼容性修复 |
+| `third_party/embedded-tls` | TLS 1.3 库 embedded-tls 0.19.0，附一处兼容性修复和一处栈用量修复 |
 
 ## 快速开始（W600）
 
@@ -116,6 +116,7 @@ s.flush()?;                                                          // 写入�
   （例如 www.baidu.com）无法连接，握手会报 `HandshakeAborted(Fatal, ProtocolVersion)`。
 - embedded-tls 0.19.0 遇到服务器列出它不认识的密钥交换组（如 brainpool、国密 SM2）时会握手失败（`DecodeError`），
   国内很多网站如此。仓库在 `third_party/embedded-tls` 中附带了修复此问题的副本（与上游 main 分支的修复相同）。
+  该副本还给证书校验函数加了 `#[inline(never)]`：否则校验代码被内联进握手函数，即使不校验证书也要多占约 20KB 栈。
 - 第三个参数为 `None` 时**不校验服务器证书**：通信是加密的，但无法防止中间人攻击。传入 DER 格式的根证书时，
   校验证书链和域名（没有实时时钟，不检查有效期）。可校验的签名算法：W800 为 ECDSA P-256 与 RSA，
   W600 受 512KB 应用区限制只有 ECDSA P-256。
@@ -167,7 +168,10 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
 - 启动文件的中断向量表段 `.isr_vector` 同样没有分配标志。GNU ld 仍会沿着 `KEEP` 段的引用保留中断处理函数，
   rust-lld 不会，`--gc-sections` 会去掉只被向量表引用的 `SVC_Handler`、`PendSV_Handler`、各外设中断等，
   向量表中对应的项变成 0，FreeRTOS 一启动就跑飞。因此 xtask 编译前会给该段加上 `"a"` 标志；
-- 用 `-ffile-prefix-map` 把 `__FILE__` 中的 SDK 绝对路径换成目录名，在不同机器、不同目录下构建的库也完全相同。
+- 用 `-ffile-prefix-map` 把 `__FILE__` 中的 SDK 绝对路径换成目录名，在不同机器、不同目录下构建的库也完全相同；
+- lwIP 的 `TCP_MSS` 从 1024 改为 1460，`TCP_WND` 从 6 × MSS 改为 8 × MSS，与 W800 SDK 相同。部分服务器的前端
+  （如 www.nmc.cn）在通告窗口低于约 8KB 时停止发送，原配置下 TLS 握手会一直卡住。lwIP 的缓冲区从堆上按需分配，
+  不增加静态内存。
 
 ## W800
 
@@ -266,14 +270,16 @@ W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的�
 ## 当前状态
 
 - W600：所有示例都能在 stable Rust 下用 rust-lld 编译、链接（Windows 上验证；烧录工具在 Linux 上也验证过），
-  生成的镜像与官方工具链产物格式一致。`blinky`、`threads`、`tcp_server` 已在真实硬件上运行通过。
+  生成的镜像与官方工具链产物格式一致。`blinky`、`threads`、`tcp_server`、`tcp_client`、`https_client`
+  已在真实硬件上运行通过。
 - W800：所有示例都能用 nightly + `csky-elfabiv2-gcc` 编译、链接（Windows 上验证，烧录工具在 Linux 上也验证过），
-  `blinky`、`threads`、`tcp_server`（Wi-Fi 联网、TCP 监听与收发）和 `ble`（广播、连接、在同一特征上接收写入并回复通知）
+  `blinky`、`threads`、`tcp_server`、`tcp_client`、`https_client` 和 `ble`（广播、连接、在同一特征上接收写入并回复通知）
   已在 TB-08 开发板上运行通过。
   镜像头与官方固件格式一致，`.fls` 中的 secboot 与官方固件相同。LLVM 与 GCC 之间的调用约定（整数 / 浮点 / 64 位参数、
   结构体传值与返回）和所用结构体的布局已逐项对照 GCC 的输出核对。
 
-**两款芯片的 `peripherals`、`tcp_client`、`https_client` 还没有在真实硬件上测试过**，欢迎反馈问题。
+**两款芯片的 `peripherals` 还没有在真实硬件上测试过**；`https_client` 只测试了不校验证书的情况
+（校验证书的逻辑只在 PC 上验证过）。欢迎反馈问题。
 
 ## 许可
 

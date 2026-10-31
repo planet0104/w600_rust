@@ -7,10 +7,6 @@ publish = false
 [dependencies]
 w600 = { path = "../w600" }
 embedded-io = "0.7"
-# 仅供 tls_diag 诊断程序使用（临时）。
-embedded-tls = { path = "../third_party/embedded-tls", default-features = false, features = ["rustpki"] }
-rand_chacha = { version = "0.3", default-features = false }
-rand_core = "0.6"
 
 [profile.dev]
 # 不优化的代码体积过大，放不进 512KB 的应用区。
