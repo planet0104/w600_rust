@@ -59,7 +59,22 @@ const INCLUDE_DIRS: &[&str] = &[
     "src/network/lwip2.1.3/include",
     "src/os/rtos/include",
     "demo",
+    "src/bt/blehost/ext/tinycrypt/include",
+    "src/bt/blehost/nimble/host/include",
+    "src/bt/blehost/nimble/host/porting/w800/include",
+    "src/bt/blehost/nimble/host/services/gap/include",
+    "src/bt/blehost/nimble/host/util/include",
+    "src/bt/blehost/nimble/include",
+    "src/bt/blehost/nimble/transport/uart/include",
+    "src/bt/blehost/porting/w800/include",
 ];
+
+/// 蓝牙从机用到的 NimBLE 接口（`w600::ble` 自己注册 GATT 服务，不使用 SDK 的演示服务）。
+const NIMBLE_FUNCTIONS: &str = concat!(
+    "ble_gatts_(reset|count_cfg|add_svcs|start)|ble_gattc_notify_custom|ble_hs_mbuf_from_flat|os_mbuf_append|",
+    "ble_att_mtu|ble_gap_event_listener_(register|unregister)|ble_gap_terminate|ble_svc_gap_device_name_set"
+);
+const NIMBLE_VARS: &str = "BLE_(GATT_CHR_F|GATT_ACCESS_OP|GATT_SVC_TYPE|GAP_EVENT|UUID_TYPE|ATT_ERR|HS_E)_?\\w*";
 
 /// 与 tools/w800/conf.mk 中的 CCFLAGS 一致。
 const DEFINES: &[&str] = &[
@@ -187,9 +202,9 @@ pub fn generate_bindings() -> Result<()> {
         .derive_default(true)
         .generate_comments(false)
         .merge_extern_blocks(true)
-        .allowlist_function(format!("{FUNCTIONS}|sendchar|close|lwip_gethostbyname|ble_svc_gap_device_name_set"))
-        .allowlist_type(TYPES)
-        .allowlist_var(format!("{VARS}|LWIP_SOCKET_OFFSET"))
+        .allowlist_function(format!("{FUNCTIONS}|sendchar|close|lwip_gethostbyname|{NIMBLE_FUNCTIONS}"))
+        .allowlist_type(format!("{TYPES}|ble_uuid16_t"))
+        .allowlist_var(format!("{VARS}|LWIP_SOCKET_OFFSET|{NIMBLE_VARS}"))
         .generate()
         .map_err(|e| format!("bindgen 失败: {e}"))?;
 

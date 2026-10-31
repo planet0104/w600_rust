@@ -15,6 +15,8 @@
 #include "wm_wifi_oneshot.h"
 #include "wm_bt_config.h"
 #include "wm_bt_api.h"
+#include "host/ble_hs.h"
+#include "services/gap/ble_svc_gap.h"
 
 /* 以下函数在 SDK 中有实现，但没有出现在头文件里。 */
 
@@ -26,6 +28,3 @@ u32 tls_mem_get_avail_heapsize(void);
 
 /* src/app/bleapp/wm_bt_app.c：启动 NimBLE 协议栈和蓝牙控制器，阻塞到协议栈就绪。uart_idx 为 0xFF 表示不使用 HCI 串口。 */
 int tls_bt_init(uint8_t uart_idx);
-
-/* NimBLE（services/gap/ble_svc_gap.h）：设置 GAP 设备名，广播时使用。 */
-int ble_svc_gap_device_name_set(const char *name);
