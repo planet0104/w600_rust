@@ -97,7 +97,26 @@ fn main() {
 ```
 
 `examples/src/bin`（以及 `examples-w800/src/bin`）下还有：`threads`（线程、锁、通道）、`tcp_server`（多线程回显服务器）、
-`peripherals`（PWM 呼吸灯、按键中断、UART 回显、ADC 温度、Flash 读写）。
+`https_client`（TLS 1.3 访问 HTTPS 网站）、`peripherals`（PWM 呼吸灯、按键中断、UART 回显、ADC 温度、Flash 读写）。
+
+## HTTPS / TLS
+
+`w600::tls::TlsStream` 是基于 [embedded-tls](https://crates.io/crates/embedded-tls) 的 TLS 1.3 客户端，两款芯片通用，
+建立在 `net::TcpStream` 之上，同样实现 `embedded-io` 的 `Read` / `Write`：
+
+```rust
+let mut buffers = w600::tls::Buffers::new();                       // 约 20KB 记录缓冲区，可复用
+let mut s = w600::tls::TlsStream::connect("www.baidu.com", 443, None, &mut buffers)?;
+s.write_all(b"GET / HTTP/1.1\r\nHost: www.baidu.com\r\nConnection: close\r\n\r\n")?;
+s.flush()?;                                                          // 写入的数据在 flush 后才发出
+```
+
+- 只支持 TLS 1.3（TLS_AES_128_GCM_SHA256，P-256 密钥交换），自动发送 SNI；只支持 TLS 1.2 的服务器无法连接。
+- 第三个参数为 `None` 时**不校验服务器证书**：通信是加密的，但无法防止中间人攻击。传入 DER 格式的根证书时，
+  校验证书链和域名（没有实时时钟，不检查有效期）。可校验的签名算法：W800 为 ECDSA P-256 与 RSA，
+  W600 受 512KB 应用区限制只有 ECDSA P-256。
+- 每个连接约占 30KB 堆内存，握手需要约 16KB 线程栈（示例的主线程栈为 24KB）。代码体积约 100KB（W600）/ 200KB（W800）。
+- 随机数：W800 使用硬件真随机数发生器；W600 没有，种子取自芯片温度 ADC 噪声与 CPU 计时抖动，强度较弱。
 
 ## 需要了解的限制
 
@@ -243,13 +262,14 @@ W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的�
 ## 当前状态
 
 - W600：所有示例都能在 stable Rust 下用 rust-lld 编译、链接（Windows 上验证；烧录工具在 Linux 上也验证过），
-  生成的镜像与官方工具链产物格式一致。`blinky`、`threads` 已在真实硬件上运行通过。
+  生成的镜像与官方工具链产物格式一致。`blinky`、`threads`、`tcp_server` 已在真实硬件上运行通过。
 - W800：所有示例都能用 nightly + `csky-elfabiv2-gcc` 编译、链接（Windows 上验证，烧录工具在 Linux 上也验证过），
-  `blinky`、`threads` 和 `ble`（广播、连接、在同一特征上接收写入并回复通知）已在 TB-08 开发板上运行通过。
+  `blinky`、`threads`、`tcp_server`（Wi-Fi 联网、TCP 监听与收发）和 `ble`（广播、连接、在同一特征上接收写入并回复通知）
+  已在 TB-08 开发板上运行通过。
   镜像头与官方固件格式一致，`.fls` 中的 secboot 与官方固件相同。LLVM 与 GCC 之间的调用约定（整数 / 浮点 / 64 位参数、
   结构体传值与返回）和所用结构体的布局已逐项对照 GCC 的输出核对。
 
-**两款芯片的 `peripherals`、`tcp_client`、`tcp_server` 还没有在真实硬件上测试过**，欢迎反馈问题。
+**两款芯片的 `peripherals`、`tcp_client`、`https_client` 还没有在真实硬件上测试过**，欢迎反馈问题。
 
 ## 许可
 
@@ -257,3 +277,4 @@ Rust 代码以 MIT 或 Apache-2.0 授权。`w600-sys/bin`、`w800-sys/bin`、`to
 `w600-sys/lib`、`w800-sys/lib` 中的 SDK 库（`libw600sdk.a`、`libwlan.a`、`libairkiss_log.a` 等）来自联盟微官方 SDK，
 版权归北京联盛德微电子有限责任公司所有；`w800.x` 基于 C-SKY 的 Apache-2.0 链接脚本；`tools/wm_tool_w800/zlib-1.2.11`
 为 zlib（zlib 许可）；`libc.a`、`libm.a` 来自 newlib（BSD 类许可），`libgcc.a` 来自 GCC（GPL 附运行库例外，允许链接进任意程序）。
+TLS 使用的 embedded-tls 及 RustCrypto 系列 crate 以 Apache-2.0 / MIT 授权。

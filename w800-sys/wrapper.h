@@ -13,6 +13,7 @@
 #include "wm_watchdog.h"
 #include "wm_irq.h"
 #include "wm_wifi_oneshot.h"
+#include "wm_crypto_hard.h"
 #include "wm_bt_config.h"
 #include "wm_bt_api.h"
 #include "host/ble_hs.h"

@@ -9,7 +9,7 @@
 //! - RTOS：[`thread`]（闭包线程、join）、[`sync`]（`Mutex`、`Semaphore`、`Channel`）、[`time`]
 //! - 外设：[`gpio`]、[`pwm`]、[`uart`]、[`i2c`]、[`spi`]、[`adc`]、[`timer`]、[`flash`]，
 //!   并实现 `embedded-hal` 1.0 / `embedded-io` 0.7 的 trait
-//! - 网络：[`wifi`]（STA 联网）、[`net`]（TCP/UDP socket、DNS）
+//! - 网络：[`wifi`]（STA 联网）、[`net`]（TCP/UDP socket、DNS）、[`tls`]（TLS 1.3 客户端，用于 HTTPS）
 //! - 蓝牙（仅 W800）：`ble`（BLE 从机广播、接收主机写入的数据）
 //!
 //! ```no_run
@@ -69,6 +69,7 @@ pub mod system;
 pub mod thread;
 pub mod time;
 pub mod timer;
+pub mod tls;
 pub mod uart;
 pub mod wifi;
 
