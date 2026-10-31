@@ -1,6 +1,6 @@
-//! 舵机测试：PB15 输出舵机控制信号，先依次转到 90°、0°、160°、90°，然后在 0°..160° 之间来回慢速扫动。
+//! 舵机测试：PB10 输出舵机控制信号，先依次转到 90°、0°、160°、90°，然后在 0°..160° 之间来回慢速扫动。
 //!
-//! 接线：舵机信号线（通常为橙色或黄色）接 PB15，电源线（红色）接外部 5V，地线（棕色或黑色）同时接外部电源地和开发板 GND。
+//! 接线：舵机信号线（通常为橙色或黄色）接 PB10，电源线（红色）接外部 5V，地线（棕色或黑色）同时接外部电源地和开发板 GND。
 //! 舵机转动时电流可达数百 mA 以上，不要直接用开发板的 3.3V 供电。
 //!
 //! 舵机由周期性脉冲控制，脉宽 0.5ms..2.5ms 对应 0°..180°（不同舵机略有差别，可调整 MIN_PULSE_US / MAX_PULSE_US）。
@@ -36,12 +36,12 @@ fn duty_for_angle(angle: u32) -> u8 {
 
 fn main() {
     let p = w600::Peripherals::take().unwrap();
-    let mut servo = Pwm::new(p.pwm3, p.pins.pb15, FREQ_HZ).unwrap();
+    let mut servo = Pwm::new(p.pwm3, p.pins.PB10, FREQ_HZ).unwrap();
 
     let steps = (duty_for_angle(MAX_ANGLE) - duty_for_angle(0)) as u32;
     let tenths = MAX_ANGLE * 10 / steps;
     println!(
-        "servo on PB15, {FREQ_HZ} Hz, duty {}..{} ({steps} steps, about {}.{} degrees per step)",
+        "servo on PB10, {FREQ_HZ} Hz, duty {}..{} ({steps} steps, about {}.{} degrees per step)",
         duty_for_angle(0),
         duty_for_angle(MAX_ANGLE),
         tenths / 10,
