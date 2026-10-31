@@ -5,13 +5,20 @@ use crate::sys;
 
 static STDOUT: Mutex<()> = Mutex::new(());
 
-/// 调试串口（UART0，115200 8N1）。直接轮询写寄存器，不经过 newlib 的 printf，因而不分配内存。
+/// 调试串口（UART0，115200 8N1）。直接轮询写寄存器，不经过 C 库的 printf，因而不分配内存。
 pub struct Stdout;
 
 impl Write for Stdout {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         for b in s.bytes() {
-            unsafe { sys::tls_uart_output_char(b as i32) };
+            #[cfg(target_arch = "arm")]
+            unsafe {
+                sys::tls_uart_output_char(b as i32)
+            };
+            #[cfg(target_arch = "csky")]
+            unsafe {
+                sys::sendchar(b as i32)
+            };
         }
         Ok(())
     }

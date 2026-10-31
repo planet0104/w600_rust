@@ -1,0 +1,4 @@
+# C-SKY 没有官方预编译的标准库，需要 nightly 的 build-std 从源码编译 core / alloc。
+[toolchain]
+channel = "nightly-2026-07-27"
+components = ["rust-src"]

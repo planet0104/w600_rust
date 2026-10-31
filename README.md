@@ -1,22 +1,28 @@
-# lib_w600：用 Rust 开发联盟微 W600
+# lib_w600：用 Rust 开发联盟微 W600 / W800
 
-在官方 SDK（WM_SDK_W60X_G3.04.00）之上提供的 Rust 开发库。FreeRTOS、Wi-Fi 协议栈、lwIP 和外设驱动继续使用官方实现，
-Rust 一侧提供符合习惯的安全接口，并实现 `embedded-hal` 1.0 / `embedded-io` 0.7，可以直接使用社区里的驱动 crate。
+在官方 SDK（W600：WM_SDK_W60X_G3.04.00；W800：W80X_SDK_v1.00.10）之上提供的 Rust 开发库。
+FreeRTOS、Wi-Fi 协议栈、lwIP 和外设驱动继续使用官方实现，Rust 一侧提供符合习惯的安全接口，
+并实现 `embedded-hal` 1.0 / `embedded-io` 0.7，可以直接使用社区里的驱动 crate。
 
-- **只需要安装 stable Rust**，不需要 nightly
-- **不需要安装 SDK、ARM 工具链、libclang 或 make**：SDK 和 newlib 已预编译为静态库，FFI 绑定已由 bindgen 生成，
-  链接使用 Rust 自带的 rust-lld，都随仓库提供
+- 两款芯片共用同一个 `w600` crate 和同一套接口，芯片由编译目标自动决定，个别差异在文档中注明
+- **W600 只需要安装 stable Rust**，不需要 SDK、ARM 工具链、libclang 或 make：SDK 和 newlib 已预编译为静态库，
+  FFI 绑定已由 bindgen 生成，链接使用 Rust 自带的 rust-lld，都随仓库提供
+- **W800 的 CPU 是平头哥 XT804（C-SKY 架构）**，Rust 没有官方的 C-SKY 裸机目标，rust-lld 也不支持 C-SKY，
+  因此需要 nightly Rust（由 `examples-w800/rust-toolchain.toml` 自动选择）和平头哥的 `csky-elfabiv2-gcc` 工具链（只用来链接），
+  详见 [W800](#w800)
 - `cargo run` 一条命令完成编译、打包和串口烧录
 
 | 目录 | 说明 |
 | --- | --- |
-| `w600-sys` | bindgen 生成的原始绑定、预编译静态库（SDK + newlib）、链接脚本 `w600.x` |
-| `w600` | 运行时、线程与同步、GPIO/PWM/UART/I2C/SPI/ADC/定时器/Flash、Wi-Fi、TCP/UDP |
-| `w600-flash` | 打包与烧录工具，作为 cargo runner 使用 |
-| `examples` | 示例，同时也是新项目的模板 |
-| `xtask` | 维护者工具：下载并编译 SDK、重新生成绑定 |
+| `w600-sys` | W600：bindgen 生成的原始绑定、预编译静态库（SDK + newlib）、链接脚本 `w600.x` |
+| `w800-sys` | W800：bindgen 生成的原始绑定、SDK 自带的预编译静态库、链接脚本 `w800.x` |
+| `w600` | 运行时、线程与同步、GPIO/PWM/UART/I2C/SPI/ADC/定时器/Flash、Wi-Fi、TCP/UDP（两款芯片通用） |
+| `w600-flash` | 打包与烧录工具，作为 cargo runner 使用，按 ELF 架构自动识别芯片 |
+| `examples` | W600 示例，同时也是新项目的模板 |
+| `examples-w800` | W800 示例与模板（含 C-SKY 目标描述 `csky-none-elfabiv2hf.json`） |
+| `xtask` | 维护者工具：下载 SDK、生成静态库和绑定 |
 
-## 快速开始
+## 快速开始（W600）
 
 1. 安装 Rust（stable）和编译目标：
 
@@ -30,8 +36,8 @@ Rust 一侧提供符合习惯的安全接口，并实现 `embedded-hal` 1.0 / `e
    cargo install --path w600-flash
    ```
 
-   它内置了官方的 `wm_tool`：Windows 上直接使用 SDK 附带的 `wm_tool.exe`；Linux / macOS 上安装时会用本机的
-   C 编译器（gcc / clang，一般系统自带）自动编译 `tools/wm_tool/wm_tool.c`。
+   它内置了 W600 和 W800 两个版本的官方 `wm_tool`：Windows 上直接使用 SDK 附带的 `wm_tool.exe`；Linux / macOS 上
+   安装时会用本机的 C 编译器（gcc / clang，一般系统自带）自动编译 `tools/` 下的 `wm_tool.c`（W800 版连同随附的 zlib）。
 
 3. 连接开发板，编译并烧录示例：
 
@@ -90,12 +96,12 @@ fn main() {
 }
 ```
 
-`examples/src/bin` 下还有：`threads`（线程、锁、通道）、`tcp_server`（多线程回显服务器）、
+`examples/src/bin`（以及 `examples-w800/src/bin`）下还有：`threads`（线程、锁、通道）、`tcp_server`（多线程回显服务器）、
 `peripherals`（PWM 呼吸灯、按键中断、UART 回显、ADC 温度、Flash 读写）。
 
 ## 需要了解的限制
 
-这些限制来自 SDK 或芯片本身，库已经做了处理，但写代码时需要知道：
+这些限制来自 SDK 或芯片本身，库已经做了处理，但写代码时需要知道。以下以 W600 为准，W800 的差异见 [W800](#w800)：
 
 - **入口在线程中运行**：SDK 要求 `UserMain` 尽快返回，`entry!` 会在一个新线程（默认 8KB 栈）里运行你的 `main`，所以里面可以写死循环。
 - **线程不会被删除**：SDK 的 FreeRTOS 删除任务时会用错误的堆释放任务栈。执行完的线程会进入空闲池，被后续的 `spawn` 复用。
@@ -111,7 +117,7 @@ fn main() {
 - 堆约 160KB，与 C 代码共享（`system::free_heap()` 可查看剩余量）；应用代码区 512KB，Wi-Fi + TCP 的示例约占 330KB。
 - 预编译库**关闭了 SDK 的 AT 指令子系统**（`TLS_CONFIG_HOSTIF`），可节省约 150KB Flash。
 
-## 维护：重新生成静态库和绑定
+## 维护：重新生成静态库和绑定（W600）
 
 ```sh
 cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
@@ -135,13 +141,93 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
 - 启动文件的 `.stack` / `.heap` 段没有分配标志，原版脚本依赖 GNU ld 的 `(COPY)`，rust-lld 会把它们放到地址 0。
   因此 `w600.x` 自己预留主栈并定义栈和堆的符号，启动文件按 `__HEAP_SIZE=0` 编译。
 
+## W800
+
+### 快速开始
+
+1. 安装平头哥的 C-SKY 工具链（800 系列，minilibc 版），把它的 `bin` 目录加入 `PATH`：
+   - 官方下载：[平头哥芯片开放社区](https://occ.t-head.cn/community/download?id=616214177698021376)（需要注册），
+     Windows 选 `csky-elfabiv2-tools-mingw-minilibc-*.tar.gz`，Linux 选 `csky-elfabiv2-tools-x86_64-minilibc-*.tar.gz`
+   - 本仓库使用 `20210423` 版本验证；无法注册时可以用社区的[同版本备份](https://github.com/crosstyan/Xuantie-800-gcc-elf-newlib-prebuilt/releases/tag/v0.00)
+
+   ```powershell
+   csky-elfabiv2-gcc --version      # 应输出 T-HEAD C-SKY Tools ... B20210423
+   ```
+
+2. 安装烧录工具（与 W600 相同，已安装过的需要重新安装以加入 W800 支持）：
+
+   ```sh
+   cargo install --path w600-flash --force
+   ```
+
+3. 编译并烧录示例。`examples-w800` 里的 `rust-toolchain.toml` 会让 rustup 自动安装所需的 nightly 和 `rust-src`：
+
+   ```powershell
+   cd examples-w800
+   $env:W600_PORT = "COM6"          # Linux: export W600_PORT=/dev/ttyUSB0
+   cargo run --release --bin blinky -- --monitor
+   ```
+
+   不设置 `W600_PORT` 时只生成镜像（`target/csky-none-elfabiv2hf/release/blinky.img`，以及含 secboot 的 `blinky.fls`）。
+   默认通过 RTS 复位芯片；开发板不支持时加上 `--reset none`，在工具提示同步时手动按复位键。
+
+示例按海凌科 HLK-W800-KIT 开发板选择引脚（RGB 灯 PB0 / PB1 / PB2，低电平点亮，需打开板上的 LED 拨码开关），
+其他开发板请按原理图修改。新项目复制 `examples-w800` 目录即可，需要的文件是 `.cargo/config.toml`、
+`rust-toolchain.toml` 和 `csky-none-elfabiv2hf.json`。
+
+### 与 W600 的差异
+
+- **构建**：使用自定义目标 `csky-none-elfabiv2hf.json`（`ck804ef`，硬件浮点 ABI），由 nightly 的 `build-std` 编译 `core` / `alloc`，
+  链接器为 `csky-elfabiv2-gcc`，C 库为工具链自带的 minilibc。**不能使用 `opt-level = 0`**：LLVM 的 C-SKY 后端
+  在不优化时无法编译 `compiler_builtins`。
+- **原子操作**：LLVM 把 C-SKY 上的原子操作全部编译成 `__atomic_*` 库函数调用，工具链又没有 libatomic，
+  因此由 `w600` crate 以关中断的方式实现（W800 是单核）。
+- **串口**：有 UART1 ～ UART5。SDK 默认开启 AT 指令，启动时把 **UART1（PB6 / PB7）用作 AT 指令口**；
+  `Uart::new` 打开 UART1 会接管它，但建议使用其他串口（示例用 UART4：PB4 / PB5）。
+- **PWM**：通道 0 ～ 4（`pwm0` ～ `pwm4`）对应 SDK 的 `wm_pwm0_config` ～ `wm_pwm4_config`。
+- **ADC**：`read_millivolts` 由 SDK 直接换算，通道 0 ～ 3 依次对应 PA1、PA4、PA3、PA2；没有 `read_raw`。
+- **Flash 用户区共 104KB**（0x81E0000 起）。应用代码区约 1087KB，SDK 默认配置（含 AT 指令、蓝牙）下示例约占 700KB；
+  堆约 166KB。
+- 没有 W600 的“任务栈必须位于 0x20028000 以下”和“PB31 不支持中断”限制；其余限制（优先级范围、2ms 节拍、
+  同时最多 8 个 socket 等）相同。
+
+### 维护：更新 W800 的静态库和绑定
+
+```sh
+cargo xtask w800-all   # 等价于 cargo xtask w800-sdk && cargo xtask w800-bindgen
+```
+
+W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的各模块静态库，`xtask` 不重新编译 SDK，而是：
+
+1. 从联盟微官网下载 `W80X_SDK_v1.00.10.rar` 并校验 SHA-256，用 bsdtar 解压（Windows 自带；Linux 需安装 `libarchive-tools`），
+   也可以用 `W800_SDK_DIR` 指向已解压的 SDK；
+2. 把 `lib/w800` 下的库去掉调试信息（约 30MB → 5MB）后复制到 `w800-sys/lib`，并复制 `w800_secboot.img`、`wm_tool` 和 zlib 源码；
+3. 用 bindgen（`--target=csky-unknown-elf`）从 `w800-sys/wrapper.h` 生成 `w800-sys/src/bindings.rs`。
+
+需要 C-SKY 工具链（在 `PATH` 中，或用 `W800_TOOLCHAIN` 指定 `bin` 目录）和 libclang。同一环境下重复执行得到的文件完全相同。
+需要注意的细节：
+
+- SDK 库必须以 `--whole-archive` 方式链接（与官方 Makefile 相同）：中断处理函数以强符号覆盖启动文件中的弱符号，
+  没有其他地方引用它们；`w800-sys` 的 build.rs 已经这样处理；
+- minilibc 的 `stddef.h` 等会 `#include_next` 编译器自带的同名头文件，bindgen 的头文件搜索顺序必须是 minilibc 在前；
+- C-SKY 的 `char` 是无符号的，枚举为 4 字节，64 位类型按 4 字节对齐；minilibc 的 `timeval.tv_usec` 是 64 位；
+- lwIP 2.1 的 socket 编号从 1 开始（`LWIP_SOCKET_OFFSET`），`closesocket` / `gethostbyname` 是宏，
+  `w800-sys` 以 W600 的名字重新导出了对应的函数；
+- rustc 内置的 LLVM 汇编器不支持 `mfcr` / `psrclr` 的 `psr`、`ie` 操作数，开关中断的指令以机器码形式写在 `w600/src/atomic.rs` 中。
+
 ## 当前状态
 
-所有示例都能在 stable Rust 下用 rust-lld 编译、链接（Windows 上验证；烧录工具在 Linux 上也验证过），
-生成的镜像与官方工具链产物格式一致。**目前还没有在真实硬件上测试过**，欢迎反馈问题。
+- W600：所有示例都能在 stable Rust 下用 rust-lld 编译、链接（Windows 上验证；烧录工具在 Linux 上也验证过），
+  生成的镜像与官方工具链产物格式一致。
+- W800：所有示例都能用 nightly + `csky-elfabiv2-gcc` 编译、链接（Windows 上验证，烧录工具在 Linux 上也验证过）。
+  镜像头与官方固件格式一致，`.fls` 中的 secboot 与官方固件相同。LLVM 与 GCC 之间的调用约定（整数 / 浮点 / 64 位参数、
+  结构体传值与返回）和所用结构体的布局已逐项对照 GCC 的输出核对。
+
+**目前两款芯片都还没有在真实硬件上测试过**，欢迎反馈问题。
 
 ## 许可
 
-Rust 代码以 MIT 或 Apache-2.0 授权。`w600-sys/bin`、`tools/wm_tool` 以及 `w600-sys/lib` 中的 SDK 库
-（`libw600sdk.a`、`libwlan.a`、`libairkiss_log.a`）来自联盟微官方 SDK，版权归北京联盛德微电子有限责任公司所有；
-`libc.a`、`libm.a` 来自 newlib（BSD 类许可），`libgcc.a` 来自 GCC（GPL 附运行库例外，允许链接进任意程序）。
+Rust 代码以 MIT 或 Apache-2.0 授权。`w600-sys/bin`、`w800-sys/bin`、`tools/wm_tool`、`tools/wm_tool_w800` 以及
+`w600-sys/lib`、`w800-sys/lib` 中的 SDK 库（`libw600sdk.a`、`libwlan.a`、`libairkiss_log.a` 等）来自联盟微官方 SDK，
+版权归北京联盛德微电子有限责任公司所有；`w800.x` 基于 C-SKY 的 Apache-2.0 链接脚本；`tools/wm_tool_w800/zlib-1.2.11`
+为 zlib（zlib 许可）；`libc.a`、`libm.a` 来自 newlib（BSD 类许可），`libgcc.a` 来自 GCC（GPL 附运行库例外，允许链接进任意程序）。

@@ -1,6 +1,8 @@
-//! 串口 UART1 / UART2。实现 `embedded-io` 的 `Read` / `Write`。
+//! 串口：W600 有 UART1、UART2，W800 有 UART1 ～ UART5。实现 `embedded-io` 的 `Read` / `Write`。
 //!
 //! UART0 是调试串口，由 [`println!`](crate::println) 使用。
+//! W800 的 SDK 启动时会把 UART1（PB6 / PB7）用作 AT 指令口；用 [`Uart::new`] 打开 UART1 会接管它，
+//! 但最好使用其他串口。
 
 use core::time::Duration;
 
@@ -10,7 +12,7 @@ use crate::gpio::Pin;
 use crate::sync::Semaphore;
 use crate::sys::{self, TLS_UART_CHSIZE, TLS_UART_FLOW_CTRL_MODE, TLS_UART_PMODE, TLS_UART_STOPBITS};
 
-/// UART`N` 的所有权（N = 1 或 2）。
+/// UART`N` 的所有权（W600：N = 1 或 2；W800：N = 1 ～ 5）。
 pub struct UART<const N: u16> {
     _private: (),
 }
@@ -88,16 +90,85 @@ impl embedded_io::Error for Error {
     }
 }
 
-static RX_READY: [Semaphore; 3] = [Semaphore::new(0), Semaphore::new(0), Semaphore::new(0)];
+#[cfg(target_arch = "arm")]
+const PORTS: usize = 3;
+#[cfg(target_arch = "csky")]
+const PORTS: usize = 6;
 
+static RX_READY: [Semaphore; PORTS] = [const { Semaphore::new(0) }; PORTS];
+
+#[cfg(target_arch = "arm")]
 unsafe extern "C" fn rx_ready_1(_len: u16) -> i16 {
     RX_READY[1].release();
     0
 }
 
+#[cfg(target_arch = "arm")]
 unsafe extern "C" fn rx_ready_2(_len: u16) -> i16 {
     RX_READY[2].release();
     0
+}
+
+/// W800 的回调带有注册时传入的参数，这里用它传递串口号。
+#[cfg(target_arch = "csky")]
+unsafe extern "C" fn rx_ready(_len: u16, port: *mut core::ffi::c_void) -> i16 {
+    RX_READY[port as usize].release();
+    0
+}
+
+/// 把引脚切换到 UART`port` 的复用功能。
+unsafe fn config_pins(port: u16, tx: &Pin, rx: &Pin) {
+    unsafe {
+        match port {
+            1 => {
+                sys::wm_uart1_tx_config(tx.io());
+                sys::wm_uart1_rx_config(rx.io());
+            }
+            2 => {
+                sys::wm_uart2_tx_scio_config(tx.io());
+                sys::wm_uart2_rx_config(rx.io());
+            }
+            #[cfg(target_arch = "csky")]
+            3 => {
+                sys::wm_uart3_tx_config(tx.io());
+                sys::wm_uart3_rx_config(rx.io());
+            }
+            #[cfg(target_arch = "csky")]
+            4 => {
+                sys::wm_uart4_tx_config(tx.io());
+                sys::wm_uart4_rx_config(rx.io());
+            }
+            #[cfg(target_arch = "csky")]
+            5 => {
+                sys::wm_uart5_tx_config(tx.io());
+                sys::wm_uart5_rx_config(rx.io());
+            }
+            _ => unreachable!("invalid uart port"),
+        }
+    }
+}
+
+unsafe fn register_rx_callback(port: u16) {
+    #[cfg(target_arch = "arm")]
+    unsafe {
+        let callback = if port == 1 { rx_ready_1 } else { rx_ready_2 };
+        sys::tls_uart_rx_callback_register(port, Some(callback));
+    }
+    #[cfg(target_arch = "csky")]
+    unsafe {
+        sys::tls_uart_rx_callback_register(port, Some(rx_ready), port as usize as *mut core::ffi::c_void);
+    }
+}
+
+unsafe fn unregister_rx_callback(port: u16) {
+    #[cfg(target_arch = "arm")]
+    unsafe {
+        sys::tls_uart_rx_callback_register(port, None)
+    };
+    #[cfg(target_arch = "csky")]
+    unsafe {
+        sys::tls_uart_rx_callback_register(port, None, core::ptr::null_mut())
+    };
 }
 
 pub struct Uart {
@@ -129,21 +200,11 @@ impl Uart {
         };
         RX_READY[N as usize].init();
         unsafe {
-            match N {
-                1 => {
-                    sys::wm_uart1_tx_config(tx.io());
-                    sys::wm_uart1_rx_config(rx.io());
-                }
-                _ => {
-                    sys::wm_uart2_tx_scio_config(tx.io());
-                    sys::wm_uart2_rx_config(rx.io());
-                }
-            }
+            config_pins(N, &tx, &rx);
             if sys::tls_uart_port_init(N, &mut opts, 0) != 0 {
                 return Err(Error::Init);
             }
-            let callback = if N == 1 { rx_ready_1 } else { rx_ready_2 };
-            sys::tls_uart_rx_callback_register(N, Some(callback));
+            register_rx_callback(N);
         }
         Ok(Self { port: N, _tx: tx, _rx: rx })
     }
@@ -174,7 +235,7 @@ impl Uart {
 
 impl Drop for Uart {
     fn drop(&mut self) {
-        unsafe { sys::tls_uart_rx_callback_register(self.port, None) };
+        unsafe { unregister_rx_callback(self.port) };
     }
 }
 

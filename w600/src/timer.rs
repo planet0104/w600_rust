@@ -52,7 +52,8 @@ impl Timer {
         let mut cfg = sys::tls_timer_cfg {
             unit,
             timeout,
-            is_repeat: repeat as u8,
+            // W600 SDK 中是 u8，W800 SDK 中是 bool。
+            is_repeat: repeat as _,
             callback: Some(trampoline),
             arg: callback.cast(),
         };

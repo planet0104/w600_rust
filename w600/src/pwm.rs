@@ -44,12 +44,22 @@ impl Pwm {
     pub fn new<const CH: u8>(_channel: PWM<CH>, pin: Pin, freq_hz: u32) -> Result<Self, InvalidFrequency> {
         check_frequency(freq_hz)?;
         unsafe {
+            // W600 SDK 的引脚配置函数从 1 开始编号，W800 从 0 开始。
+            #[cfg(target_arch = "arm")]
             match CH {
                 0 => sys::wm_pwm1_config(pin.io()),
                 1 => sys::wm_pwm2_config(pin.io()),
                 2 => sys::wm_pwm3_config(pin.io()),
                 3 => sys::wm_pwm4_config(pin.io()),
                 _ => sys::wm_pwm5_config(pin.io()),
+            }
+            #[cfg(target_arch = "csky")]
+            match CH {
+                0 => sys::wm_pwm0_config(pin.io()),
+                1 => sys::wm_pwm1_config(pin.io()),
+                2 => sys::wm_pwm2_config(pin.io()),
+                3 => sys::wm_pwm3_config(pin.io()),
+                _ => sys::wm_pwm4_config(pin.io()),
             }
             if sys::tls_pwm_init(CH, freq_hz, 0, 0) != 0 {
                 return Err(InvalidFrequency);

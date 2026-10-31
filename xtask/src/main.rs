@@ -1,13 +1,18 @@
-//! 维护者工具：下载并编译 W600 官方 SDK，生成 `w600-sys` 使用的预编译库和 Rust 绑定。
+//! 维护者工具：下载官方 SDK，生成 `w600-sys` / `w800-sys` 使用的预编译库和 Rust 绑定。
 //!
 //! 用法：
-//!   cargo xtask sdk       下载 SDK 并编译出 w600-sys/lib/*.a
-//!   cargo xtask bindgen   从 SDK 头文件生成 w600-sys/src/bindings.rs
-//!   cargo xtask all       依次执行以上两步
+//!   cargo xtask sdk            下载 W600 SDK 并编译出 w600-sys/lib/*.a
+//!   cargo xtask bindgen        从 W600 SDK 头文件生成 w600-sys/src/bindings.rs
+//!   cargo xtask all            依次执行以上两步
+//!   cargo xtask w800-sdk       下载 W800 SDK，复制其预编译库到 w800-sys/lib
+//!   cargo xtask w800-bindgen   从 W800 SDK 头文件生成 w800-sys/src/bindings.rs
+//!   cargo xtask w800-all       依次执行以上两步
 //!
 //! 环境变量：
 //!   W600_SDK_DIR    使用已解压（或自行修改过）的 SDK 目录，而不是自动下载
 //!   W600_TOOLCHAIN  arm-none-eabi 工具链的 bin 目录，未设置时从 PATH 查找
+//!   W800_SDK_DIR    同 W600_SDK_DIR，用于 W800
+//!   W800_TOOLCHAIN  csky-elfabiv2 工具链的 bin 目录，未设置时从 PATH 查找
 
 use std::env;
 use std::fs;
@@ -17,6 +22,8 @@ use std::sync::Mutex;
 use std::thread;
 
 use sha2::{Digest, Sha256};
+
+mod w800;
 
 const SDK_URL: &str = "https://www.winnermicro.com/upload/1/editor/1584693446529.zip";
 const SDK_SHA256: &str = "2ec93cafc70176592ba84bc2ea3ebac9d517c73b2f112f525420660b016c6a6e";
@@ -134,8 +141,11 @@ fn main() {
         "sdk" => build_sdk(),
         "bindgen" => generate_bindings(),
         "all" => build_sdk().and_then(|_| generate_bindings()),
+        "w800-sdk" => w800::build_sdk(),
+        "w800-bindgen" => w800::generate_bindings(),
+        "w800-all" => w800::build_sdk().and_then(|_| w800::generate_bindings()),
         _ => {
-            eprintln!("用法: cargo xtask <sdk|bindgen|all>");
+            eprintln!("用法: cargo xtask <sdk|bindgen|all|w800-sdk|w800-bindgen|w800-all>");
             std::process::exit(2);
         }
     };
@@ -191,19 +201,25 @@ fn ensure_sdk() -> Result<PathBuf> {
     }
     fs::create_dir_all(&work)?;
     let zip_path = work.join("sdk.zip");
-    if !zip_path.exists() {
-        println!("下载 SDK: {SDK_URL}");
-        run(Command::new("curl").args(["-L", "--fail", "-o"]).arg(&zip_path).arg(SDK_URL))?;
-    }
-    let digest = Sha256::digest(fs::read(&zip_path)?);
-    let hex: String = digest.iter().map(|b| format!("{b:02x}")).collect();
-    if hex != SDK_SHA256 {
-        fs::remove_file(&zip_path)?;
-        return Err(format!("SDK 压缩包校验失败: {hex}").into());
-    }
+    download_verified(SDK_URL, SDK_SHA256, &zip_path)?;
     println!("解压 SDK 到 {}", sdk.display());
     zip::ZipArchive::new(fs::File::open(&zip_path)?)?.extract(&sdk)?;
     Ok(sdk)
+}
+
+/// 文件不存在时下载，然后校验 SHA-256，校验失败会删除文件。
+fn download_verified(url: &str, sha256: &str, path: &Path) -> Result<()> {
+    if !path.exists() {
+        println!("下载 SDK: {url}");
+        run(Command::new("curl").args(["-L", "--fail", "-o"]).arg(path).arg(url))?;
+    }
+    let digest = Sha256::digest(fs::read(path)?);
+    let hex: String = digest.iter().map(|b| format!("{b:02x}")).collect();
+    if hex != sha256 {
+        fs::remove_file(path)?;
+        return Err(format!("SDK 压缩包校验失败: {hex}").into());
+    }
+    Ok(())
 }
 
 /// 从模块 Makefile 中取出 C_SRC/ASM_SRC，只保留 GNU 工具链分支下的条目。

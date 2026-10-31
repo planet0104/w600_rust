@@ -1,4 +1,7 @@
-//! 联盟微 W600 的 Rust 开发库。
+//! 联盟微 W600 / W800 的 Rust 开发库。
+//!
+//! 芯片由编译目标决定：`thumbv7m-none-eabi` 对应 W600（[`sys`] 为 `w600-sys`），
+//! C-SKY 目标对应 W800（[`sys`] 为 `w800-sys`）。两者的接口相同，个别差异在各模块文档中注明。
 //!
 //! 底层复用官方 SDK（FreeRTOS、Wi-Fi 协议栈、lwIP、外设驱动），在其上提供符合 Rust 习惯的接口：
 //!
@@ -30,13 +33,19 @@
 //! ```
 
 #![no_std]
+#![cfg_attr(target_arch = "csky", feature(asm_experimental_arch))]
 
 extern crate alloc;
 
 pub use embedded_hal;
 pub use embedded_io;
+#[cfg(target_arch = "arm")]
 pub use w600_sys as sys;
+#[cfg(target_arch = "csky")]
+pub use w800_sys as sys;
 
+#[cfg(target_arch = "csky")]
+mod atomic;
 mod heap;
 mod peripherals;
 #[macro_use]

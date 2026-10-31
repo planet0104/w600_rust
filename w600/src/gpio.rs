@@ -21,7 +21,8 @@ impl Pin {
     }
 
     pub(crate) fn io(&self) -> tls_io_name {
-        tls_io_name(self.id)
+        // W600 的 SDK 按短枚举编译（u8），W800 为 4 字节。
+        tls_io_name(self.id as _)
     }
 
     /// # Safety
@@ -35,7 +36,7 @@ impl Pin {
 
 macro_rules! pins {
     ($($name:ident = $id:expr),* $(,)?) => {
-        /// 芯片的全部引脚。不同封装实际引出的引脚不同，请对照模块的数据手册。
+        /// 芯片的全部引脚（W600 与 W800 的编号相同）。不同封装实际引出的引脚不同，请对照模块的数据手册。
         #[derive(Debug)]
         pub struct Pins {
             $(pub $name: Pin,)*
@@ -178,12 +179,13 @@ impl Input {
         self.level() == Level::Low
     }
 
-    /// 注册中断回调（替换已有的回调）。PB31 不支持中断。
+    /// 注册中断回调（替换已有的回调）。W600 的 PB31 不支持中断。
     ///
     /// 回调运行在**中断上下文**：不能阻塞、不能加锁、不要分配内存；
     /// 可以用 [`Channel::send`](crate::sync::Channel::send) 或
     /// [`Semaphore::release`](crate::sync::Semaphore::release) 通知线程。
     pub fn on_interrupt(&mut self, trigger: Trigger, callback: impl FnMut() + Send + 'static) {
+        #[cfg(target_arch = "arm")]
         assert!(self.pin.id < 47, "PB31 does not support interrupts");
         self.disable_interrupt();
         let ctx = Box::into_raw(Box::new(IrqContext { pin: self.pin.io(), callback: Box::new(callback) }));

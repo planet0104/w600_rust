@@ -1,0 +1,12 @@
+[build]
+target = "csky-none-elfabiv2hf.json"
+
+[target.csky-none-elfabiv2hf]
+# 链接器 csky-elfabiv2-gcc 需要在 PATH 中（见 README），SDK 静态库由 w800-sys 提供。
+# 打包并通过串口烧录，串口号由环境变量 W600_PORT 指定，例如 COM6 或 /dev/ttyUSB0。
+runner = "w600-flash"
+rustflags = ["-C", "link-arg=-Tw800.x"]
+
+[unstable]
+build-std = ["core", "alloc"]
+json-target-spec = true

@@ -29,7 +29,9 @@ impl Delay {
     }
 }
 
-/// 至少忙等 `cycles` 个 CPU 周期（Cortex-M3 上每次循环约 3 个周期，从 Flash 执行时会更慢）。
+/// 至少忙等 `cycles` 个 CPU 周期（每次循环在 Cortex-M3 上约 3 个周期、在 XT804 上约 2 个周期，
+/// 从 Flash 执行时会更慢）。
+#[cfg(target_arch = "arm")]
 fn spin(cycles: u32) {
     let iterations = cycles / 3 + 1;
     unsafe {
@@ -37,6 +39,20 @@ fn spin(cycles: u32) {
             "1:",
             "subs {0}, #1",
             "bne 1b",
+            inout(reg) iterations => _,
+            options(nomem, nostack),
+        );
+    }
+}
+
+#[cfg(target_arch = "csky")]
+fn spin(cycles: u32) {
+    let iterations = cycles / 2 + 1;
+    unsafe {
+        core::arch::asm!(
+            "1:",
+            "subi32 {0}, {0}, 1",
+            "bnez32 {0}, 1b",
             inout(reg) iterations => _,
             options(nomem, nostack),
         );

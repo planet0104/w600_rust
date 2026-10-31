@@ -1,4 +1,4 @@
-//! TCP / UDP（基于 SDK 内置的 lwIP 2.0.3 BSD socket）和 DNS 解析。
+//! TCP / UDP（基于 SDK 内置的 lwIP BSD socket：W600 为 2.0.3，W800 为 2.1.3）和 DNS 解析。
 //! `TcpStream` 实现 `embedded-io` 的 `Read` / `Write`。
 //!
 //! SDK 的 lwIP 配置限制**同时最多 8 个 socket**（包括监听 socket）。
@@ -14,6 +14,12 @@ use embedded_io::{ErrorKind, ErrorType, Read, Write};
 
 use crate::sync::Mutex;
 use crate::sys;
+
+/// 第一个 socket 的描述符编号（lwIP 的 `LWIP_SOCKET_OFFSET`），`fd_set` 的位从这里开始计数。
+#[cfg(target_arch = "arm")]
+const FD_OFFSET: c_int = 0;
+#[cfg(target_arch = "csky")]
+const FD_OFFSET: c_int = sys::LWIP_SOCKET_OFFSET as c_int;
 
 /// socket 错误，内含 lwIP 的 errno。
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -124,14 +130,15 @@ impl Socket {
         self.check(ret).map(drop)
     }
 
-    /// SDK 的 lwIP 没有开启 SO_RCVTIMEO，读超时用 select 实现。
+    /// W600 SDK 的 lwIP 没有开启 SO_RCVTIMEO，读超时统一用 select 实现。
     fn wait_readable(&self, timeout: Option<Duration>) -> Result<(), Error> {
         let Some(timeout) = timeout else { return Ok(()) };
         let mut set = sys::fd_set { fd_bits: [0; 1] };
-        set.fd_bits[self.0 as usize / 8] |= 1 << (self.0 % 8);
+        let bit = (self.0 - FD_OFFSET) as usize;
+        set.fd_bits[bit / 8] |= 1 << (bit % 8);
         let mut tv = sys::timeval {
-            tv_sec: timeout.as_secs().min(c_long::MAX as u64) as c_long,
-            tv_usec: timeout.subsec_micros() as c_long,
+            tv_sec: timeout.as_secs().min(c_long::MAX as u64) as _,
+            tv_usec: timeout.subsec_micros() as _,
         };
         let n = unsafe { sys::select(self.0 + 1, &mut set, ptr::null_mut(), ptr::null_mut(), &mut tv) };
         match n {
@@ -226,7 +233,7 @@ impl Read for TcpStream {
         }
         self.sock.wait_readable(self.read_timeout)?;
         let n = unsafe { sys::recv(self.sock.0, buf.as_mut_ptr().cast(), buf.len(), 0) };
-        self.sock.check(n).map(|n| n as usize)
+        self.sock.check(n as c_int).map(|n| n as usize)
     }
 }
 
@@ -236,7 +243,7 @@ impl Write for TcpStream {
             return Ok(0);
         }
         let n = unsafe { sys::send(self.sock.0, buf.as_ptr().cast(), buf.len(), 0) };
-        self.sock.check(n).map(|n| n as usize)
+        self.sock.check(n as c_int).map(|n| n as usize)
     }
 
     fn flush(&mut self) -> Result<(), Error> {
@@ -290,7 +297,7 @@ impl UdpSocket {
         let sa = to_sockaddr(addr);
         let len = mem::size_of::<sys::sockaddr_in>() as sys::socklen_t;
         let n = unsafe { sys::sendto(self.sock.0, buf.as_ptr().cast(), buf.len(), 0, (&raw const sa).cast(), len) };
-        self.sock.check(n).map(|n| n as usize)
+        self.sock.check(n as c_int).map(|n| n as usize)
     }
 
     /// 接收一个数据报，返回长度和来源地址；超出 `buf` 的部分会被丢弃。
@@ -301,7 +308,7 @@ impl UdpSocket {
         let n = unsafe {
             sys::recvfrom(self.sock.0, buf.as_mut_ptr().cast(), buf.len(), 0, (&raw mut sa).cast(), &mut len)
         };
-        let n = self.sock.check(n)?;
+        let n = self.sock.check(n as c_int)?;
         Ok((n as usize, from_sockaddr(&sa)))
     }
 

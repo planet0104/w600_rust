@@ -2,7 +2,7 @@
 //!
 //! W600 SDK 里的 FreeRTOS 删除任务时会把任务栈交给 heap_2 的 `vPortFree` 释放，
 //! 而任务栈并不是从 heap_2 分配的，删除就会破坏堆。因此这里的线程执行完闭包后不会被删除，
-//! 而是作为空闲工作线程等待下一次 [`spawn`]，复用它的栈和优先级。
+//! 而是作为空闲工作线程等待下一次 [`spawn`]，复用它的栈和优先级（W800 上也采用同样的方式）。
 //!
 //! 优先级沿用 SDK 的约定：**数值越小优先级越高**。SDK 内部任务占用 0～28，
 //! 应用线程默认使用 [`DEFAULT_PRIORITY`]，相同优先级的线程按时间片轮转。
@@ -39,7 +39,7 @@ struct Worker {
 
 static IDLE_WORKERS: Mutex<Vec<&'static Worker>> = Mutex::new(Vec::new());
 
-/// 创建线程失败：通常是内存不足，或任务栈超出了 SDK 要求的地址范围（0x20028000 以下）。
+/// 创建线程失败：通常是内存不足，或（W600 上）任务栈超出了 SDK 要求的地址范围（0x20028000 以下）。
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SpawnError;
 

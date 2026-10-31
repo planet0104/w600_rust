@@ -9,6 +9,12 @@ pub struct Peripherals {
     pub pins: gpio::Pins,
     pub uart1: uart::UART<1>,
     pub uart2: uart::UART<2>,
+    #[cfg(target_arch = "csky")]
+    pub uart3: uart::UART<3>,
+    #[cfg(target_arch = "csky")]
+    pub uart4: uart::UART<4>,
+    #[cfg(target_arch = "csky")]
+    pub uart5: uart::UART<5>,
     pub i2c: i2c::I2C,
     pub spi: spi::SPI,
     pub adc: adc::ADC,
@@ -42,6 +48,12 @@ impl Peripherals {
                 pins: gpio::Pins::steal(),
                 uart1: uart::UART::steal(),
                 uart2: uart::UART::steal(),
+                #[cfg(target_arch = "csky")]
+                uart3: uart::UART::steal(),
+                #[cfg(target_arch = "csky")]
+                uart4: uart::UART::steal(),
+                #[cfg(target_arch = "csky")]
+                uart5: uart::UART::steal(),
                 i2c: i2c::I2C::steal(),
                 spi: spi::SPI::steal(),
                 adc: adc::ADC::steal(),

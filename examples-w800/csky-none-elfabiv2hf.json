@@ -1,0 +1,21 @@
+{
+  "arch": "csky",
+  "abi": "abiv2hf",
+  "cpu": "ck804ef",
+  "features": "+hard-float,+hard-float-abi",
+  "llvm-target": "csky-unknown-none-elf",
+  "data-layout": "e-m:e-S32-p:32:32-i32:32:32-i64:32:32-f32:32:32-f64:32:32-v64:32:32-v128:32:32-a:0:32-Fi32-n32",
+  "target-pointer-width": 32,
+  "max-atomic-width": 32,
+  "os": "none",
+  "executables": true,
+  "relocation-model": "static",
+  "panic-strategy": "abort",
+  "emit-debug-gdb-scripts": false,
+  "eh-frame-header": false,
+  "linker-flavor": "gnu-cc",
+  "linker": "csky-elfabiv2-gcc",
+  "pre-link-args": {
+    "gnu-cc": ["-mcpu=ck804ef", "-mhard-float", "-nostartfiles", "-Wl,-zmax-page-size=1024"]
+  }
+}

@@ -414,6 +414,7 @@ dependencies = [
  "embedded-hal",
  "embedded-io",
  "w600-sys",
+ "w800-sys",
 ]
 
 [[package]]
@@ -425,6 +426,10 @@ dependencies = [
 
 [[package]]
 name = "w600-sys"
+version = "0.1.0"
+
+[[package]]
+name = "w800-sys"
 version = "0.1.0"
 
 [[package]]

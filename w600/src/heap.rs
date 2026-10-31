@@ -2,10 +2,14 @@ use core::alloc::{GlobalAlloc, Layout};
 
 use crate::sys;
 
-/// `mem_alloc_debug` 在 newlib `malloc` 返回的 8 字节对齐地址后加了 8 字节头部，结果仍是 8 字节对齐。
+/// `mem_alloc_debug` 在 C 库 `malloc` 返回的地址后加了 8 字节头部。W600 的 newlib 保证 8 字节对齐；
+/// W800 的 minilibc 没有说明，而 C-SKY 的最大自然对齐只有 4 字节，按 4 处理。
+#[cfg(target_arch = "arm")]
 const MIN_ALIGN: usize = 8;
+#[cfg(target_arch = "csky")]
+const MIN_ALIGN: usize = 4;
 
-/// 全局分配器直接使用 SDK 的堆（`mem_alloc_debug`）：它对 newlib `malloc` 加了锁，
+/// 全局分配器直接使用 SDK 的堆（`mem_alloc_debug`）：它对 C 库的 `malloc` 加了锁，
 /// 在中断里则自动改用 FreeRTOS 的 heap_2。Rust 与 C 代码共享同一个堆，不需要另外划分内存。
 ///
 /// 不覆盖 `realloc`：SDK 的 `mem_realloc_debug` 在中断分支里有 bug，使用默认的“分配-拷贝-释放”。
@@ -16,7 +20,7 @@ unsafe impl GlobalAlloc for SdkHeap {
         if layout.align() <= MIN_ALIGN {
             return unsafe { sys::mem_alloc_debug(layout.size() as u32) }.cast();
         }
-        // 超出 8 字节的对齐：多分配 align 字节，把原始指针存在对齐地址的前一个字里。
+        // 超出 MIN_ALIGN 的对齐：多分配 align 字节，把原始指针存在对齐地址的前一个字里。
         let raw: *mut u8 = unsafe { sys::mem_alloc_debug((layout.size() + layout.align()) as u32) }.cast();
         if raw.is_null() {
             return raw;

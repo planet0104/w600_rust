@@ -96,19 +96,20 @@ pub fn begin_connect(ssid: &str, password: &str) -> Result<(), Error> {
     unsafe {
         sys::tls_wifi_disconnect();
 
+        // 最后一个参数（是否读写 Flash）在 W600 SDK 中是 u8，在 W800 SDK 中是 bool。
         let mut protocol: u8 = 0;
-        sys::tls_param_get(sys::TLS_PARAM_ID_WPROTOCOL as i32, (&raw mut protocol).cast(), 1);
+        sys::tls_param_get(sys::TLS_PARAM_ID_WPROTOCOL as i32, (&raw mut protocol).cast(), true as _);
         if protocol as u32 != sys::TLS_PARAM_IEEE80211_INFRA {
             sys::tls_wifi_softap_destroy();
             protocol = sys::TLS_PARAM_IEEE80211_INFRA as u8;
-            sys::tls_param_set(sys::TLS_PARAM_ID_WPROTOCOL as i32, (&raw mut protocol).cast(), 0);
+            sys::tls_param_set(sys::TLS_PARAM_ID_WPROTOCOL as i32, (&raw mut protocol).cast(), false as _);
         }
         sys::tls_wifi_set_oneshot_flag(0);
 
         let mut ip = sys::tls_param_ip::default();
-        sys::tls_param_get(sys::TLS_PARAM_ID_IP as i32, (&raw mut ip).cast(), 0);
+        sys::tls_param_get(sys::TLS_PARAM_ID_IP as i32, (&raw mut ip).cast(), false as _);
         ip.dhcp_enable = 1;
-        sys::tls_param_set(sys::TLS_PARAM_ID_IP as i32, (&raw mut ip).cast(), 0);
+        sys::tls_param_set(sys::TLS_PARAM_ID_IP as i32, (&raw mut ip).cast(), false as _);
 
         // SDK 按长度读取，不要求结尾的 NUL，也不会修改缓冲区。
         let ret = sys::tls_wifi_connect(

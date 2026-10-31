@@ -1,0 +1,19 @@
+[package]
+name = "w800-examples"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+w600 = { path = "../w600" }
+embedded-io = "0.7"
+
+[profile.dev]
+# 必须开启优化：LLVM 的 C-SKY 后端在 opt-level = 0 时无法编译 compiler_builtins（f32 的 fma）。
+opt-level = "s"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+debug = true
