@@ -155,9 +155,22 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
      Windows 选 `csky-elfabiv2-tools-mingw-minilibc-*.tar.gz`，Linux 选 `csky-elfabiv2-tools-x86_64-minilibc-*.tar.gz`
    - 本仓库使用 `20210423` 版本验证；无法注册时可以用社区的[同版本备份](https://github.com/crosstyan/Xuantie-800-gcc-elf-newlib-prebuilt/releases/tag/v0.00)
 
+   Windows 上可以直接用下面的命令安装到用户目录（不要放在 `C:\` 根目录，普通用户没有写权限）：
+
    ```powershell
-   csky-elfabiv2-gcc --version      # 应输出 T-HEAD C-SKY Tools ... B20210423
+   $dir = "$env:USERPROFILE\csky-toolchain"
+   New-Item -ItemType Directory -Force $dir | Out-Null
+   curl.exe -L -o "$env:TEMP\csky.tar.gz" "https://github.com/crosstyan/Xuantie-800-gcc-elf-newlib-prebuilt/releases/download/v0.00/csky-elfabiv2-tools-mingw-minilibc-20210423.tar.gz"
+   tar -xzf "$env:TEMP\csky.tar.gz" -C $dir
+   # 永久加入用户 PATH（新开的终端生效），并在当前终端立即生效
+   [Environment]::SetEnvironmentVariable("Path", "$dir\bin;" + [Environment]::GetEnvironmentVariable("Path", "User"), "User")
+   $env:PATH = "$dir\bin;$env:PATH"
+   csky-elfabiv2-gcc --version      # 应输出 T-HEAD C-SKY Tools V3.10.29 ... B20210423
    ```
+
+   Linux 上下载 `csky-elfabiv2-tools-x86_64-minilibc-20210423.tar.gz`，解压后把 `bin` 加入 `PATH` 即可。
+   不想修改 `PATH` 时，也可以用环境变量 `CARGO_TARGET_CSKY_NONE_ELFABIV2HF_LINKER` 指定 `csky-elfabiv2-gcc` 的完整路径。
+   编译时出现 ``linker `csky-elfabiv2-gcc` not found`` 就是这一步没有完成。
 
 2. 安装烧录工具（与 W600 相同，已安装过的需要重新安装以加入 W800 支持）：
 
@@ -174,6 +187,7 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
    ```
 
    不设置 `W600_PORT` 时只生成镜像（`target/csky-none-elfabiv2hf/release/blinky.img`，以及含 secboot 的 `blinky.fls`）。
+   与官方 `make flash` 相同，烧录的是 `.fls`：芯片上的 secboot 与 SDK 不匹配时，`wm_tool` 会拒绝只含应用的 `.img`。
    默认通过 RTS 复位芯片；开发板不支持时加上 `--reset none`，在工具提示同步时手动按复位键。
 
 示例按海凌科 HLK-W800-KIT 开发板选择引脚（RGB 灯 PB0 / PB1 / PB2，低电平点亮，需打开板上的 LED 拨码开关），
@@ -223,12 +237,12 @@ W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的�
 ## 当前状态
 
 - W600：所有示例都能在 stable Rust 下用 rust-lld 编译、链接（Windows 上验证；烧录工具在 Linux 上也验证过），
-  生成的镜像与官方工具链产物格式一致。
+  生成的镜像与官方工具链产物格式一致。`blinky` 已在真实硬件上运行通过（烧录、启动、线程调度、GPIO、调试串口输出）。
 - W800：所有示例都能用 nightly + `csky-elfabiv2-gcc` 编译、链接（Windows 上验证，烧录工具在 Linux 上也验证过）。
   镜像头与官方固件格式一致，`.fls` 中的 secboot 与官方固件相同。LLVM 与 GCC 之间的调用约定（整数 / 浮点 / 64 位参数、
   结构体传值与返回）和所用结构体的布局已逐项对照 GCC 的输出核对。
 
-**目前两款芯片都还没有在真实硬件上测试过**，欢迎反馈问题。
+**W600 的其余示例和 W800 还没有在真实硬件上测试过**，欢迎反馈问题。
 
 ## 许可
 

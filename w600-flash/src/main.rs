@@ -1,7 +1,8 @@
 //! W600 / W800 固件打包与串口烧录工具，可直接用作 cargo runner（`runner = "w600-flash"`）。
 //! 芯片按 ELF 文件的架构自动识别：ARM 为 W600，C-SKY 为 W800。
 //!
-//! 流程：ELF --> .bin --wm_tool--> .img / .fls（W600 另有 _gz.img）--wm_tool--> 串口下载。
+//! 流程：ELF --> .bin --wm_tool--> .img / .fls（W600 另有 _gz.img）--wm_tool--> 串口下载
+//! （W600 下载 _gz.img，W800 下载 .fls）。
 
 use std::env;
 use std::fs;
@@ -65,7 +66,8 @@ const W800: Chip = Chip {
         "-fc", "0", "-it", "1", "-ih", "80D0000", "-ra", "80D0400", "-ua", "8010000", "-nh", "0", "-un", "0", "-vs",
         "G01.00.10",
     ],
-    image_suffix: ".img",
+    // 与官方 make run / make flash 相同，下载含 secboot 的 .fls：芯片的 secboot 与 SDK 不匹配时 wm_tool 会拒绝 .img。
+    image_suffix: ".fls",
 };
 
 struct Args {
@@ -197,7 +199,11 @@ fn flash(args: Args) -> Result<(), String> {
         .args(chip.pack_args)
         .args(["-o", &slash(&out)]))?;
     let image = format!("{}{}", slash(&out), chip.image_suffix);
-    println!("镜像: {image}（首次烧录或救砖用 {}.fls）", slash(&out));
+    if chip.image_suffix == ".fls" {
+        println!("镜像: {image}");
+    } else {
+        println!("镜像: {image}（首次烧录或救砖用 {}.fls）", slash(&out));
+    }
 
     let Some(port) = args.port else {
         println!("未指定串口（--port 或环境变量 W600_PORT），跳过烧录");
