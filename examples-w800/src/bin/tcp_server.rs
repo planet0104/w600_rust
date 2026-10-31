@@ -1,4 +1,4 @@
-//! TCP 回显服务器：每个连接一个线程。连上后用 `nc <ip> 7` 测试。
+//! TCP 回显服务器：每个连接一个线程。连上后用 `nc <ip> 8088` 或网络调试助手（TCP 客户端）测试。
 //!
 //! 编译前修改下面的 SSID / PASSWORD。
 
@@ -14,6 +14,7 @@ use w600::{println, thread, wifi};
 
 const SSID: &str = "your-ssid";
 const PASSWORD: &str = "your-password";
+const PORT: u16 = 8088;
 
 w600::entry!(main);
 
@@ -25,8 +26,8 @@ fn main() {
         }
     };
 
-    let listener = TcpListener::bind(SocketAddrV4::new(Ipv4Addr::UNSPECIFIED, 7)).unwrap();
-    println!("echo server on {}:7", info.ip);
+    let listener = TcpListener::bind(SocketAddrV4::new(Ipv4Addr::UNSPECIFIED, PORT)).unwrap();
+    println!("echo server on {}:{PORT}", info.ip);
     loop {
         match listener.accept() {
             Ok((stream, peer)) => {
