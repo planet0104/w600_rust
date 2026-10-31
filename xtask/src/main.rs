@@ -291,13 +291,28 @@ fn apply_config(sdk: &Path) -> Result<()> {
     Ok(())
 }
 
+/// 启动文件的中断向量表段没有写分配标志。GNU ld 仍会沿着 KEEP 段的引用保留中断处理函数，
+/// rust-lld 则不会追踪不可分配段里的引用，--gc-sections 会把只被向量表引用的
+/// SVC_Handler、PendSV_Handler、各外设中断等全部去掉，向量表中对应的项变成 0。
+fn patch_startup(sdk: &Path) -> Result<()> {
+    let path = sdk.join("Platform/Boot/gcc/startup_ARMCM3.S");
+    let text = fs::read_to_string(&path)?;
+    let out = text.replace(".section .isr_vector\n", ".section .isr_vector,\"a\",%progbits\n");
+    if out != text {
+        fs::write(&path, out)?;
+    }
+    Ok(())
+}
+
 fn build_sdk() -> Result<()> {
     let sdk = ensure_sdk()?;
     apply_config(&sdk)?;
+    patch_startup(&sdk)?;
     let root = workspace_root();
     let obj_dir = work_dir().join("obj");
     let gcc = tool("gcc");
     let incs = include_args(&sdk);
+    let file_prefix_map = format!("-ffile-prefix-map={}={SDK_DIR_NAME}", sdk.display());
 
     let mut jobs = Vec::new();
     for module in MODULES {
@@ -310,7 +325,7 @@ fn build_sdk() -> Result<()> {
             });
         }
     }
-    let stamp = format!("{gcc:?}{CPU_FLAGS:?}{C_FLAGS:?}{CONFIG_OVERRIDES:?}{incs:?}");
+    let stamp = format!("{gcc:?}{CPU_FLAGS:?}{C_FLAGS:?}{CONFIG_OVERRIDES:?}{incs:?}{file_prefix_map:?}");
     let stamp_path = obj_dir.join("flags.stamp");
     if fs::read_to_string(&stamp_path).ok().as_deref() != Some(stamp.as_str()) {
         let _ = fs::remove_dir_all(&obj_dir);
@@ -331,8 +346,10 @@ fn build_sdk() -> Result<()> {
                         continue;
                     }
                     let mut cmd = Command::new(&gcc);
-                    // 固定 __DATE__/__TIME__（SDK 发布时间），保证重复构建得到相同的库。
+                    // 固定 __DATE__/__TIME__（SDK 发布时间），并把 __FILE__ 中的 SDK 绝对路径换成目录名，
+                    // 保证在任何目录下重复构建都得到相同的库。
                     cmd.env("SOURCE_DATE_EPOCH", "1584693446");
+                    cmd.arg(&file_prefix_map);
                     cmd.args(CPU_FLAGS).args(C_FLAGS).args(&incs);
                     if job.src.extension().is_some_and(|e| e == "S" || e == "s") {
                         cmd.arg("-x").arg("assembler-with-cpp");

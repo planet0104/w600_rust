@@ -133,13 +133,18 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
 4. 用 bindgen 从 `w600-sys/wrapper.h` 生成 `w600-sys/src/bindings.rs`。
 
 维护者需要 [Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)（在 `PATH` 中，或用 `W600_TOOLCHAIN` 指定 `bin` 目录）
-和 libclang（设置 `LIBCLANG_PATH`），使用者都不需要。同一环境下重复构建得到的库文件完全相同。几个容易出错的细节已经在 xtask 中处理：
+和 libclang（设置 `LIBCLANG_PATH`），使用者都不需要。现有的库用 Arm GNU Toolchain 15.2.Rel1 生成，
+使用同一版本重复构建得到的库文件完全相同。几个容易出错的细节已经在 xtask 中处理：
 
 - SDK 和闭源的 `wlan.a` 都按 AAPCS **短枚举**编译（`Tag_ABI_enum_size: small`），bindgen 必须加 `-fshort-enums`，否则结构体布局不一致；
 - socket 的错误码来自 lwIP 自己的 errno 定义，与 newlib 的部分取值不同，因此不包含 newlib 的 `<errno.h>`；
 - 新版 GCC 下编译老 SDK 需要 `-fcommon -fpermissive`，并定义 `__USE_W32_SOCKETS`，避免 newlib 重复定义 `fd_set`；
 - 启动文件的 `.stack` / `.heap` 段没有分配标志，原版脚本依赖 GNU ld 的 `(COPY)`，rust-lld 会把它们放到地址 0。
-  因此 `w600.x` 自己预留主栈并定义栈和堆的符号，启动文件按 `__HEAP_SIZE=0` 编译。
+  因此 `w600.x` 自己预留主栈并定义栈和堆的符号，启动文件按 `__HEAP_SIZE=0` 编译；
+- 启动文件的中断向量表段 `.isr_vector` 同样没有分配标志。GNU ld 仍会沿着 `KEEP` 段的引用保留中断处理函数，
+  rust-lld 不会，`--gc-sections` 会去掉只被向量表引用的 `SVC_Handler`、`PendSV_Handler`、各外设中断等，
+  向量表中对应的项变成 0，FreeRTOS 一启动就跑飞。因此 xtask 编译前会给该段加上 `"a"` 标志；
+- 用 `-ffile-prefix-map` 把 `__FILE__` 中的 SDK 绝对路径换成目录名，在不同机器、不同目录下构建的库也完全相同。
 
 ## W800
 
