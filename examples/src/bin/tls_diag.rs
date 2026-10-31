@@ -17,7 +17,8 @@ use w600::{println, wifi};
 
 const SSID: &str = "your-ssid";
 const PASSWORD: &str = "your-password";
-const HOSTS: [&str; 3] = ["www.nmc.cn", "www.example.com", "httpbin.org"];
+/// (主机, 是否关闭 Wi-Fi 省电)
+const TESTS: [(&str, bool); 4] = [("www.nmc.cn", false), ("www.nmc.cn", false), ("www.nmc.cn", true), ("www.nmc.cn", true)];
 
 w600::entry!(main, stack_size = 24 * 1024);
 
@@ -82,8 +83,13 @@ fn main() {
 
     let mut read_buf = alloc::vec![0u8; 16640];
     let mut write_buf = alloc::vec![0u8; 4096];
-    for (i, host) in HOSTS.iter().enumerate() {
-        println!("\n=== {host}");
+    // 等 SDK 的系统任务按参数打开省电模式之后再开始测试。
+    w600::thread::sleep(Duration::from_secs(1));
+    for (i, (host, disable_ps)) in TESTS.iter().enumerate() {
+        if *disable_ps {
+            unsafe { w600::sys::tls_wifi_set_psflag(false as _, false as _) };
+        }
+        println!("\n=== {host}, wifi power save flag = {}", unsafe { w600::sys::tls_wifi_get_psflag() });
         let tcp = match TcpStream::connect_host(host, 443) {
             Ok(s) => s,
             Err(e) => {
