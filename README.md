@@ -189,8 +189,9 @@ cargo xtask all        # 等价于 cargo xtask sdk && cargo xtask bindgen
    不设置 `W600_PORT` 时只生成镜像（`target/csky-none-elfabiv2hf/release/blinky.img`，以及含 secboot 的 `blinky.fls`）。
    与官方 `make flash` 相同，烧录的是 `.fls`：芯片上的 secboot 与 SDK 不匹配时，`wm_tool` 会拒绝只含应用的 `.img`。
    默认通过 RTS 复位芯片；开发板不支持时加上 `--reset none`，在工具提示同步时手动按复位键。
+   烧录完成后程序会立即运行，`--monitor` 切换到 115200 波特率之前的输出会丢失，需要看启动日志时按一下复位键。
 
-示例按海凌科 HLK-W800-KIT 开发板选择引脚（RGB 灯 PB0 / PB1 / PB2，低电平点亮，需打开板上的 LED 拨码开关），
+示例的 LED 使用 PB0 / PB1 / PB2（低电平点亮），适用于 TB-08 开发板和海凌科 HLK-W800-KIT（需打开板上的 LED 拨码开关），
 其他开发板请按原理图修改。新项目复制 `examples-w800` 目录即可，需要的文件是 `.cargo/config.toml`、
 `rust-toolchain.toml` 和 `csky-none-elfabiv2hf.json`。
 
@@ -238,11 +239,12 @@ W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的�
 
 - W600：所有示例都能在 stable Rust 下用 rust-lld 编译、链接（Windows 上验证；烧录工具在 Linux 上也验证过），
   生成的镜像与官方工具链产物格式一致。`blinky` 已在真实硬件上运行通过（烧录、启动、线程调度、GPIO、调试串口输出）。
-- W800：所有示例都能用 nightly + `csky-elfabiv2-gcc` 编译、链接（Windows 上验证，烧录工具在 Linux 上也验证过）。
+- W800：所有示例都能用 nightly + `csky-elfabiv2-gcc` 编译、链接（Windows 上验证，烧录工具在 Linux 上也验证过），
+  `blinky` 已在 TB-08 开发板上运行通过（烧录、启动、线程调度、GPIO、调试串口输出）。
   镜像头与官方固件格式一致，`.fls` 中的 secboot 与官方固件相同。LLVM 与 GCC 之间的调用约定（整数 / 浮点 / 64 位参数、
   结构体传值与返回）和所用结构体的布局已逐项对照 GCC 的输出核对。
 
-**W600 的其余示例和 W800 还没有在真实硬件上测试过**，欢迎反馈问题。
+**两款芯片的其余示例还没有在真实硬件上测试过**，欢迎反馈问题。
 
 ## 许可
 
