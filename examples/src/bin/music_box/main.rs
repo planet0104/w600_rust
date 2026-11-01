@@ -47,6 +47,8 @@ extern crate alloc;
 
 fn main() {
     let p = w600::Peripherals::take().unwrap();
+    // 尽早把蜂鸣器引脚拉低。在这之前（上电到程序运行约 1 秒）引脚是悬空的，要靠外接的下拉电阻保持安静。
+    let mut buzzer = Pwm::new(p.pwm1, p.pins.pa1, songs::C5).unwrap();
 
     // 检测线外接了分压电阻（兼作下拉），W600 没有内部下拉，这里设为浮空输入。
     let left = Input::new(p.pins.pb11, Pull::None);
@@ -61,7 +63,6 @@ fn main() {
     let mut index = log.last.map_or(0, |last| (last as usize + 1) % SONGS.len());
     println!("music box: direction {direction:?}, start from song {index}");
 
-    let mut buzzer = Pwm::new(p.pwm1, p.pins.pa1, songs::C5).unwrap();
     buzzer.set_duty(OFF_DUTY);
 
     // 舵机接在 TX0 上，启动舵机后串口日志就看不到了。
