@@ -102,7 +102,7 @@ fn main() {
 `examples/src/bin`（以及 `examples-w800/src/bin`）下还有：`threads`（线程、锁、通道）、`tcp_server`（多线程回显服务器）、
 `tcp_client`、`https_client`（TLS 1.3 访问 HTTPS 网站）、`peripherals`（PWM 呼吸灯、按键中断、UART 回显、ADC 温度、Flash 读写）、
 `servo`（输出舵机信号，W600 用 PB15、W800 用 PB3，转到几个固定角度后来回扫动）、
-`buzzer`（无源蜂鸣器播放儿歌《世上只有妈妈好》，引脚与 `servo` 相同）。
+`buzzer`（无源蜂鸣器循环播放《新年好》《两只老虎》《生日快乐》《小小世界》《伦敦桥》，引脚与 `servo` 相同）。
 每个 PWM 通道只能使用固定的几个引脚（见 `Pwm::new` 的文档），选错时 `Pwm::new` 返回 `InvalidPin`。
 
 ## HTTPS / TLS

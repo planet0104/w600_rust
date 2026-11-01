@@ -107,7 +107,8 @@ More examples in `examples/src/bin` (and `examples-w800/src/bin`): `threads` (th
 `tcp_server` (multi-threaded echo server), `tcp_client`, `https_client` (HTTPS over TLS 1.3),
 `peripherals` (PWM breathing LED, button interrupt, UART echo, ADC temperature, Flash read/write),
 `servo` (servo signal on PB15 for the W600 / PB3 for the W800: moves to a few fixed angles, then sweeps back and forth)
-and `buzzer` (plays a children's song on a passive buzzer, same pins as `servo`).
+and `buzzer` (plays a loop of children's songs on a passive buzzer, including Happy Birthday, It's a Small World and
+London Bridge Is Falling Down; same pins as `servo`).
 Each PWM channel can only use a fixed set of pins (see the documentation of `Pwm::new`); `Pwm::new` returns
 `InvalidPin` for any other pin.
 
