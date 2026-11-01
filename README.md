@@ -105,8 +105,9 @@ fn main() {
 
 More examples in `examples/src/bin` (and `examples-w800/src/bin`): `threads` (threads, locks, channels),
 `tcp_server` (multi-threaded echo server), `tcp_client`, `https_client` (HTTPS over TLS 1.3),
-`peripherals` (PWM breathing LED, button interrupt, UART echo, ADC temperature, Flash read/write) and
-`servo` (servo signal on PB15 for the W600 / PB3 for the W800: moves to a few fixed angles, then sweeps back and forth).
+`peripherals` (PWM breathing LED, button interrupt, UART echo, ADC temperature, Flash read/write),
+`servo` (servo signal on PB15 for the W600 / PB3 for the W800: moves to a few fixed angles, then sweeps back and forth)
+and `buzzer` (plays a children's song on a passive buzzer, same pins as `servo`).
 Each PWM channel can only use a fixed set of pins (see the documentation of `Pwm::new`); `Pwm::new` returns
 `InvalidPin` for any other pin.
 
@@ -329,7 +330,8 @@ again in the same environment produces identical files. Details to be aware of:
 
 - W600: all examples compile and link with stable Rust and rust-lld (verified on Windows; the flashing tool is also
   verified on Linux), and the generated images have the same format as those from the official toolchain. `blinky`,
-  `threads`, `tcp_server`, `tcp_client`, `https_client` and `servo` have been run successfully on real hardware.
+  `threads`, `tcp_server`, `tcp_client`, `https_client`, `servo` and `buzzer` have been run successfully on real
+  hardware.
 - W800: all examples compile and link with nightly + `csky-elfabiv2-gcc` (verified on Windows; the flashing tool is
   also verified on Linux). `blinky`, `threads`, `tcp_server`, `tcp_client`, `https_client`, `servo` and `ble`
   (advertising, connecting, receiving writes and replying with notifications on the same characteristic) have been
@@ -338,8 +340,8 @@ again in the same environment produces identical files. Details to be aware of:
   64-bit arguments, passing and returning structs by value) and the layout of the structs used have been checked one
   by one against GCC's output.
 
-**The `peripherals` example has not been tested on real hardware for either chip**, and `https_client` has only been
-tested without certificate verification (the verification logic has only been verified on a PC). Bug reports are
+**The `peripherals` example has not been tested on real hardware for either chip, nor has `buzzer` on the W800**, and
+`https_client` has only been tested without certificate verification (the verification logic has only been verified on a PC). Bug reports are
 welcome.
 
 ## License
