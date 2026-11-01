@@ -108,7 +108,10 @@ More examples in `examples/src/bin` (and `examples-w800/src/bin`): `threads` (th
 `peripherals` (PWM breathing LED, button interrupt, UART echo, ADC temperature, Flash read/write),
 `servo` (servo signal on PB15 for the W600 / PB3 for the W800: moves to a few fixed angles, then sweeps back and forth)
 and `buzzer` (plays a loop of children's songs on a passive buzzer, including Happy Birthday, It's a Small World and
-London Bridge Is Falling Down; same pins as `servo`).
+London Bridge Is Falling Down; same pins as `servo`). The W600 also has `music_box`, a music box for the TW-01
+module: the button held at power-on decides which way a continuous-rotation servo turns while the songs play, and
+after a power cycle it continues with the next song. See `examples/src/bin/music_box/README.md` (in Chinese) for
+wiring and how to modify the servo.
 Each PWM channel can only use a fixed set of pins (see the documentation of `Pwm::new`); `Pwm::new` returns
 `InvalidPin` for any other pin.
 
@@ -341,7 +344,8 @@ again in the same environment produces identical files. Details to be aware of:
   64-bit arguments, passing and returning structs by value) and the layout of the structs used have been checked one
   by one against GCC's output.
 
-**The `peripherals` example has not been tested on real hardware for either chip, nor has `buzzer` on the W800**, and
+**The `peripherals` example has not been tested on real hardware for either chip, nor have `buzzer` on the W800 and
+`music_box` on the W600**, and
 `https_client` has only been tested without certificate verification (the verification logic has only been verified on a PC). Bug reports are
 welcome.
 
