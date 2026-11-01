@@ -105,14 +105,26 @@ impl Pwm {
             if sys::tls_pwm_init(CH, freq_hz, 0, 0) != 0 {
                 return Err(Error::InvalidFrequency);
             }
-            sys::tls_pwm_start(CH);
         }
-        Ok(Self { channel: CH, _pin: pin })
+        let mut pwm = Self { channel: CH, _pin: pin };
+        pwm.set_duty(0);
+        unsafe { sys::tls_pwm_start(CH) };
+        Ok(pwm)
     }
 
     /// 占空比，0 为常低，255 为常高。
     pub fn set_duty(&mut self, duty: u8) {
-        unsafe { sys::tls_pwm_duty_set(self.channel, duty) };
+        // 硬件在比较值为 0 时每个周期仍输出 1 个计数的高电平（会让无源蜂鸣器发出轻微的声音），
+        // 比较值 255 时固定为高。常低由反相输出加比较值 255 实现。
+        unsafe {
+            if duty == 0 {
+                sys::tls_pwm_duty_set(self.channel, u8::MAX);
+                sys::tls_pwm_out_inverse_cmd(self.channel, true as _);
+            } else {
+                sys::tls_pwm_out_inverse_cmd(self.channel, false as _);
+                sys::tls_pwm_duty_set(self.channel, duty);
+            }
+        }
     }
 
     pub fn set_frequency(&mut self, freq_hz: u32) -> Result<(), Error> {
