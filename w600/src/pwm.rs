@@ -53,7 +53,32 @@ const PINS: [&[sys::tls_io_name]; 5] = {
 /// 一路 PWM 输出。丢弃时停止输出。
 pub struct Pwm {
     channel: u8,
-    _pin: Pin,
+    pin: Pin,
+    /// 占空比为 0：引脚已切换为普通 GPIO 并输出低电平。
+    muted: bool,
+}
+
+/// 把引脚切换为通道 `channel` 的 PWM 输出。
+fn route_to_pwm(channel: u8, pin: &Pin) {
+    unsafe {
+        // W600 SDK 的引脚配置函数从 1 开始编号，W800 从 0 开始。
+        #[cfg(target_arch = "arm")]
+        match channel {
+            0 => sys::wm_pwm1_config(pin.io()),
+            1 => sys::wm_pwm2_config(pin.io()),
+            2 => sys::wm_pwm3_config(pin.io()),
+            3 => sys::wm_pwm4_config(pin.io()),
+            _ => sys::wm_pwm5_config(pin.io()),
+        }
+        #[cfg(target_arch = "csky")]
+        match channel {
+            0 => sys::wm_pwm0_config(pin.io()),
+            1 => sys::wm_pwm1_config(pin.io()),
+            2 => sys::wm_pwm2_config(pin.io()),
+            3 => sys::wm_pwm3_config(pin.io()),
+            _ => sys::wm_pwm4_config(pin.io()),
+        }
+    }
 }
 
 fn check_frequency(hz: u32) -> Result<(), Error> {
@@ -84,47 +109,41 @@ impl Pwm {
             return Err(Error::InvalidPin);
         }
         check_frequency(freq_hz)?;
+        let mut pwm = Self { channel: CH, pin, muted: false };
+        pwm.mute();
         unsafe {
-            // W600 SDK 的引脚配置函数从 1 开始编号，W800 从 0 开始。
-            #[cfg(target_arch = "arm")]
-            match CH {
-                0 => sys::wm_pwm1_config(pin.io()),
-                1 => sys::wm_pwm2_config(pin.io()),
-                2 => sys::wm_pwm3_config(pin.io()),
-                3 => sys::wm_pwm4_config(pin.io()),
-                _ => sys::wm_pwm5_config(pin.io()),
-            }
-            #[cfg(target_arch = "csky")]
-            match CH {
-                0 => sys::wm_pwm0_config(pin.io()),
-                1 => sys::wm_pwm1_config(pin.io()),
-                2 => sys::wm_pwm2_config(pin.io()),
-                3 => sys::wm_pwm3_config(pin.io()),
-                _ => sys::wm_pwm4_config(pin.io()),
-            }
             if sys::tls_pwm_init(CH, freq_hz, 0, 0) != 0 {
                 return Err(Error::InvalidFrequency);
             }
+            sys::tls_pwm_start(CH);
         }
-        let mut pwm = Self { channel: CH, _pin: pin };
-        pwm.set_duty(0);
-        unsafe { sys::tls_pwm_start(CH) };
         Ok(pwm)
     }
 
     /// 占空比，0 为常低，255 为常高。
     pub fn set_duty(&mut self, duty: u8) {
-        // 硬件在比较值为 0 时每个周期仍输出 1 个计数的高电平（会让无源蜂鸣器发出轻微的声音），
-        // 比较值 255 时固定为高。常低由反相输出加比较值 255 实现。
-        unsafe {
-            if duty == 0 {
-                sys::tls_pwm_duty_set(self.channel, u8::MAX);
-                sys::tls_pwm_out_inverse_cmd(self.channel, true as _);
-            } else {
-                sys::tls_pwm_out_inverse_cmd(self.channel, false as _);
-                sys::tls_pwm_duty_set(self.channel, duty);
-            }
+        if duty == 0 {
+            self.mute();
+            return;
         }
+        unsafe { sys::tls_pwm_duty_set(self.channel, duty) };
+        if self.muted {
+            route_to_pwm(self.channel, &self.pin);
+            self.muted = false;
+        }
+    }
+
+    /// 硬件在比较值为 0 时每个周期仍输出 1 个计数的高电平（会让无源蜂鸣器发出轻微的声音），
+    /// 所以占空比为 0 时把引脚切换为普通 GPIO 输出低电平，计数器继续运行。
+    fn mute(&mut self) {
+        if self.muted {
+            return;
+        }
+        unsafe {
+            sys::tls_gpio_cfg(self.pin.io(), sys::tls_gpio_dir::WM_GPIO_DIR_OUTPUT, sys::tls_gpio_attr::WM_GPIO_ATTR_FLOATING);
+            sys::tls_gpio_write(self.pin.io(), 0);
+        }
+        self.muted = true;
     }
 
     pub fn set_frequency(&mut self, freq_hz: u32) -> Result<(), Error> {
