@@ -20,7 +20,8 @@ use w600::{println, sync, sys, thread};
 const NEUTRAL_US: u32 = 1500;
 /// 速度为 100% 时脉宽偏离 NEUTRAL_US 的量（µs）。
 const FULL_SPEED_US: u32 = 500;
-/// 为 true 时一直输出 NEUTRAL_US 的停转脉冲，用于拆开舵机后转动电位器找中点。
+/// 为 true 时不做速度测试，而是在 NEUTRAL_US ± 100µs 范围内以 2µs 为一步慢慢扫描，每步 1 秒，
+/// 用来找舵机完全停住的脉宽：记下停住的那一段，取中间值填到 NEUTRAL_US。
 const CALIBRATE: bool = false;
 
 /// 舵机线程每 20ms 读取一次，输出这么宽的脉冲。
@@ -36,8 +37,12 @@ fn main() {
 
     if CALIBRATE {
         loop {
-            println!("calibrating: holding {NEUTRAL_US} us, turn the potentiometer until the motor stops");
-            thread::sleep(Duration::from_secs(5));
+            println!("\n--- calibrating: note the pulse range where the servo stays still ---");
+            for pulse in (NEUTRAL_US - 100..=NEUTRAL_US + 100).step_by(2) {
+                PULSE_US.store(pulse, Ordering::Relaxed);
+                println!("pulse {pulse} us");
+                thread::sleep(Duration::from_secs(1));
+            }
         }
     }
 
