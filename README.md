@@ -111,7 +111,8 @@ and `buzzer` (plays a loop of children's songs on a passive buzzer, including Ha
 London Bridge Is Falling Down; same pins as `servo`). The W600 also has `music_box`, a music box for the TW-01
 module: the button held at power-on decides which way a continuous-rotation servo turns while the songs play, and
 after a power cycle it continues with the next song. See `examples/src/bin/music_box/README.md` (in Chinese) for
-wiring and how to modify the servo.
+wiring and how to modify the servo; `servo360` tests a continuous-rotation servo (stop, several speeds in both
+directions and a full-range sweep, with serial logs).
 Each PWM channel can only use a fixed set of pins (see the documentation of `Pwm::new`); `Pwm::new` returns
 `InvalidPin` for any other pin.
 

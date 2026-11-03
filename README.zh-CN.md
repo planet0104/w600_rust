@@ -104,7 +104,8 @@ fn main() {
 `servo`（输出舵机信号，W600 用 PB15、W800 用 PB3，转到几个固定角度后来回扫动）、
 `buzzer`（无源蜂鸣器循环播放《新年好》《两只老虎》《生日快乐》《小小世界》《伦敦桥》，引脚与 `servo` 相同）。
 W600 另有 `music_box`：为 TW-01 模组设计的音乐盒，按住哪个按钮开机，连续旋转舵机就往哪边转，同时播放儿歌，
-断电后从下一首继续，接线和舵机改装方法见 `examples/src/bin/music_box/README.md`。
+断电后从下一首继续，接线和舵机改装方法见 `examples/src/bin/music_box/README.md`；`servo360` 用来测试改装后的
+连续旋转舵机（停转、两个方向的不同速度和全范围扫描，带串口日志）。
 每个 PWM 通道只能使用固定的几个引脚（见 `Pwm::new` 的文档），选错时 `Pwm::new` 返回 `InvalidPin`。
 
 ## HTTPS / TLS
