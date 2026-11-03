@@ -20,6 +20,8 @@ use w600::{println, sync, sys, thread};
 const NEUTRAL_US: u32 = 1500;
 /// 速度为 100% 时脉宽偏离 NEUTRAL_US 的量（µs）。
 const FULL_SPEED_US: u32 = 500;
+/// 为 true 时一直输出 NEUTRAL_US 的停转脉冲，用于拆开舵机后转动电位器找中点。
+const CALIBRATE: bool = false;
 
 /// 舵机线程每 20ms 读取一次，输出这么宽的脉冲。
 static PULSE_US: AtomicU32 = AtomicU32::new(NEUTRAL_US);
@@ -31,6 +33,13 @@ fn main() {
     start_servo(p.pins.pa1);
     println!("servo360 test: neutral {NEUTRAL_US} us, full speed offset {FULL_SPEED_US} us");
     println!("positive speed = pulse above neutral (usually counterclockwise)");
+
+    if CALIBRATE {
+        loop {
+            println!("calibrating: holding {NEUTRAL_US} us, turn the potentiometer until the motor stops");
+            thread::sleep(Duration::from_secs(5));
+        }
+    }
 
     loop {
         step("stop: the servo should not move", 0, 3);
