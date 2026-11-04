@@ -103,9 +103,7 @@ fn main() {
 `tcp_client`、`https_client`（TLS 1.3 访问 HTTPS 网站）、`peripherals`（PWM 呼吸灯、按键中断、UART 回显、ADC 温度、Flash 读写）、
 `servo`（输出舵机信号，W600 用 PB15、W800 用 PB3，转到几个固定角度后来回扫动）、
 `buzzer`（无源蜂鸣器循环播放《新年好》《两只老虎》《生日快乐》《小小世界》《伦敦桥》，引脚与 `servo` 相同）。
-W600 另有 `music_box`：为 TW-01 模组设计的音乐盒，按住哪个按钮开机，连续旋转舵机就往哪边转，同时播放儿歌，
-断电后从下一首继续，接线和舵机改装方法见 `examples/src/bin/music_box/README.md`；`servo360` 用来测试改装后的
-连续旋转舵机（停转、两个方向的不同速度和全范围扫描，带串口日志）。
+W600 另有 `servo360`：测试 360° 连续旋转舵机（停转、两个方向的不同速度和全范围扫描，带串口日志）。
 每个 PWM 通道只能使用固定的几个引脚（见 `Pwm::new` 的文档），选错时 `Pwm::new` 返回 `InvalidPin`。
 
 ## HTTPS / TLS
@@ -286,7 +284,7 @@ W800 SDK 自带按官方默认配置（NimBLE 蓝牙、AT 指令）编译好的�
   镜像头与官方固件格式一致，`.fls` 中的 secboot 与官方固件相同。LLVM 与 GCC 之间的调用约定（整数 / 浮点 / 64 位参数、
   结构体传值与返回）和所用结构体的布局已逐项对照 GCC 的输出核对。
 
-**两款芯片的 `peripherals`、W800 的 `buzzer` 和 W600 的 `music_box` 还没有在真实硬件上测试过**；`https_client` 只测试了不校验证书的情况
+**两款芯片的 `peripherals`、W800 的 `buzzer` 和 W600 的 `servo360` 还没有在真实硬件上完整测试过**；`https_client` 只测试了不校验证书的情况
 （校验证书的逻辑只在 PC 上验证过）。欢迎反馈问题。
 
 ## 许可
